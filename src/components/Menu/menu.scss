@@ -1,0 +1,260 @@
+@use "@/styles/vars";
+@use "@/styles/color-themes";
+@use "@/styles/utils";
+@use "@/styles/responsive-breakpoints" as media;
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-105%);
+  transition: transform 0.2s ease-in-out;
+  @include color-themes.themed() {
+    background-color: color-themes.ask("secondary-color");
+  }
+
+  &.open {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+
+    @include color-themes.themed() {
+      background-color: color-themes.ask("secondary-color");
+    }
+  }
+
+  &__logo {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 3em;
+    height: 3em;
+
+    @include color-themes.themed() {
+      background-image: color-themes.ask("logo-flower");
+    }
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+
+    &__link {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-origin: content-box;
+      width: 2.5em;
+      height: 2.5em;
+
+      @include color-themes.themed() {
+        &[data-section="home"] {
+          background-image: color-themes.ask("home-icon");
+        }
+        &[data-section="skills"] {
+          background-image: color-themes.ask("skill-icon");
+        }
+        &[data-section="project"] {
+          background-image: color-themes.ask("project-icon");
+        }
+        &[data-section="contact"] {
+          background-image: color-themes.ask("contact-icon");
+        }
+      }
+      &--active {
+        width: 3em;
+        height: 3em;
+        padding: 0.25em;
+        border-radius: 0.3em;
+
+        @include color-themes.themed() {
+          background-color: color-themes.ask("accent-color");
+          &[data-section="home"] {
+            background-image: color-themes.ask("home-icon-reverse");
+          }
+          &[data-section="skills"] {
+            background-image: color-themes.ask("skill-icon-reverse");
+          }
+          &[data-section="project"] {
+            background-image: color-themes.ask("project-icon-reverse");
+          }
+          &[data-section="contact"] {
+            background-image: color-themes.ask("contact-icon-reverse");
+          }
+        }
+      }
+    }
+    &__language_toggles {
+    }
+  }
+}
+
+.menu_toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  z-index: 10;
+}
+
+@include media.responsive("tablet") {
+  .menu {
+    width: 70px;
+    left: 0;
+    justify-content: space-between;
+    transform: translateY(0);
+    animation: appear 0.2s ease-in-out forwards;
+    @include color-themes.themed() {
+      box-shadow: 1px 0px 10px color-themes.ask("secondary-color");
+    }
+    &_toggle {
+      display: none;
+    }
+    &__toggles {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 5.5em;
+    }
+    &__language_toggle {
+      width: 3em;
+      height: 3em;
+      padding: 0.25em;
+      border-radius: 0.3em;
+      @include color-themes.themed() {
+        background-color: color-themes.ask("accent-color");
+        color: color-themes.ask("primary-color");
+      }
+    }
+
+    &:hover {
+      width: 300px;
+    }
+  }
+}
+@keyframes appear {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// Burger Icon by https://march08.github.io/animated-burgers/
+.burger {
+  align-self: end;
+  height: 3em;
+  width: 3em;
+  position: relative;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s all;
+
+  .burger-lines:after {
+    left: 0;
+    top: -1em;
+  }
+
+  .burger-lines:before {
+    left: 1em;
+    top: 1em;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+  }
+
+  .burger-lines {
+    top: 50%;
+    margin-top: -0.125em;
+
+    &,
+    &:after,
+    &:before {
+      pointer-events: none;
+      display: block;
+      content: "";
+      width: 100%;
+      border-radius: 0.25em;
+      height: 0.25em;
+      position: absolute;
+      transform: rotate(0);
+
+      @include color-themes.themed() {
+        background-color: color-themes.ask("accent-color");
+      }
+    }
+
+    &:after {
+      left: 0;
+      top: -1em;
+    }
+
+    &:before {
+      left: 1em;
+      top: 1em;
+    }
+  }
+}
+
+.burger.burger-squeeze {
+  .burger-lines {
+    &,
+    &:after,
+    &:before {
+      transition: 0.2s top 0.2s, 0.1s left, 0.2s transform,
+        0.4s background-color 0.2s;
+    }
+
+    &:after,
+    &:before {
+      width: 2em;
+    }
+  }
+
+  &.open {
+    .burger-lines {
+      &,
+      &:after,
+      &:before {
+        transition: 0.2s background-color, 0.2s top, 0.2s left,
+          0.2s transform 0.15s;
+      }
+
+      & {
+        background-color: transparent;
+      }
+
+      &:before,
+      &:after {
+        left: 0.5em;
+        top: 0px;
+      }
+
+      &:before {
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

@@ -1,22 +1,23 @@
-$grey-blue: hsl(230, 22%, 26%);
-$alter-grey-blue: hsl(230, 22%, 18%);
-$grey-blue-transparent: hsl(230, 21%, 18%, 70%);
+$deep-green: hsl(163, 13%, 27%);
+$alter-deep-green: hsl(163, 13%, 25%);
+$trans-deep-green: hsla(163, 13%, 27%, 0.5);
 
-$red: hsl(346, 69%, 51%);
-$alter-red: hsl(346, 69%, 41%);
-$alter-red-transparent: hsl(346, 69%, 41%, 50%);
+$dark-green: hsl(165, 19%, 40%);
+$alter-dark-green: hsl(165, 19%, 35%);
+$trans-dark-green: hsla(166, 19%, 40%, 0.5);
 
-$gold: hsl(36, 100%, 67%);
+$pale-green: hsl(97, 13%, 80%);
+$alter-pale-green: hsl(97, 13%, 60%);
+$trans-pale-green: hsla(97, 13%, 80%, 0.5);
 
-$beige: hsl(29, 100%, 88%);
-$alter-beige: hsl(29, 100%, 83%);
-$beige-transparent: hsl(29, 87%, 82%, 70%);
+$beige: hsl(23, 92%, 95%);
+$alter-beige: hsl(30, 100%, 93%);
+$trans-beige: hsla(23, 92%, 95%, 0.5);
 
 $off-white: hsl(0, 0%, 96%);
 $white: hsl(0, 0%, 100%);
 $black: hsl(0, 2%, 9%);
 
-$accent-color: $red;
-
 $fastTransition: 0.2s;
 $slowTransition: 1s;
+$test: hsl(165, 19%, 40%);

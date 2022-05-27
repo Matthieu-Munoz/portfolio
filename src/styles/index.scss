@@ -1,4 +1,7 @@
 @use "@/styles/vars";
+@use "@/styles/color-themes";
+@use "@/styles/utils";
+@use "@/styles/responsive-breakpoints" as media;
 
 *,
 *::before,
@@ -29,4 +32,7 @@ body {
 .theme {
   height: 100vh;
   width: 100%;
+  @include color-themes.themed() {
+    background-color: color-themes.ask("primary-color");
+  }
 }
