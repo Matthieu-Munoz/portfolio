@@ -1,4 +1,4 @@
-@use '@/styles/vars';
+@use "@/styles/vars";
 
 *,
 *::before,
@@ -12,16 +12,21 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Montserrat", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
+#root,
+.theme {
   height: 100vh;
   width: 100%;
 }
