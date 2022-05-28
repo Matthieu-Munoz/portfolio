@@ -7,7 +7,7 @@ import classNames from 'classnames';
 // React-Redux
 // import Header from '../Header';
 // import Loader from '../Loader';
-import { toggleMenu, toggleMenuDisplay, toggleScroll } from '@/actions/app';
+import { toggleAnimation, toggleMenu, toggleMenuDisplay, toggleScroll } from '@/actions/app';
 // Styles
 import './app.scss';
 import AnimatedLogo from '../AnimatedLogo';
@@ -16,33 +16,43 @@ import Header from '../Header';
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
-
-
-
-  const { darkTheme, disableScroll, menuDisplay } = useSelector((state) => state.app);
+  const { loadAnimation, darkTheme, disableScroll, menuDisplay } = useSelector((state) => state.app);
   const themeClass = classNames('theme', { 'theme--dark': darkTheme }, { 'theme--light': !darkTheme });
   const appClass = classNames('app', { 'disable-scroll': disableScroll });
   const menuOpen = useSelector((state) => state.app.menuOpened)
   const scroller = Scroll.scroller;
-  const scroll = Scroll.animateScroll;
   const ScrollElement = Scroll.Element;
+  let check = false;
 
   useEffect(
     () => {
+      document.addEventListener("visibilitychange", (evt) => {
+        if (evt.target.visibilityState === "visible") {
+          handlePageIntro();
+        }
+      });
+      if (!document.hidden) {
+        handlePageIntro();
+      }
       // dispatch(loadTheme());
+    },
+    [],
+  );
+
+  const handlePageIntro = () => {
+    if (!check) {
+      check = true;
+      dispatch(toggleAnimation(true));
       setTimeout(() => {
         dispatch(toggleScroll(false));
         scroller.scrollTo('start', {
           duration: 1000,
           smooth: true,
           offset: 10,
-          ignoreCancelEvents: true,
         })
-      }, 4000);
-    },
-    [dispatch],
-  );
-
+      }, 3000);
+    }
+  }
   /**
    * Close the menu when anything BUT the menu/burgerIcon is clicked
    * @param {*} evt 
@@ -70,7 +80,7 @@ function App() {
             <span className="intro__corners__corner intro__corners__corner__BR"></span>
             <span className="intro__corners__corner intro__corners__corner__BL"></span>
           </div>
-          <AnimatedLogo />
+          {loadAnimation && <AnimatedLogo />}
         </div>
         <Waypoint
           onEnter={() => handleMenuDisplay(false)}

@@ -30,7 +30,7 @@ function Menu() {
                 </div>
             </div>
             <div className={menuCssClass}>
-                <div className="menu__logo" />
+                <a href="/" target="_blank" rel="noopener noreferrer"><div className="menu__logo" /></a>
                 <div className="menu__links">
                     <div className={homeCssClass} data-section="home" onClick={() => handleSectionSwitch('home')} >
 
