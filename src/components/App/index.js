@@ -4,14 +4,17 @@ import { useEffect } from 'react';
 import { Waypoint } from 'react-waypoint';
 import * as Scroll from 'react-scroll';
 import classNames from 'classnames';
-// React-Redux
-// import Header from '../Header';
-// import Loader from '../Loader';
-import { toggleAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, toggleScroll } from '@/actions/app';
-// Styles
-import './app.scss';
+// Local | React-Redux
+import { toggleAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, toggleScroll, toggleSection } from '@/actions/app';
 import AnimatedLogo from '../AnimatedLogo';
 import Header from '../Header';
+// Styles
+import './app.scss';
+import Home from '../Home';
+import Skills from '../Skills';
+import Projects from '../Projects';
+import Contact from '../Contact';
+import Socials from '../Socials';
 
 function App() {
   // To dispatch action to the store
@@ -51,14 +54,14 @@ function App() {
       dispatch(toggleAnimation(true));
       setTimeout(() => {
         dispatch(toggleScroll(false));
-        scroller.scrollTo('start', {
+        scroller.scrollTo('home', {
           duration: 1000,
           smooth: true,
-          offset: 10,
           ignoreCancelEvents: true,
         })
         setTimeout(() => {
           dispatch(toggleIntroSection(false))
+          dispatch(toggleMenuDisplay(true))
         }, 1100);
       }, 3000);
     }
@@ -74,8 +77,8 @@ function App() {
       dispatch(toggleMenu(false))
     }
   }
-  const handleMenuDisplay = (value) => {
-    dispatch(toggleMenuDisplay(value))
+  const handleSwitchSection = (section) => {
+    dispatch(toggleSection(section, true));
   }
 
   useEffect(
@@ -97,7 +100,7 @@ function App() {
   return (
     <div className={themeClass}>
       <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)} >
-        {menuDisplay && <Header />}
+        {menuDisplay && <> <Header /><Socials /></>}
         {introSection && <div className="section section--intro">
           <div className="intro__corners">
             <span className="intro__corners__corner intro__corners__corner__TL"></span>
@@ -107,17 +110,34 @@ function App() {
           </div>
           {loadAnimation && <AnimatedLogo />}
         </div>}
-        <Waypoint
-          onLeave={() => handleMenuDisplay(true)}
-        />
-        <ScrollElement name="start">
-          <div className="section section--start">
-
-          </div>
+        <ScrollElement name="home">
+          <Waypoint onEnter={() => handleSwitchSection('home')}>
+            <div className="section section--home">
+              <Home />
+            </div>
+          </Waypoint>
         </ScrollElement>
-        <div className="section section--skills">
-
-        </div>
+        <ScrollElement name="skills">
+          <Waypoint onEnter={() => handleSwitchSection('skills')}>
+            <div className="section section--skills">
+              <Skills />
+            </div>
+          </Waypoint>
+        </ScrollElement>
+        <ScrollElement name="projects">
+          <Waypoint onEnter={() => handleSwitchSection('projects')}>
+            <div className="section section--projects">
+              <Projects />
+            </div>
+          </Waypoint>
+        </ScrollElement>
+        <ScrollElement name="contact">
+          <Waypoint onEnter={() => handleSwitchSection('contact')}>
+            <div className="section section--contact">
+              <Contact />
+            </div>
+          </Waypoint>
+        </ScrollElement>
       </div>
     </div>
   );

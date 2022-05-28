@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { AiOutlineGlobal } from "react-icons/ai";
+import * as Scroll from 'react-scroll';
 // React-Redux
 import { toggleMenu, toggleSection } from '@/actions/app';
 import ThemeToggle from '../ThemeToggle';
@@ -11,17 +12,23 @@ import "./menu.scss"
 function Menu() {
     const dispatch = useDispatch();
     const menuStatus = useSelector((state) => state.app.menuOpened);
-    const { home, skills, project, contact } = useSelector((state) => state.app.currentSection);
+    const { home, skills, projects, contact } = useSelector((state) => state.app.currentSection);
     const menuCssClass = classNames('menu', { 'open': menuStatus });
     const homeCssClass = classNames('menu__links__link', { 'menu__links__link--active': home });
     const skillsCssClass = classNames('menu__links__link', { 'menu__links__link--active': skills });
-    const projectCssClass = classNames('menu__links__link', { 'menu__links__link--active': project });
+    const projectCssClass = classNames('menu__links__link', { 'menu__links__link--active': projects });
     const contactCssClass = classNames('menu__links__link', { 'menu__links__link--active': contact });
     const burgerCssClass = classNames('burger burger-squeeze', { 'open': menuStatus });
+    const scroller = Scroll.scroller;
 
     const handleSectionSwitch = (section) => {
         dispatch(toggleSection(section, true));
         dispatch(toggleMenu(false))
+        scroller.scrollTo(section, {
+            duration: 1000,
+            smooth: true,
+            ignoreCancelEvents: true,
+        })
     }
     return (
         <>
@@ -39,7 +46,7 @@ function Menu() {
                     <div className={skillsCssClass} data-section="skills" onClick={() => handleSectionSwitch('skills')}>
                         Compétences
                     </div>
-                    <div className={projectCssClass} data-section="project" onClick={() => handleSectionSwitch('project')}>
+                    <div className={projectCssClass} data-section="projects" onClick={() => handleSectionSwitch('projects')}>
                         Projets
                     </div>
                     <div className={contactCssClass} data-section="contact" onClick={() => handleSectionSwitch('contact')}>

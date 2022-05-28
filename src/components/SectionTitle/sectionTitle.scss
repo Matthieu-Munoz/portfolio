@@ -1,0 +1,26 @@
+@use "@/styles/vars";
+@use "@/styles/color-themes";
+@use "@/styles/utils";
+@use "@/styles/responsive-breakpoints" as media;
+
+.section_title {
+  position: relative;
+  width: fit-content;
+  font-size: 3em;
+  font-weight: 400;
+  text-align: right;
+  margin-left: 0.5em;
+  z-index: 1;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 95%;
+    height: 0.4em;
+    bottom: 0.05em;
+    left: -0.5em;
+    z-index: -1;
+    @include color-themes.themed() {
+      background-color: color-themes.ask("secondary-color");
+    }
+  }
+}

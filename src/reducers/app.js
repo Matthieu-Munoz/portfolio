@@ -12,7 +12,7 @@ export const initialState = {
     currentSection: {
         home: true,
         skills: false,
-        project: false,
+        projects: false,
         contact: false,
     },
     loading: true,

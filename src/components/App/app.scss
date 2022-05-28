@@ -7,6 +7,9 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  @include color-themes.themed() {
+    color: color-themes.ask("primary-text-color");
+  }
 
   .section {
     width: 100%;
@@ -64,7 +67,7 @@
         }
       }
     }
-    &--start {
+    &--home {
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-color");
       }
@@ -74,9 +77,27 @@
         background-color: color-themes.ask("primary-alter-color");
       }
     }
+    &--projects {
+      @include color-themes.themed() {
+        background-color: color-themes.ask("primary-color");
+      }
+    }
+    &--contact {
+      @include color-themes.themed() {
+        background-color: color-themes.ask("primary-alter-color");
+      }
+    }
   }
 }
 
 .disable-scroll {
   overflow-y: hidden;
+}
+
+@include media.responsive("desktop") {
+  .app {
+    .section--home {
+      height: 100.1vh;
+    }
+  }
 }
