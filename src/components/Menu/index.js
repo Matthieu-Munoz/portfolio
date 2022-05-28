@@ -21,6 +21,7 @@ function Menu() {
 
     const handleSectionSwitch = (section) => {
         dispatch(toggleSection(section, true));
+        dispatch(toggleMenu(false))
     }
     return (
         <>
@@ -33,21 +34,28 @@ function Menu() {
                 <a href="/" target="_blank" rel="noopener noreferrer"><div className="menu__logo" /></a>
                 <div className="menu__links">
                     <div className={homeCssClass} data-section="home" onClick={() => handleSectionSwitch('home')} >
-
+                        Accueil
                     </div>
                     <div className={skillsCssClass} data-section="skills" onClick={() => handleSectionSwitch('skills')}>
-
+                        Compétences
                     </div>
                     <div className={projectCssClass} data-section="project" onClick={() => handleSectionSwitch('project')}>
-
+                        Projets
                     </div>
                     <div className={contactCssClass} data-section="contact" onClick={() => handleSectionSwitch('contact')}>
-
+                        Contact
                     </div>
                 </div>
                 <div className="menu__toggles">
-                    <ThemeToggle className="menu__theme_toggle" />
-                    <AiOutlineGlobal className="menu__language_toggle" />
+                    <div className="menu__toggles__ctn">
+                        <ThemeToggle className="menu__theme_toggle" />
+                        <div className="menu__toggles__ctn__info">Theme</div>
+                    </div>
+                    <div className="menu__toggles__ctn">
+                        <AiOutlineGlobal className="menu__language_toggle" />
+                        <div className="menu__toggles__ctn__info">Langue</div>
+
+                    </div>
                 </div>
 
             </div>

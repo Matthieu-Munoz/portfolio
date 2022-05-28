@@ -7,7 +7,7 @@ import classNames from 'classnames';
 // React-Redux
 // import Header from '../Header';
 // import Loader from '../Loader';
-import { toggleAnimation, toggleMenu, toggleMenuDisplay, toggleScroll } from '@/actions/app';
+import { toggleAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, toggleScroll } from '@/actions/app';
 // Styles
 import './app.scss';
 import AnimatedLogo from '../AnimatedLogo';
@@ -16,32 +16,38 @@ import Header from '../Header';
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
-  const { loadAnimation, darkTheme, disableScroll, menuDisplay } = useSelector((state) => state.app);
+  const { loadAnimation, introSection, darkTheme, disableScroll, menuDisplay, menuOpened } = useSelector((state) => state.app);
   const themeClass = classNames('theme', { 'theme--dark': darkTheme }, { 'theme--light': !darkTheme });
   const appClass = classNames('app', { 'disable-scroll': disableScroll });
   const menuOpen = useSelector((state) => state.app.menuOpened)
   const scroller = Scroll.scroller;
   const ScrollElement = Scroll.Element;
-  let check = false;
+  let checkIntro = false;
 
-  useEffect(
-    () => {
-      document.addEventListener("visibilitychange", (evt) => {
-        if (evt.target.visibilityState === "visible") {
-          handlePageIntro();
-        }
-      });
-      if (!document.hidden) {
-        handlePageIntro();
-      }
-      // dispatch(loadTheme());
-    },
-    [],
-  );
+  function debounce(fn, ms) {
+    let timer
+    return _ => {
+      clearTimeout(timer)
+      timer = setTimeout(_ => {
+        timer = null
+        fn.apply(this, arguments)
+      }, ms)
+    };
+  }
+
+  const debouncedHandleResize = debounce(() => {
+    dispatch(toggleMenu(false))
+  }, 500)
+
+  const handlePageIntroListener = (evt) => {
+    if (evt.target.visibilityState === "visible") {
+      handlePageIntro();
+    }
+  }
 
   const handlePageIntro = () => {
-    if (!check) {
-      check = true;
+    if (!checkIntro) {
+      checkIntro = true;
       dispatch(toggleAnimation(true));
       setTimeout(() => {
         dispatch(toggleScroll(false));
@@ -49,7 +55,11 @@ function App() {
           duration: 1000,
           smooth: true,
           offset: 10,
+          ignoreCancelEvents: true,
         })
+        setTimeout(() => {
+          dispatch(toggleIntroSection(false))
+        }, 1100);
       }, 3000);
     }
   }
@@ -68,12 +78,27 @@ function App() {
     dispatch(toggleMenuDisplay(value))
   }
 
+  useEffect(
+    () => {
+      window.addEventListener('resize', debouncedHandleResize)
+      document.addEventListener("visibilitychange", handlePageIntroListener);
+      if (!document.hidden) {
+        handlePageIntro();
+      }
+      // dispatch(loadTheme());
+      return _ => {
+        window.removeEventListener('resize', debouncedHandleResize)
+        document.removeEventListener("visibilitychange", handlePageIntroListener);
+      }
+    },
+    [],
+  );
 
   return (
     <div className={themeClass}>
       <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)} >
         {menuDisplay && <Header />}
-        <div className="section section--intro">
+        {introSection && <div className="section section--intro">
           <div className="intro__corners">
             <span className="intro__corners__corner intro__corners__corner__TL"></span>
             <span className="intro__corners__corner intro__corners__corner__TR"></span>
@@ -81,9 +106,8 @@ function App() {
             <span className="intro__corners__corner intro__corners__corner__BL"></span>
           </div>
           {loadAnimation && <AnimatedLogo />}
-        </div>
+        </div>}
         <Waypoint
-          onEnter={() => handleMenuDisplay(false)}
           onLeave={() => handleMenuDisplay(true)}
         />
         <ScrollElement name="start">

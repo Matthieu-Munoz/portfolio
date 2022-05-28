@@ -16,18 +16,9 @@
   width: 100%;
   height: 100%;
   transform: translateY(-105%);
-  transition: transform 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   @include color-themes.themed() {
     background-color: color-themes.ask("secondary-color");
-  }
-
-  &.open {
-    transform: translateY(0);
-    transition: transform 0.2s ease-in-out;
-
-    @include color-themes.themed() {
-      background-color: color-themes.ask("secondary-color");
-    }
   }
 
   &__logo {
@@ -55,6 +46,12 @@
       background-origin: content-box;
       width: 2.5em;
       height: 2.5em;
+      text-indent: -100em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
 
       @include color-themes.themed() {
         &[data-section="home"] {
@@ -73,7 +70,7 @@
       &--active {
         width: 3em;
         height: 3em;
-        padding: 0.25em;
+        padding: 0.3em;
         border-radius: 0.3em;
 
         @include color-themes.themed() {
@@ -93,7 +90,82 @@
         }
       }
     }
-    &__language_toggles {
+  }
+  &__language_toggle {
+    text-indent: 0;
+    width: 3.2em;
+    height: 3em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    @include color-themes.themed() {
+      background-color: color-themes.ask("accent-color");
+      color: color-themes.ask("primary-color");
+    }
+  }
+  &.open {
+    justify-content: space-around;
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+
+    @include color-themes.themed() {
+      background-color: color-themes.ask("secondary-color");
+    }
+    .menu__links {
+      width: 200px;
+
+      &__link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-position: left;
+        text-indent: 1.5em;
+        justify-content: center;
+        @include color-themes.themed() {
+          color: color-themes.ask("accent-color");
+        }
+        &--active {
+          @include color-themes.themed() {
+            &[data-section="home"] {
+              color: color-themes.ask("secondary-color");
+            }
+            &[data-section="skills"] {
+              color: color-themes.ask("secondary-color");
+            }
+            &[data-section="project"] {
+              color: color-themes.ask("secondary-color");
+            }
+            &[data-section="contact"] {
+              color: color-themes.ask("secondary-color");
+            }
+          }
+        }
+      }
+    }
+    .menu__toggles {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      height: 5em;
+
+      &__ctn {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        text-transform: uppercase;
+        @include color-themes.themed() {
+          color: color-themes.ask("accent-color");
+        }
+        &__info {
+          position: static;
+          visibility: visible;
+          transition: 0.2s ease-in-out;
+          margin: 0;
+        }
+      }
     }
   }
 }
@@ -113,6 +185,7 @@
     justify-content: space-between;
     transform: translateY(0);
     animation: appear 0.2s ease-in-out forwards;
+    transition: 0.2s ease-in-out;
     @include color-themes.themed() {
       box-shadow: 1px 0px 10px color-themes.ask("secondary-color");
     }
@@ -124,21 +197,74 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 5.5em;
-    }
-    &__language_toggle {
-      width: 3em;
-      height: 3em;
-      padding: 0.25em;
-      border-radius: 0.3em;
-      @include color-themes.themed() {
-        background-color: color-themes.ask("accent-color");
-        color: color-themes.ask("primary-color");
+      height: 6em;
+      transition: 0.2s ease-in-out;
+      &__ctn {
+        &__info {
+          position: absolute;
+          left: -100%;
+          visibility: hidden;
+          overflow: hidden;
+          transition: 0.1s ease-in-out;
+        }
+        transition: 0.2s ease-in-out;
       }
     }
 
     &:hover {
-      width: 300px;
+      width: 220px;
+      transition: 0.2s ease-in-out;
+      .menu__toggles {
+        width: 100%;
+        &__ctn {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          text-transform: uppercase;
+          transition: 0.2s ease-in-out;
+          @include color-themes.themed() {
+            color: color-themes.ask("accent-color");
+          }
+          &__info {
+            position: static;
+            visibility: visible;
+            margin-left: 2em;
+            transition: 0.2s ease-in-out;
+          }
+        }
+      }
+      .menu__links {
+        width: 100%;
+        &__link {
+          background-position: left;
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          text-indent: 2em;
+          transition: 0.2s ease-in-out;
+          @include color-themes.themed() {
+            color: color-themes.ask("accent-color");
+          }
+          &--active {
+            @include color-themes.themed() {
+              &[data-section="home"] {
+                color: color-themes.ask("secondary-color");
+              }
+              &[data-section="skills"] {
+                color: color-themes.ask("secondary-color");
+              }
+              &[data-section="project"] {
+                color: color-themes.ask("secondary-color");
+              }
+              &[data-section="contact"] {
+                color: color-themes.ask("secondary-color");
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

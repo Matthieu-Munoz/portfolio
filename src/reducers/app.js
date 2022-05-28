@@ -1,9 +1,10 @@
 import {
-    TOGGLE_THEME, SAVE_THEME, TOGGLE_MENU, TOGGLE_LOADING, TOGGLE_SCROLL, TOGGLE_MENU_DISPLAY, TOGGLE_SECTION, TOGGLE_ANIMATION
+    TOGGLE_THEME, SAVE_THEME, TOGGLE_MENU, TOGGLE_LOADING, TOGGLE_SCROLL, TOGGLE_MENU_DISPLAY, TOGGLE_SECTION, TOGGLE_ANIMATION, TOGGLE_INTRO_SECTION
 } from '@/actions/app';
 
 export const initialState = {
     loadAnimation: false,
+    introSection: true,
     darkTheme: false,
     disableScroll: true,
     menuOpened: false,
@@ -23,6 +24,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 loadAnimation: action.value,
+            };
+        case TOGGLE_INTRO_SECTION:
+            return {
+                ...state,
+                introSection: action.value,
             };
         case TOGGLE_THEME:
             // Fired when the user wants to switch theme
