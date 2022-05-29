@@ -3,6 +3,12 @@
 @use "@/styles/utils";
 @use "@/styles/responsive-breakpoints" as media;
 
+:root {
+  --cooltipz-bg-color: hsl(165, 19%, 35%);
+  --cooltipz-border-color: hsl(165, 19%, 35%);
+  --cooltipz-text-color: hsl(0, 0%, 96%);
+}
+
 *,
 *::before,
 *::after {

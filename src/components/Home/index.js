@@ -14,7 +14,7 @@ function Home() {
                     <p className="home__intro__text__para">Après plus de quatre ans passés dans un atelier de métallerie ferronnerie d'art comme technicien d'étude, j'ai commencé une reconversion professionnelle vers le développement web.</p>
                     <p className="home__intro__text__para">J'ai découvert ce milieu par des projets personnels qui ont fortement attisé ma curiosité, mais surtout mon envie de faire partie de ce monde.</p>
                     <p className="home__intro__text__para">J'ai donc suivi une formation chez O'Clock, avec un socle PHP et une spécialisation en ReactJS, j'ai appris les ficelles du métier, mais j'ai aussi pris conscience de mes préférences.</p>
-                    <p className="home__intro__text__para"><span className="home__intro__text__para--icon" />Aujourd'hui, je me spécialise donc en développement front-end en gardant des compétences full-stack</p>
+                    <p className="home__intro__text__para"><span className="home__intro__text__para--icon" />Aujourd'hui, je me spécialise donc en développement front-end en gardant des compétences full-stack.</p>
                 </div>
             </div>
             <div className="home__profil">

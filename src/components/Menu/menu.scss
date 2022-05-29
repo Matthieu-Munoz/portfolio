@@ -23,13 +23,21 @@
 
   &__logo {
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     background-size: contain;
-    width: 3em;
+    width: 80%;
     height: 3em;
+    padding-left: 3em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-indent: -100em;
+    text-transform: uppercase;
 
     @include color-themes.themed() {
       background-image: color-themes.ask("logo-flower");
+      color: color-themes.ask("accent-color");
     }
   }
   &__links {
@@ -37,7 +45,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 250px;
+    height: 300px;
 
     &__link {
       background-repeat: no-repeat;
@@ -66,6 +74,9 @@
         &[data-section="contact"] {
           background-image: color-themes.ask("contact-icon");
         }
+        &[data-section="resume"] {
+          background-image: color-themes.ask("resume-icon");
+        }
       }
       &--active {
         width: 3em;
@@ -89,6 +100,9 @@
           }
         }
       }
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
   &__language_toggle {
@@ -110,6 +124,11 @@
     @include color-themes.themed() {
       background-color: color-themes.ask("secondary-color");
     }
+    .menu__logo {
+      text-indent: 0;
+      padding-left: 4em;
+    }
+
     .menu__links {
       width: 200px;
 
@@ -233,6 +252,10 @@
             transition: 0.2s ease-in-out;
           }
         }
+      }
+      .menu__logo {
+        text-indent: 0;
+        padding-left: 4em;
       }
       .menu__links {
         width: 100%;

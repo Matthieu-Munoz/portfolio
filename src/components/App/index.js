@@ -9,6 +9,7 @@ import { toggleAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, tog
 import AnimatedLogo from '../AnimatedLogo';
 import Header from '../Header';
 // Styles
+import 'cooltipz-css';
 import './app.scss';
 import Home from '../Home';
 import Skills from '../Skills';

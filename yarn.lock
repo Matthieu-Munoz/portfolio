@@ -3180,6 +3180,11 @@ cookie@0.5.0:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
 
+cooltipz-css@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/cooltipz-css/-/cooltipz-css-2.1.0.tgz#ceb082e4c600fb3a40af06e9d19df5219975a975"
+  integrity sha512-howXMSGn4tYvroGUad5jg1QFKUMxxc2GiQSXrv6TQBIMmhrf8t//hz1Fx8eyc5t93SS9ZzUa5rHbPtjBTg5j1w==
+
 core-js-compat@^3.21.0, core-js-compat@^3.22.1:
   version "3.22.4"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.22.4.tgz#d700f451e50f1d7672dcad0ac85d910e6691e579"

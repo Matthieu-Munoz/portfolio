@@ -38,7 +38,7 @@ function Menu() {
                 </div>
             </div>
             <div className={menuCssClass}>
-                <a href="/" target="_blank" rel="noopener noreferrer"><div className="menu__logo" /></a>
+                <a href="/" target="_blank" rel="noopener noreferrer"><div className="menu__logo">Matthieu Munoz</div></a>
                 <div className="menu__links">
                     <div className={homeCssClass} data-section="home" onClick={() => handleSectionSwitch('home')} >
                         Accueil
@@ -52,6 +52,11 @@ function Menu() {
                     <div className={contactCssClass} data-section="contact" onClick={() => handleSectionSwitch('contact')}>
                         Contact
                     </div>
+                    <a href="/resume.pdf" target="blank" className="menu__links__link">
+                        <div className="menu__links__link" data-section="resume">
+                            Mon CV
+                        </div>
+                    </a>
                 </div>
                 <div className="menu__toggles">
                     <div className="menu__toggles__ctn">
