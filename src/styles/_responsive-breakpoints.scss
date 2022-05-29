@@ -1,5 +1,8 @@
 // List of breakpoints used throughout the app
 $breakpoints: (
+  "small-mobile": (
+    min-width: 350px,
+  ),
   "mobile": (
     min-width: 480px,
   ),
@@ -17,6 +20,9 @@ $breakpoints: (
   ),
   "desktop": (
     min-width: 1024px,
+  ),
+  "large-desktop": (
+    min-width: 1500px,
   ),
 );
 

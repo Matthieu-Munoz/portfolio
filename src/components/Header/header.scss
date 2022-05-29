@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: flex-end;
   padding-right: 1em;
-  z-index: 2;
+  z-index: 5;
   @include color-themes.themed() {
     background-color: color-themes.ask("secondary-transparent-color");
   }

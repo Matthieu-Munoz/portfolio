@@ -13,7 +13,6 @@
 
   .section {
     width: 100%;
-    height: 110vh;
     &--intro {
       position: relative;
       height: 100vh;
@@ -68,21 +67,30 @@
       }
     }
     &--home {
+      height: fit-content;
+      padding-bottom: 5em;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-color");
       }
     }
     &--skills {
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-alter-color");
       }
     }
     &--projects {
+      height: 100vh;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-color");
       }
     }
     &--contact {
+      height: 100vh;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-alter-color");
       }
@@ -97,6 +105,10 @@
 @include media.responsive("desktop") {
   .app {
     .section--home {
+      height: 100.1vh;
+      padding: 0;
+    }
+    .section--skills {
       height: 100.1vh;
     }
   }
