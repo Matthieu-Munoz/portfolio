@@ -2,6 +2,7 @@
 @use "@/styles/color-themes";
 @use "@/styles/utils";
 @use "@/styles/responsive-breakpoints" as media;
+@import "./_reset.css";
 
 :root {
   --cooltipz-bg-color: hsl(165, 19%, 35%);

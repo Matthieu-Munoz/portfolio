@@ -10,3 +10,8 @@ export const confirmSending = (value) => ({
     type: CONFIRM_SENDING,
     value,
 });
+export const TOGGLE_LOADING = 'TOGGLE_LOADING';
+export const toggleLoading = (value) => ({
+    type: TOGGLE_LOADING,
+    value,
+});

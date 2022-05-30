@@ -52,7 +52,7 @@ function Menu() {
                     <div className={contactCssClass} data-section="contact" onClick={() => handleSectionSwitch('contact')}>
                         Contact
                     </div>
-                    <a href="/resume.pdf" target="blank" className="menu__links__link">
+                    <a href="/resume-mmunoz.pdf" target="blank" className="menu__links__link">
                         <div className="menu__links__link" data-section="resume">
                             Mon CV
                         </div>

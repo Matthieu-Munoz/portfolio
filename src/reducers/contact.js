@@ -1,4 +1,4 @@
-import { CHANGE_FIELD, CONFIRM_SENDING } from "@/actions/contact";
+import { CHANGE_FIELD, CONFIRM_SENDING, TOGGLE_LOADING } from "@/actions/contact";
 
 const initialState = {
     name: "",
@@ -6,6 +6,7 @@ const initialState = {
     subject: "",
     message: "",
     isSent: false,
+    isLoading: false,
 };
 
 function Reducer(state = initialState, action = {}) {
@@ -23,6 +24,11 @@ function Reducer(state = initialState, action = {}) {
                 subject: "",
                 message: "",
                 isSent: action.value,
+            };
+        case TOGGLE_LOADING:
+            return {
+                ...state,
+                isLoading: action.value,
             };
         default:
             return state;

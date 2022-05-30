@@ -2,16 +2,17 @@
 import { useSelector, useDispatch } from 'react-redux';
 // Local | React-Redux
 import Field from '../Field';
-import { changeField, confirmSending } from '@/actions/contact';
+import { changeField, confirmSending, toggleLoading } from '@/actions/contact';
 import SectionTitle from '../SectionTitle';
 import map from '@/assets/images/map.png'
 import sent from '@/assets/images/done-sent.svg'
 // Styles
 import './contact.scss';
+import Loader from '../Loader/inder';
 
 function Contact() {
     const dispatch = useDispatch();
-    const { name, email, subject, message, isSent } = useSelector((state) => state.contact);
+    const { name, email, subject, message, isSent, isLoading } = useSelector((state) => state.contact);
 
     const handleChange = (value, field) => {
         dispatch(changeField(value, field));
@@ -19,6 +20,7 @@ function Contact() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        dispatch(toggleLoading(true));
         sendFeedback("template_5cbehrd", { message: message, from_name: name, reply_to: email, subject: subject, },);
     }
 
@@ -29,6 +31,7 @@ function Contact() {
         ).then(res => {
             console.log('Email successfully sent!', res)
             if (res.status === 200) {
+                dispatch(toggleLoading(false));
                 dispatch(confirmSending(true))
             }
         })
@@ -47,7 +50,7 @@ function Contact() {
                     <div className="contact__infos__num">06.05.21.64.40</div>
                 </div>
                 <form className="contact__form" onSubmit={handleSubmit}>
-                    {isSent ?
+                    {isLoading ? <Loader /> : <>{isSent ?
                         <div className="contact__form__confirm">
                             <img src={sent} className="contact__form__confirm__img" alt="Sending confirmation" />
                             Bien récu, merci !
@@ -80,7 +83,9 @@ function Contact() {
                                 onChange={handleChange}
                                 value={message}
                             />
-                            <button type="submit" className="contact__form__submit">Envoyer</button></>}
+                            <button type="submit" className="contact__form__submit">Envoyer</button>
+                        </>
+                    }</>}
                 </form>
             </div>
         </div>
