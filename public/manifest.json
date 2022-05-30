@@ -1,6 +1,4 @@
 {
-  "short_name": "Matthieu-Munoz",
-  "name": "Matthieu Munoz | Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,10 +16,12 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "Scope": "/",
   "orientation": "portrait",
   "display": "standalone",
   "background_color": "#537970",
-  "theme_color": "#537970"
+  "theme_color": "#537970",
+  "short_name": "Matthieu-Munoz",
+  "name": "Matthieu Munoz | Portfolio"
 }
