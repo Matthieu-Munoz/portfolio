@@ -20,7 +20,7 @@ import Socials from '../Socials';
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
-  const { loadAnimation, introSection, darkTheme, disableScroll, menuDisplay, menuOpened } = useSelector((state) => state.app);
+  const { loadAnimation, introSection, darkTheme, disableScroll, menuDisplay } = useSelector((state) => state.app);
   const themeClass = classNames('theme', { 'theme--dark': darkTheme }, { 'theme--light': !darkTheme });
   const appClass = classNames('app', { 'disable-scroll': disableScroll });
   const menuOpen = useSelector((state) => state.app.menuOpened)

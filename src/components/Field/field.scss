@@ -1,0 +1,135 @@
+@use "@/styles/vars";
+@use "@/styles/color-themes";
+@use "@/styles/utils";
+@use "@/styles/responsive-breakpoints" as media;
+
+/* Inputs */
+.input-container {
+  position: relative;
+  width: 100%;
+  margin: 0.8em;
+
+  &__textarea {
+    width: 100%;
+    height: 100%;
+    margin-top: 0.5em;
+    outline: none;
+    background: none;
+    min-height: 50px;
+    border: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+    @include color-themes.themed() {
+      color: color-themes.ask("accent-color");
+    }
+
+    &:focus {
+      ~ label {
+        transform: translate(-12%, -55%) scale(0.75);
+        @include color-themes.themed() {
+          color: color-themes.ask("accent-color");
+        }
+      }
+
+      ~ .bar {
+        &:before,
+        &:after {
+          width: 50%;
+        }
+      }
+    }
+
+    &:valid {
+      ~ label {
+        transform: translate(-12%, -55%) scale(0.75);
+        @include color-themes.themed() {
+          color: color-themes.ask("accent-alter-color");
+        }
+      }
+    }
+  }
+
+  input {
+    outline: none;
+    position: relative;
+    background: none;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    font-size: 1em;
+    font-weight: 400;
+    @include color-themes.themed() {
+      color: color-themes.ask("accent-color");
+    }
+
+    &:focus {
+      ~ label {
+        transform: translate(-12%, -50%) scale(0.75);
+        @include color-themes.themed() {
+          color: color-themes.ask("accent-color");
+        }
+      }
+
+      ~ .bar {
+        &:before,
+        &:after {
+          width: 50%;
+        }
+      }
+    }
+
+    &:valid {
+      ~ label {
+        transform: translate(-12%, -50%) scale(0.75);
+        @include color-themes.themed() {
+          color: color-themes.ask("accent-alter-color");
+        }
+      }
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 60px;
+    transition: all 0.2s ease;
+    @include color-themes.themed() {
+      color: color-themes.ask("accent-color");
+    }
+  }
+
+  .bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    @include color-themes.themed() {
+      background: color-themes.ask("accent-color");
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      transition: all 0.2s ease;
+      @include color-themes.themed() {
+        background: color-themes.ask("accent-color");
+      }
+    }
+
+    &:before {
+      left: 50%;
+    }
+
+    &:after {
+      right: 50%;
+    }
+  }
+}

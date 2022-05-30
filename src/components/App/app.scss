@@ -90,7 +90,8 @@
       }
     }
     &--contact {
-      height: 100vh;
+      height: fit-content;
+      padding: 3em 0;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-alter-color");
       }
@@ -109,6 +110,9 @@
       padding: 0;
     }
     .section--skills {
+      height: 100.1vh;
+    }
+    .section--contact {
       height: 100.1vh;
     }
   }
