@@ -139,6 +139,9 @@ function App() {
             </div>
           </Waypoint>
         </ScrollElement>
+        <div className="footer">
+          Réalisé par Matthieu Munoz, code disponible<a href="https://github.com/Matthieu-Munoz/portfolio" target="_blank" rel="noopener noreferrer">ici</a>.
+        </div>
       </div>
     </div>
   );

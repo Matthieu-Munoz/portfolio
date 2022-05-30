@@ -30,11 +30,11 @@ function Skills() {
                         <div className="skills__cards__card__logo" data-skills="common" />
                         <h3 className="skills__cards__card__title">Communes</h3>
                         <div className="skills__cards__card__list">
-                            <div className="skills__cards__card__list__item" aria-label="Intégration HTML" data-cooltipz-dir="top">
+                            <div className="skills__cards__card__list__item" aria-label="Intégration HTML propre et sémantique" data-cooltipz-dir="top">
                                 <img src={html} alt="html icon" className="skills__cards__card__list__item__icon" />
                                 HTML
                             </div>
-                            <div className="skills__cards__card__list__item" aria-label="Design" data-cooltipz-dir="top">
+                            <div className="skills__cards__card__list__item" aria-label="Mise en forme grâce au CSS" data-cooltipz-dir="top">
                                 <img src={css} alt="css icon" className="skills__cards__card__list__item__icon" />
                                 CSS
                             </div>
