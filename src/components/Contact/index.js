@@ -51,6 +51,7 @@ function Contact() {
                         <div className="contact__form__confirm">
                             <img src={sent} className="contact__form__confirm__img" alt="Sending confirmation" />
                             Bien récu, merci !
+                            <button type="button" className="contact__form__submit" onClick={() => dispatch(confirmSending(false))}>Retour</button>
                         </div>
                         : <>
                             <Field
