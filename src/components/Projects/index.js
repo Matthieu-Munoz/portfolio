@@ -110,7 +110,7 @@ function Projects() {
                 {projectsData.map((project, n) => {
                     let position = n > index ? "next"
                         : n === index ? "active" : "prev";
-                    return <Card key={n} {...project} cardStyle={position} handlePointerEvent={handlePointerEvent} />;
+                    return <Card key={n} {...project} project={project} cardStyle={position} handlePointerEvent={handlePointerEvent} />;
                 })}
                 <BsChevronCompactRight className="projects__carousel__chevron projects__carousel__chevron--next" onClick={slideRight} />
             </div>

@@ -1,7 +1,8 @@
-import { TOGGLE_PROJECTS_INDEX } from "@/actions/projects";
+import { TOGGLE_PROJECTS_INDEX, TOGGLE_PROJECT_INFO } from "@/actions/projects";
 
 const initialState = {
     index: 0,
+    project: {},
 };
 
 function Reducer(state = initialState, action = {}) {
@@ -10,6 +11,11 @@ function Reducer(state = initialState, action = {}) {
             return {
                 ...state,
                 index: action.value,
+            };
+        case TOGGLE_PROJECT_INFO:
+            return {
+                ...state,
+                project: action.project,
             };
         default:
             return state;

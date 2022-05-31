@@ -16,6 +16,7 @@ import Skills from '../Skills';
 import Projects from '../Projects';
 import Contact from '../Contact';
 import Socials from '../Socials';
+import Modal from '../Modal';
 
 function App() {
   // To dispatch action to the store
@@ -111,6 +112,7 @@ function App() {
           </div>
           {loadAnimation && <AnimatedLogo />}
         </div>}
+        <Modal />
         <ScrollElement name="home">
           <Waypoint onEnter={() => handleSwitchSection('home')}>
             <div className="section section--home">

@@ -63,6 +63,11 @@ export const toggleSection = (section, value) => ({
     value,
 });
 
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const toggleModal = (component) => ({
+    type: TOGGLE_MODAL,
+    component,
+});
 
 
 

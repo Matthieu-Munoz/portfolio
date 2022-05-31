@@ -44,10 +44,26 @@
     display: block;
     text-transform: uppercase;
     font-size: 1.2em;
-    width: 100%;
     text-align: center;
     cursor: pointer;
     z-index: 2;
+    transition: 0.2s ease-in-out;
+
+    @include color-themes.themed() {
+      color: color-themes.ask("accent-color");
+    }
+    &:hover {
+      transform: scale(1.05);
+      text-decoration: underline;
+      transition: 0.2s ease-in-out;
+    }
+  }
+  &__modal {
+    text-transform: uppercase;
+    font-size: 1.1em;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 0.5em;
     transition: 0.2s ease-in-out;
 
     @include color-themes.themed() {
@@ -68,6 +84,7 @@
     }
   }
   &__desc {
+    width: 80%;
     text-align: center;
   }
 
@@ -111,28 +128,6 @@
           width: 50%;
           bottom: 7em;
           right: 9em;
-        }
-      }
-    }
-  }
-}
-@include media.responsive("desktop") {
-  .card {
-    width: 750px;
-    height: 750px;
-    transition: 0.2s ease-in-out;
-    &__imgs {
-      & img {
-        position: absolute;
-        &:first-child {
-          width: 25%;
-          top: 5em;
-          left: 8em;
-        }
-        &:last-child {
-          width: 50%;
-          bottom: 7em;
-          right: 11em;
         }
       }
     }

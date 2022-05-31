@@ -1,9 +1,12 @@
 // Dependencies
+import { useDispatch } from 'react-redux';
 import DOMPurify from "dompurify";
 import PropTypes from 'prop-types';
 // Local | React-Redux
 // Styles
 import "./card.scss"
+import { toggleModal } from '@/actions/app';
+import { toggleProjectInfo } from '@/actions/projects';
 
 function Card({
     title,
@@ -12,8 +15,14 @@ function Card({
     img_deskot,
     desc,
     cardStyle,
-    handlePointerEvent
+    handlePointerEvent,
+    project,
 }) {
+    const dispatch = useDispatch();
+    const handleModal = () => {
+        dispatch(toggleProjectInfo(project))
+        dispatch(toggleModal("projectinfo"))
+    }
     return (
         <div className={`card card__${cardStyle}`} onMouseDown={handlePointerEvent} onTouchStart={handlePointerEvent}>
             <div className="card__imgs" onClick={() => window.open(url, '_blank')}>
@@ -23,6 +32,7 @@ function Card({
             <a href={url} target="blank" className="card__link">{title}</a>
             <div className="card__sep" />
             <div className="card__desc" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }} />
+            {/* <div className="card__modal" onClick={handleModal}>En savoir plus</div> */}
         </div>
     );
 }
@@ -35,6 +45,7 @@ Card.propTypes = {
     desc: PropTypes.string.isRequired,
     cardStyle: PropTypes.string.isRequired,
     handlePointerEvent: PropTypes.func.isRequired,
+    project: PropTypes.object.isRequired,
 };
 
 export default Card;

@@ -1,0 +1,24 @@
+@use "@/styles/vars";
+@use "@/styles/color-themes";
+@use "@/styles/utils";
+@use "@/styles/responsive-breakpoints" as media;
+
+.projectinfo {
+  width: 310px;
+  border-radius: 1em;
+  z-index: 0;
+}
+
+// Style when on tablet and bigger
+@include media.responsive("tablet") {
+  .projectinfo {
+    width: 27em;
+  }
+}
+
+// Style when on tablet and bigger
+@include media.responsive("desktop") {
+  .projectinfo {
+    width: 35em;
+  }
+}

@@ -13,6 +13,7 @@
 
   .section {
     width: 100%;
+
     &--intro {
       position: relative;
       height: 100vh;
@@ -84,7 +85,7 @@
       }
     }
     &--projects {
-      height: 100vh;
+      height: 105vh;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-color");
       }
