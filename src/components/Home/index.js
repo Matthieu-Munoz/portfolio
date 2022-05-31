@@ -33,8 +33,8 @@ function Home() {
                     <div className="home__profil__card__me">
                         <div className="home__profil__card__me__container">
                             <div className="home__profil__card__me__container__inner">
-                                <img className="home__profil__card__me__container__inner--circle" alt="profil background" src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_450,w_450,q_80/PP-bg_uhlhea.webp" />
-                                <img className="home__profil__card__me__container__inner--img" alt="profil" src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_600,w_600,q_100/matthieu-nobg_ly8aoi.webp" />
+                                <img className="home__profil__card__me__container__inner--circle" alt="profil background" src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_760,w_760,q_80/PP-bg_uhlhea.webp" />
+                                <img className="home__profil__card__me__container__inner--img" alt="profil" src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_830,w_830,q_100/matthieu-nobg_ly8aoi.webp" />
                             </div>
                         </div>
                         <div className="home__profil__card__me__divider" />

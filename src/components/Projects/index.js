@@ -29,24 +29,27 @@ function Projects() {
         }
     };
 
-    const handleMouseDown = (e) => {
+    const handlePointerEvent = (e) => {
+        let isTouchEvent = e.type === "touchstart" ? true : false;
         /* this is our card we will move */
         let card = e.target;
         /* to keep track of the value to offset the card left */
         let offset = 0;
         /* keeps the initial mouse click x value */
-        let initialX = e.clientX;
+        let initialX = isTouchEvent ? e.touches[0].clientX :
+            e.clientX;
         /* set the documents onmousemove event to use this function*/
-        document.onmousemove = onMouseMove;
+        document.onmousemove = onPointerMove;
         /* sets the documents onmouseup event to use this function */
-        document.onmouseup = onMouseUp;
-
+        document.onmouseup = onPointerEnd;
+        document.ontouchmove = onPointerMove;
+        document.ontouchend = onPointerEnd;
         /* when the mouse moves we handle the event here */
-        function onMouseMove(e) {
+        function onPointerMove(e) {
             /* set offset to the current position of the cursor,
             minus the initial starting position  */
-            offset = e.clientX - initialX;
-
+            offset = (isTouchEvent ? e.touches[0].clientX :
+                e.clientX) - initialX;
             /* set the left style property of the card to the offset 
             value */
             card.style.left = offset + "px";
@@ -82,11 +85,19 @@ function Projects() {
 
         }
 
-        function onMouseUp(e) {
+        function onPointerEnd(e) {
             /* remove functions from event listeners
             (stop tracking mouse movements) */
+            if (offset < 0 && offset > -100) {
+                card.style.left = 0;
+            }
+            if (offset > 0 && offset < 100) {
+                card.style.left = 0;
+            }
             document.onmousemove = null;
             document.onmouseup = null;
+            document.ontouchmove = null;
+            document.ontouchend = null;
         }
     };
 
@@ -99,7 +110,7 @@ function Projects() {
                 {projectsData.map((project, n) => {
                     let position = n > index ? "next"
                         : n === index ? "active" : "prev";
-                    return <Card key={n} {...project} cardStyle={position} handleMouseDown={handleMouseDown} />;
+                    return <Card key={n} {...project} cardStyle={position} handlePointerEvent={handlePointerEvent} />;
                 })}
                 <BsChevronCompactRight className="projects__carousel__chevron projects__carousel__chevron--next" onClick={slideRight} />
             </div>

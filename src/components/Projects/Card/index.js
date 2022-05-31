@@ -12,10 +12,10 @@ function Card({
     img_deskot,
     desc,
     cardStyle,
-    handleMouseDown
+    handlePointerEvent
 }) {
     return (
-        <div className={`card card__${cardStyle}`} onMouseDown={handleMouseDown}>
+        <div className={`card card__${cardStyle}`} onMouseDown={handlePointerEvent} onTouchStart={handlePointerEvent}>
             <div className="card__imgs" onClick={() => window.open(url, '_blank')}>
                 <img src={img_mobil} alt={`mobile vue of project ${title}`} />
                 <img src={img_deskot} alt={`desktop vue of project ${title}`} />
@@ -34,7 +34,7 @@ Card.propTypes = {
     img_deskot: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     cardStyle: PropTypes.string.isRequired,
-    handleMouseDown: PropTypes.func.isRequired,
+    handlePointerEvent: PropTypes.func.isRequired,
 };
 
 export default Card;

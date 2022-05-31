@@ -91,6 +91,7 @@
       top: -200px;
 
       &--circle {
+        width: 380px;
         height: 380px;
         left: 10px;
         pointer-events: none;
@@ -106,6 +107,7 @@
         left: -7px;
         top: 185px;
         width: 415px;
+        height: 415px;
         border-radius: 250px;
       }
     }
