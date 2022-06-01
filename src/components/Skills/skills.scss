@@ -35,7 +35,7 @@
         flex-direction: column;
         height: calc(100% - 25px);
         width: calc(100% - 25px);
-        transition: 0.2s ease-in-out;
+        transition: 0.3s ease-in-out;
         @include color-themes.themed() {
           background-color: color-themes.ask("secondary-color");
         }
@@ -48,7 +48,7 @@
         width: calc(100% - 25px);
         right: 0;
         bottom: 0;
-        transition: 0.2s ease-in-out;
+        transition: 0.3s ease-in-out;
         @include color-themes.themed() {
           border: 3px solid color-themes.ask("accent-color");
         }
@@ -89,18 +89,18 @@
       &:hover {
         align-items: center;
         justify-content: center;
-        transition: 0.2s ease-in-out;
+        transition: 0.3s ease-in-out;
         &::before {
           height: 100%;
           width: 100%;
-          transition: 0.2s ease-in-out;
+          transition: 0.3s ease-in-out;
         }
         .skills__cards__card {
           &--ctn {
             height: 96%;
             width: 96%;
             padding: 1.5em;
-            transition: 0.2s ease-in-out;
+            transition: 0.3s ease-in-out;
             @include color-themes.themed() {
               background-color: color-themes.ask("secondary-alter-color");
             }

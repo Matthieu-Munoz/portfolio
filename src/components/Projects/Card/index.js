@@ -16,6 +16,7 @@ function Card({
     desc,
     cardStyle,
     handlePointerEvent,
+    moreInfo,
     project,
 }) {
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function Card({
             <a href={url} target="blank" className="card__link">{title}</a>
             <div className="card__sep" />
             <div className="card__desc" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }} />
-            {/* <div className="card__modal" onClick={handleModal}>En savoir plus</div> */}
+            {moreInfo && <div className="card__modal" onClick={handleModal}>En savoir plus</div>}
         </div>
     );
 }
@@ -44,6 +45,7 @@ Card.propTypes = {
     img_deskot: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     cardStyle: PropTypes.string.isRequired,
+    moreInfo: PropTypes.bool.isRequired,
     handlePointerEvent: PropTypes.func.isRequired,
     project: PropTypes.object.isRequired,
 };

@@ -95,6 +95,7 @@
 @include media.responsive("desktop") {
   .contact {
     &__ctn {
+      width: 100%;
       flex-direction: row;
       margin-left: 100px;
     }
@@ -103,12 +104,6 @@
 
       &__map {
         width: 80%;
-      }
-      &__mail {
-      }
-      &__sep {
-      }
-      &__num {
       }
     }
     &__form {

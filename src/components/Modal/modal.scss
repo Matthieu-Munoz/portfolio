@@ -5,7 +5,7 @@
   position: fixed;
   z-index: 1000;
   width: auto;
-  max-height: 620px;
+  max-height: 650px;
   border-radius: 1em;
   box-shadow: rgb(189 163 163 / 35%) 0px 5px 15px;
   display: flex;
@@ -13,7 +13,7 @@
   align-items: center;
   padding: 2em;
   color: vars.$off-white;
-  background-color: vars.$deep-green;
+  background-color: vars.$alter-dark-green;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
