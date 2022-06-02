@@ -41,7 +41,7 @@ function Menu() {
                 </div>
             </div>
             <div className={menuCssClass}>
-                <a href="/" rel="noopener noreferrer"><div className="menu__logo">Matthieu Munoz</div></a>
+                <a href="/" rel="noopener noreferrer"><h1 className="menu__logo">Matthieu Munoz</h1></a>
                 <div className="menu__links">
                     <div className={homeCssClass} data-section="home" onClick={() => handleSectionSwitch('home')} >
                         Accueil
