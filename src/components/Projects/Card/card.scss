@@ -40,40 +40,29 @@
       }
     }
   }
-  &__link {
-    display: block;
+  &__link,
+  &__modal {
     text-transform: uppercase;
     font-size: 1.2em;
     text-align: center;
     cursor: pointer;
     z-index: 2;
-    transition: 0.2s ease-in-out;
-
+    --h: 1.2em; /* the height */
+    line-height: var(--h);
+    color: #0000;
+    overflow: hidden;
+    transition: 0.3s;
     @include color-themes.themed() {
-      color: color-themes.ask("accent-color");
+      text-shadow: 0 calc(-1 * var(--_t, 0em)) #000,
+        0 calc(var(--h) - var(--_t, 0em)) color-themes.ask("accent-color");
     }
     &:hover {
-      transform: scale(1.05);
-      text-decoration: underline;
-      transition: 0.2s ease-in-out;
+      --_t: var(--h);
     }
   }
   &__modal {
-    text-transform: uppercase;
     font-size: 1.1em;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 0.5em;
-    transition: 0.2s ease-in-out;
-
-    @include color-themes.themed() {
-      color: color-themes.ask("accent-color");
-    }
-    &:hover {
-      transform: scale(1.05);
-      text-decoration: underline;
-      transition: 0.2s ease-in-out;
-    }
+    margin-top: 0.25em;
   }
   &__sep {
     width: 5em;

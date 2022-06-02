@@ -6,6 +6,7 @@ import js from '@/assets/icons/js.svg'
 import vscode from '@/assets/icons/vscode.svg'
 import php from '@/assets/icons/php.svg'
 import sql from '@/assets/icons/sql.svg'
+import laravel from '@/assets/icons/laravel.svg'
 import react from '@/assets/icons/react.svg'
 import redux from '@/assets/icons/redux.svg'
 import sass from '@/assets/icons/sass.svg'
@@ -28,8 +29,8 @@ function Skills() {
                 <div className="skills__cards__card skills__cards__card--common">
                     <div className="skills__cards__card--ctn">
                         <div className="skills__cards__card__logo" data-skills="common" />
-                        <h3 className="skills__cards__card__title">Communes</h3>
-                        <div className="skills__cards__card__list">
+                        <h3 className="skills__cards__card__title">Techniques</h3>
+                        <div className="skills__cards__card__list skills__cards__card__list--large">
                             <div className="skills__cards__card__list__item" aria-label="Intégration HTML propre et sémantique" data-cooltipz-dir="top">
                                 <img src={html} alt="html icon" className="skills__cards__card__list__item__icon" />
                                 HTML
@@ -42,10 +43,6 @@ function Skills() {
                                 <img src={js} alt="js icon" className="skills__cards__card__list__item__icon" />
                                 JS
                             </div>
-                            <div className="skills__cards__card__list__item" aria-label="Éditeur de code" data-cooltipz-dir="top">
-                                <img src={vscode} alt="vscode icon" className="skills__cards__card__list__item__icon" />
-                                VScode
-                            </div>
                             <div className="skills__cards__card__list__item" aria-label="Programmation Orientée Objet" data-cooltipz-dir="top">
                                 <img src={php} alt="php icon" className="skills__cards__card__list__item__icon" />
                                 PHP
@@ -53,6 +50,18 @@ function Skills() {
                             <div className="skills__cards__card__list__item" aria-label="Gestion de BDD" data-cooltipz-dir="top">
                                 <img src={sql} alt="sql icon" className="skills__cards__card__list__item__icon" />
                                 SQL
+                            </div>
+                            <div className="skills__cards__card__list__item" aria-label="PHP framework" data-cooltipz-dir="top">
+                                <img src={laravel} alt="laravel icon" className="skills__cards__card__list__item__icon" />
+                                Laravel
+                            </div>
+                            <div className="skills__cards__card__list__item" aria-label="Création de site" data-cooltipz-dir="top">
+                                <img src={wordpress} alt="wordpress icon" className="skills__cards__card__list__item__icon" />
+                                WP
+                            </div>
+                            <div className="skills__cards__card__list__item" aria-label="Utilisation de Git" data-cooltipz-dir="top">
+                                <img src={git} alt="git icon" className="skills__cards__card__list__item__icon" />
+                                Git
                             </div>
                         </div>
                     </div>
@@ -86,13 +95,9 @@ function Skills() {
                         <div className="skills__cards__card__logo" data-skills="divers" />
                         <h3 className="skills__cards__card__title">Diverses</h3>
                         <div className="skills__cards__card__list">
-                            <div className="skills__cards__card__list__item" aria-label="Création de site" data-cooltipz-dir="top">
-                                <img src={wordpress} alt="wordpress icon" className="skills__cards__card__list__item__icon" />
-                                WP
-                            </div>
-                            <div className="skills__cards__card__list__item" aria-label="Utilisation de Git" data-cooltipz-dir="top">
-                                <img src={git} alt="git icon" className="skills__cards__card__list__item__icon" />
-                                Git
+                            <div className="skills__cards__card__list__item" aria-label="Éditeur de code" data-cooltipz-dir="top">
+                                <img src={vscode} alt="vscode icon" className="skills__cards__card__list__item__icon" />
+                                VScode
                             </div>
                             <div className="skills__cards__card__list__item" aria-label="Utilisation de Linux" data-cooltipz-dir="top">
                                 <img src={linux} alt="linux icon" className="skills__cards__card__list__item__icon" />
