@@ -29,6 +29,79 @@ function Projects() {
         }
     };
 
+    const handlePointerEvent = (e) => {
+        let isTouchEvent = e.type === "touchstart" ? true : false;
+        /* this is our card we will move */
+        let card = e.target;
+        /* to keep track of the value to offset the card left */
+        let offset = 0;
+        /* keeps the initial mouse click x value */
+        let initialX = isTouchEvent ? e.touches[0].clientX :
+            e.clientX;
+        /* set the documents onmousemove event to use this function*/
+        document.onmousemove = onPointerMove;
+        /* sets the documents onmouseup event to use this function */
+        document.onmouseup = onPointerEnd;
+        document.ontouchmove = onPointerMove;
+        document.ontouchend = onPointerEnd;
+        /* when the mouse moves we handle the event here */
+        function onPointerMove(e) {
+            /* set offset to the current position of the cursor,
+            minus the initial starting position  */
+            offset = (isTouchEvent ? e.touches[0].clientX :
+                e.clientX) - initialX;
+            /* set the left style property of the card to the offset 
+            value */
+            card.style.left = offset + "px";
+
+            if (offset <= -100) {
+                slideRight();
+                /* if we're at the last card, snap back to center */
+                if (index === projectsData.length - 1) {
+                    card.style.left = 0;
+                } else {
+                    /* hide the shift back to center 
+                  until after the transition */
+                    setTimeout(() => {
+                        card.style.left = 0;
+                    }, 1000);
+                }
+                return;
+            }
+            if (offset >= 100) {
+                slideLeft();
+                /* if we're at the first card, snap back to center */
+                if (index === 0) {
+                    card.style.left = 0;
+                } else {
+                    /* hide the shift back to center 
+                  until after the transition */
+                    setTimeout(() => {
+                        card.style.left = 0;
+                    }, 1000);
+                }
+                return;
+            }
+
+        }
+
+        function onPointerEnd(e) {
+            /* remove functions from event listeners
+            (stop tracking mouse movements) */
+            if (offset < 0 && offset > -100) {
+                card.style.left = 0;
+            }
+            if (offset > 0 && offset < 100) {
+                card.style.left = 0;
+            }
+            document.onmousemove = null;
+            document.onmouseup = null;
+            document.ontouchmove = null;
+            document.ontouchend = null;
+        }
+    };
+
+
     return (
         <div className="projects">
             <SectionTitle title="Projets" />
@@ -37,7 +110,7 @@ function Projects() {
                 {projectsData.map((project, n) => {
                     let position = n > index ? "next"
                         : n === index ? "active" : "prev";
-                    return <Card key={n} {...project} cardStyle={position} />;
+                    return <Card key={n} {...project} project={project} cardStyle={position} handlePointerEvent={handlePointerEvent} />;
                 })}
                 <BsChevronCompactRight className="projects__carousel__chevron projects__carousel__chevron--next" onClick={slideRight} />
             </div>

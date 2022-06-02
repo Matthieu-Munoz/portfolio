@@ -21,13 +21,15 @@
       margin-top: 0.25em;
       max-width: 400px;
       &__para {
-        margin-top: 0.5em;
+        margin-top: 1em;
         text-align: justify;
         hyphens: auto;
         display: flex;
         &:last-child {
           position: relative;
           margin-left: 3em;
+          align-items: center;
+          height: 3.5em;
         }
         &--icon {
           width: 4em;
@@ -89,6 +91,7 @@
       top: -200px;
 
       &--circle {
+        width: 380px;
         height: 380px;
         left: 10px;
         pointer-events: none;
@@ -104,6 +107,7 @@
         left: -7px;
         top: 185px;
         width: 415px;
+        height: 415px;
         border-radius: 250px;
       }
     }

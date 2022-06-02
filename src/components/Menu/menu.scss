@@ -40,12 +40,42 @@
       color: color-themes.ask("accent-color");
     }
   }
+
+  &__socials {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__link {
+      display: block;
+      height: 100%;
+      @include color-themes.themed() {
+        color: color-themes.ask("accent-color");
+      }
+      &:first-child {
+        margin-right: 1em;
+      }
+      &--icon {
+        height: 100%;
+        width: 2em;
+        transition: 0.1s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+          @include color-themes.themed() {
+            color: color-themes.ask("accent-alter-color");
+          }
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+  }
   &__links {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 300px;
+    height: 350px;
 
     &__link {
       background-repeat: no-repeat;
@@ -207,6 +237,9 @@
     transition: 0.2s ease-in-out;
     @include color-themes.themed() {
       box-shadow: 1px 0px 10px color-themes.ask("secondary-color");
+    }
+    &__socials {
+      display: none;
     }
     &_toggle {
       display: none;

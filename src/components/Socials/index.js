@@ -21,13 +21,13 @@ function Socials() {
     }
     return (
         <div className="socials">
-            <a href="/" className="socials__link" onClick={handleClickContact} aria-label="Contact" data-cooltipz-dir="bottom">
+            <a href="/" className="socials__link" title="lien vers la section contact" onClick={handleClickContact} aria-label="Contact" data-cooltipz-dir="bottom">
                 <AiFillMail className="socials__link--icon" />
             </a>
-            <a href="https://github.com/Matthieu-Munoz" target="blank" className="socials__link" aria-label="Github" data-cooltipz-dir="bottom">
+            <a href="https://github.com/Matthieu-Munoz" title="lien vers mon Github" target="blank" className="socials__link" aria-label="Github" data-cooltipz-dir="bottom">
                 <AiFillGithub className="socials__link--icon" />
             </a>
-            <a href="https://www.linkedin.com/in/matthieu-munoz-798b33184/" target="blank" className="socials__link" aria-label="Linkedin" data-cooltipz-dir="bottom">
+            <a href="https://www.linkedin.com/in/matthieu-munoz-798b33184/" title="lien vers mon Linkedin" target="blank" className="socials__link" aria-label="Linkedin" data-cooltipz-dir="bottom">
                 <AiFillLinkedin className="socials__link--icon" />
             </a>
             <span className="socials__dash" />

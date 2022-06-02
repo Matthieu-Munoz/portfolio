@@ -1,5 +1,5 @@
 import {
-    TOGGLE_THEME, SAVE_THEME, TOGGLE_MENU, TOGGLE_LOADING, TOGGLE_SCROLL, TOGGLE_MENU_DISPLAY, TOGGLE_SECTION, TOGGLE_ANIMATION, TOGGLE_INTRO_SECTION
+    TOGGLE_THEME, SAVE_THEME, TOGGLE_MENU, TOGGLE_LOADING, TOGGLE_SCROLL, TOGGLE_MENU_DISPLAY, TOGGLE_SECTION, TOGGLE_ANIMATION, TOGGLE_INTRO_SECTION, TOGGLE_MODAL
 } from '@/actions/app';
 
 export const initialState = {
@@ -9,6 +9,8 @@ export const initialState = {
     disableScroll: true,
     menuOpened: false,
     menuDisplay: false,
+    modalOpened: false,
+    modalComponent: '',
     currentSection: {
         home: true,
         skills: false,
@@ -72,6 +74,12 @@ const reducer = (state = initialState, action = {}) => {
                     contact: false,
                     [action.section]: action.value,
                 },
+            };
+        case TOGGLE_MODAL:
+            return {
+                ...state,
+                modalOpened: !state.modalOpened,
+                modalComponent: action.component
             };
         default:
             return state;

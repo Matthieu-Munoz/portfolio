@@ -35,7 +35,7 @@
         flex-direction: column;
         height: calc(100% - 25px);
         width: calc(100% - 25px);
-        transition: 0.2s ease-in-out;
+        transition: 0.3s ease-in-out;
         @include color-themes.themed() {
           background-color: color-themes.ask("secondary-color");
         }
@@ -48,7 +48,7 @@
         width: calc(100% - 25px);
         right: 0;
         bottom: 0;
-        transition: 0.2s ease-in-out;
+        transition: 0.3s ease-in-out;
         @include color-themes.themed() {
           border: 3px solid color-themes.ask("accent-color");
         }
@@ -89,18 +89,18 @@
       &:hover {
         align-items: center;
         justify-content: center;
-        transition: 0.2s ease-in-out;
+        transition: 0.3s ease-in-out;
         &::before {
           height: 100%;
           width: 100%;
-          transition: 0.2s ease-in-out;
+          transition: 0.3s ease-in-out;
         }
         .skills__cards__card {
           &--ctn {
             height: 96%;
             width: 96%;
             padding: 1.5em;
-            transition: 0.2s ease-in-out;
+            transition: 0.3s ease-in-out;
             @include color-themes.themed() {
               background-color: color-themes.ask("secondary-alter-color");
             }
@@ -116,17 +116,25 @@
             width: 60%;
             height: 100%;
             margin-top: 0.5em;
-          }
-          &__list__item {
-            flex: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 0.25em;
-            &__icon {
-              width: 5em;
-              height: 5em;
+
+            &__item {
+              flex: 50%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
               margin-bottom: 0.25em;
+              &__icon {
+                width: 5em;
+                height: 5em;
+                margin-bottom: 0.25em;
+              }
+            }
+
+            &--large {
+              width: 100%;
+              .skills__cards__card__list__item {
+                flex: 33%;
+              }
             }
           }
         }
@@ -138,6 +146,7 @@
 @include media.responsive("small-mobile") {
   .skills {
     padding: 0;
+    padding-top: 2em;
     &__cards__card {
       transform: scale(0.8);
     }

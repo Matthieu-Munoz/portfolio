@@ -19,6 +19,7 @@ function Field({
                 <TextareaAutosize
                     className="input-container__textarea"
                     name={name}
+                    id={name}
                     required
                     style={{ maxHeight: 100, resize: 'none' }}
                     value={value}
