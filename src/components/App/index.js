@@ -5,7 +5,7 @@ import { Waypoint } from 'react-waypoint';
 import * as Scroll from 'react-scroll';
 import classNames from 'classnames';
 // Local | React-Redux
-import { toggleAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, toggleScroll, toggleSection } from '@/actions/app';
+import { toggleAnimation, toggleIntroAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, toggleScroll, toggleSection } from '@/actions/app';
 import AnimatedLogo from '../AnimatedLogo';
 import Header from '../Header';
 // Styles
@@ -21,11 +21,11 @@ import Modal from '../Modal';
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
-  const { loadAnimation, introSection, darkTheme, disableScroll, menuDisplay } = useSelector((state) => state.app);
+  const { loadAnimation, introSection, introAnimation, darkTheme, disableScroll, menuDisplay } = useSelector((state) => state.app);
   const themeClass = classNames('theme', { 'theme--dark': darkTheme }, { 'theme--light': !darkTheme });
   const appClass = classNames('app', { 'disable-scroll': disableScroll });
+  const introClass = classNames('section section--intro', { 'section--intro--up': introAnimation });
   const menuOpen = useSelector((state) => state.app.menuOpened)
-  const scroller = Scroll.scroller;
   const ScrollElement = Scroll.Element;
   let checkIntro = false;
 
@@ -55,16 +55,12 @@ function App() {
       checkIntro = true;
       dispatch(toggleAnimation(true));
       setTimeout(() => {
-        dispatch(toggleScroll(false));
-        scroller.scrollTo('home', {
-          duration: 1000,
-          smooth: true,
-          ignoreCancelEvents: true,
-        })
+        dispatch(toggleIntroAnimation(true));
         setTimeout(() => {
+          dispatch(toggleScroll(false));
           dispatch(toggleIntroSection(false))
           dispatch(toggleMenuDisplay(true))
-        }, 1100);
+        }, 700);
       }, 3000);
     }
   }
@@ -103,7 +99,7 @@ function App() {
     <div className={themeClass}>
       <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)} >
         {menuDisplay && <> <Header /><Socials /></>}
-        {introSection && <div className="section section--intro">
+        {introSection && <div className={introClass}>
           <div className="intro__corners">
             <span className="intro__corners__corner intro__corners__corner__TL"></span>
             <span className="intro__corners__corner intro__corners__corner__TR"></span>

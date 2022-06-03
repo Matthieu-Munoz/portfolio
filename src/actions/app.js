@@ -8,6 +8,11 @@ export const toggleIntroSection = (value) => ({
     type: TOGGLE_INTRO_SECTION,
     value,
 });
+export const TOGGLE_INTRO_ANIMATION = 'TOGGLE_INTRO_ANIMATION';
+export const toggleIntroAnimation = (value) => ({
+    type: TOGGLE_INTRO_ANIMATION,
+    value,
+});
 // Used to switch between theme (dark/light)
 export const TOGGLE_THEME = 'TOGGLE_THEME';
 export const toggleTheme = (theme) => ({
