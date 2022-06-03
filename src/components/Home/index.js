@@ -4,18 +4,25 @@ import SectionTitle from '../SectionTitle';
 // Styles
 import './home.scss';
 function Home() {
+    /**
+     * calculate the age from the birthdate "mm/dd/yyyy"
+     * @param {string} birthDate 
+     * @returns number corresponding to the age
+     */
     function calculateAge(birthDate) {
+        // Transform the inputed birthdate
         birthDate = new Date(birthDate);
-        const otherDate = new Date();
-
-        var years = (otherDate.getFullYear() - birthDate.getFullYear());
-
-        if (otherDate.getMonth() < birthDate.getMonth() || (
-            otherDate.getMonth() === birthDate.getMonth() && otherDate.getDate() < birthDate.getDate())) {
-            years--;
+        // Getting current date
+        const currentDay = new Date();
+        // First calculation of age based on years
+        let age = (currentDay.getFullYear() - birthDate.getFullYear());
+        // Adjustment if the birthdate isn't passed yet including days and months
+        if (currentDay.getMonth() < birthDate.getMonth() ||
+            (currentDay.getMonth() === birthDate.getMonth() &&
+                currentDay.getDate() < birthDate.getDate())) {
+            age--;
         }
-
-        return years;
+        return age;
     }
     return (
         <div className="home">
@@ -40,7 +47,7 @@ function Home() {
                         <div className="home__profil__card__me__divider" />
                         <div className="home__profil__card__me__name">Matthieu</div>
                         <div className="home__profil__card__me__title">{calculateAge("05/14/1997")} ans, Développeur web</div>
-                        <div className="home__profil__card__me__title">matthieu.munoz.pro@gmail.com</div>
+                        <div className="home__profil__card__me__title">contact@matthieu-munoz.fr</div>
                     </div>
                 </div>
             </div>

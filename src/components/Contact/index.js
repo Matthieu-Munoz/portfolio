@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import Field from '../Field';
 import { changeField, confirmSending, toggleLoading } from '@/actions/contact';
 import SectionTitle from '../SectionTitle';
-import map from '@/assets/images/map.png'
 import sent from '@/assets/images/done-sent.svg'
 // Styles
 import './contact.scss';
