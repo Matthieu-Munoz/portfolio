@@ -24,6 +24,7 @@ function Contact() {
     }
 
     const sendFeedback = (templateId, variables) => {
+        window.emailjs.init("Y0XFV25ELhB4FImsp");
         window.emailjs.send(
             'service_yax8ggy', templateId,
             variables
@@ -43,7 +44,7 @@ function Contact() {
             <SectionTitle title="Contact" />
             <div className="contact__ctn">
                 <div className="contact__infos">
-                    <img src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_740,w_1000,q_100/map_qfqfwt.webp" className="contact__infos__map" alt="Map with location" />
+                    <img src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_740,w_1000,q_100/map_qfqfwt.webp" width="1000" height="740" className="contact__infos__map" alt="Map with location" />
                     <div className="contact__infos__mail">matthieu.munoz.pro@gmail.com</div>
                     <div className="contact__infos__sep" />
                     <div className="contact__infos__num">06.05.21.64.40</div>
