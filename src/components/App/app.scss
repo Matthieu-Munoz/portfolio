@@ -92,7 +92,7 @@
       }
     }
     &--projects {
-      height: 105vh;
+      height: 110vh;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-color");
       }
