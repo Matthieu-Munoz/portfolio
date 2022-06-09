@@ -59,7 +59,7 @@ function Contact() {
             <SectionTitle title="Contact" />
             <div className="contact__ctn">
                 <div className="contact__infos">
-                    <AdvancedImage className="contact__infos__map" alt="Map with location" cldImg={myImage} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
+                    <AdvancedImage loading="lazy" className="contact__infos__map" alt="Map with location" cldImg={myImage} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
                     <div className="contact__infos__mail">matthieu.munoz.pro@gmail.com</div>
                     <div className="contact__infos__sep" />
                     <div className="contact__infos__num">06.05.21.64.40</div>

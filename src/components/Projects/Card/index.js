@@ -49,8 +49,8 @@ function Card({
     return (
         <div className={`card card__${cardStyle}`} onMouseDown={handlePointerEvent} onTouchStart={handlePointerEvent}>
             <div className="card__imgs" onClick={() => window.open(url, '_blank')}>
-                <AdvancedImage alt={`mobile vue of project ${title}`} cldImg={mobileImg} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
-                <AdvancedImage alt={`desktop vue of project ${title}`} cldImg={desktopImg} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
+                <AdvancedImage loading="lazy" alt={`mobile vue of project ${title}`} cldImg={mobileImg} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
+                <AdvancedImage loading="lazy" alt={`desktop vue of project ${title}`} cldImg={desktopImg} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
             </div>
             <a href={url} target="blank" className="card__link">{title}</a>
             <div className="card__sep" />
