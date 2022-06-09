@@ -42,7 +42,7 @@ function Menu() {
             </div>
             <div className={menuCssClass}>
                 <a href="/" rel="noopener noreferrer"><div className="menu__logo">Matthieu Munoz</div></a>
-                <div className="menu__links">
+                <nav className="menu__links">
                     <div className={homeCssClass} data-section="home" onClick={() => handleSectionSwitch('home')} >
                         Accueil
                     </div>
@@ -68,19 +68,18 @@ function Menu() {
                             <AiFillLinkedin className="menu__socials__link--icon" />
                         </a>
                     </div>
-                </div>
+                </nav>
                 <div className="menu__toggles">
                     <div className="menu__toggles__ctn">
                         <ThemeToggle className="menu__theme_toggle" />
                         <div className="menu__toggles__ctn__info">Theme</div>
                     </div>
-                    <div className="menu__toggles__ctn" aria-label="Coming Soon" data-cooltipz-dir="top">
+                    <div className="menu__toggles__ctn" role="button" aria-label="Coming Soon" data-cooltipz-dir="top">
                         <AiOutlineGlobal className="menu__language_toggle" />
                         <div className="menu__toggles__ctn__info">Langue</div>
 
                     </div>
                 </div>
-
             </div>
         </>
     );

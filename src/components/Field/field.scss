@@ -20,14 +20,14 @@
     font-size: 1.2em;
     font-weight: 400;
     @include color-themes.themed() {
-      color: color-themes.ask("accent-color");
+      color: color-themes.ask("primary-text-color");
     }
 
     &:focus {
       ~ label {
         transform: translate(-12%, -55%) scale(0.75);
         @include color-themes.themed() {
-          color: color-themes.ask("accent-color");
+          color: color-themes.ask("primary-text-color");
         }
       }
 
@@ -43,7 +43,7 @@
       ~ label {
         transform: translate(-12%, -55%) scale(0.75);
         @include color-themes.themed() {
-          color: color-themes.ask("accent-alter-color");
+          color: color-themes.ask("primary-text-color");
         }
       }
     }
@@ -59,14 +59,14 @@
     font-size: 1em;
     font-weight: 400;
     @include color-themes.themed() {
-      color: color-themes.ask("accent-color");
+      color: color-themes.ask("primary-text-color");
     }
 
     &:focus {
       ~ label {
         transform: translate(-12%, -50%) scale(0.75);
         @include color-themes.themed() {
-          color: color-themes.ask("accent-color");
+          color: color-themes.ask("primary-text-color");
         }
       }
 
@@ -82,7 +82,7 @@
       ~ label {
         transform: translate(-12%, -50%) scale(0.75);
         @include color-themes.themed() {
-          color: color-themes.ask("accent-alter-color");
+          color: color-themes.ask("primary-text-color");
         }
       }
     }
@@ -98,7 +98,7 @@
     line-height: 60px;
     transition: all 0.2s ease;
     @include color-themes.themed() {
-      color: color-themes.ask("accent-color");
+      color: color-themes.ask("primary-text-color");
     }
   }
 
@@ -109,7 +109,7 @@
     width: 100%;
     height: 1px;
     @include color-themes.themed() {
-      background: color-themes.ask("accent-color");
+      background: color-themes.ask("primary-text-color");
     }
 
     &:before,
@@ -120,7 +120,7 @@
       height: 2px;
       transition: all 0.2s ease;
       @include color-themes.themed() {
-        background: color-themes.ask("accent-color");
+        background: color-themes.ask("primary-text-color");
       }
     }
 

@@ -6,10 +6,10 @@ import "./header.scss"
 
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <Menu />
       <div className="header__logo" />
-    </div>
+    </header>
   );
 }
 

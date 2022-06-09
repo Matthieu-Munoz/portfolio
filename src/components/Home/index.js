@@ -27,7 +27,7 @@ function Home() {
     return (
         <div className="home">
             <div className="home__intro">
-                <SectionTitle className="home__intro__title" title="Bienvenue" />
+                <SectionTitle className="home__intro__title" title="Portfolio" type="h1" />
                 <div className="home__intro__text">
                     <p className="home__intro__text__para">Après plus de quatre ans passés dans un atelier de métallerie ferronnerie d'art comme technicien d'étude, j'ai commencé une reconversion professionnelle vers le développement web en 2021.</p>
                     <p className="home__intro__text__para">J'ai découvert ce milieu par des projets personnels qui ont fortement attisé ma curiosité, mais surtout mon envie de faire partie de ce monde.</p>

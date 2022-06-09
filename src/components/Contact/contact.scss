@@ -68,7 +68,7 @@
       border-radius: 0.25em;
       padding: 0.25em;
       @include color-themes.themed() {
-        background-color: color-themes.ask("accent-color");
+        background-color: color-themes.ask("primary-text-color");
         color: color-themes.ask("secondary-text-color");
       }
       &:hover {

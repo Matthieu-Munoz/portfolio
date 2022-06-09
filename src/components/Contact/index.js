@@ -1,5 +1,8 @@
 // Dependencies
 import { useSelector, useDispatch } from 'react-redux';
+import { AdvancedImage, lazyload, placeholder } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
 import Field from '../Field';
 import { changeField, confirmSending, toggleLoading } from '@/actions/contact';
@@ -38,13 +41,25 @@ function Contact() {
             .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
 
+    const cld = new Cloudinary({
+        cloud: {
+            cloudName: 'matthieu-munoz'
+        }
+    });
+
+    const myImage = cld.image('map_qfqfwt');
+    myImage
+        .resize(fill(600))
+        .format('webp')
+        .quality(100);
 
     return (
+
         <div className="contact">
             <SectionTitle title="Contact" />
             <div className="contact__ctn">
                 <div className="contact__infos">
-                    <img src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_740,w_1000,q_100/map_qfqfwt.webp" width="1000" height="740" className="contact__infos__map" alt="Map with location" />
+                    <AdvancedImage className="contact__infos__map" alt="Map with location" cldImg={myImage} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
                     <div className="contact__infos__mail">matthieu.munoz.pro@gmail.com</div>
                     <div className="contact__infos__sep" />
                     <div className="contact__infos__num">06.05.21.64.40</div>

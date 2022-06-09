@@ -2,7 +2,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Waypoint } from 'react-waypoint';
-import * as Scroll from 'react-scroll';
 import classNames from 'classnames';
 // Local | React-Redux
 import { toggleAnimation, toggleIntroAnimation, toggleIntroSection, toggleMenu, toggleMenuDisplay, toggleScroll, toggleSection } from '@/actions/app';
@@ -26,7 +25,6 @@ function App() {
   const appClass = classNames('app', { 'disable-scroll': disableScroll });
   const introClass = classNames('section section--intro', { 'section--intro--up': introAnimation });
   const menuOpen = useSelector((state) => state.app.menuOpened)
-  const ScrollElement = Scroll.Element;
   let checkIntro = false;
 
   function debounce(fn, ms) {
@@ -96,6 +94,7 @@ function App() {
   );
 
   return (
+
     <div className={themeClass}>
       <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)} >
         {menuDisplay && <> <Header /><Socials /></>}
@@ -109,34 +108,26 @@ function App() {
           {loadAnimation && <AnimatedLogo />}
         </div>}
         <Modal />
-        <ScrollElement name="home">
-          <Waypoint onEnter={() => handleSwitchSection('home')}>
-            <div className="section section--home">
-              <Home />
-            </div>
-          </Waypoint>
-        </ScrollElement>
-        <ScrollElement name="skills">
-          <Waypoint onEnter={() => handleSwitchSection('skills')}>
-            <div className="section section--skills">
-              <Skills />
-            </div>
-          </Waypoint>
-        </ScrollElement>
-        <ScrollElement name="projects">
-          <Waypoint onEnter={() => handleSwitchSection('projects')}>
-            <div className="section section--projects">
-              <Projects />
-            </div>
-          </Waypoint>
-        </ScrollElement>
-        <ScrollElement name="contact">
-          <Waypoint onEnter={() => handleSwitchSection('contact')}>
-            <div className="section section--contact">
-              <Contact />
-            </div>
-          </Waypoint>
-        </ScrollElement>
+        <Waypoint onEnter={() => handleSwitchSection('home')}>
+          <section name="home" className="section section--home">
+            <Home />
+          </section>
+        </Waypoint>
+        <Waypoint onEnter={() => handleSwitchSection('skills')}>
+          <section name="skills" className="section section--skills">
+            <Skills />
+          </section>
+        </Waypoint>
+        <Waypoint onEnter={() => handleSwitchSection('projects')}>
+          <section name="projects" className="section section--projects">
+            <Projects />
+          </section>
+        </Waypoint>
+        <Waypoint onEnter={() => handleSwitchSection('contact')}>
+          <section name="contact" className="section section--contact">
+            <Contact />
+          </section>
+        </Waypoint>
         <div className="footer">
           Réalisé par Matthieu Munoz, code disponible<a href="https://github.com/Matthieu-Munoz/portfolio" target="_blank" rel="noopener noreferrer">ici</a>.
         </div>

@@ -2,6 +2,9 @@
 import { useDispatch } from 'react-redux';
 import DOMPurify from "dompurify";
 import PropTypes from 'prop-types';
+import { AdvancedImage, lazyload, placeholder } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
 // Styles
 import "./card.scss"
@@ -24,11 +27,30 @@ function Card({
         dispatch(toggleProjectInfo(project))
         dispatch(toggleModal("projectinfo"))
     }
+
+
+    const cld = new Cloudinary({
+        cloud: {
+            cloudName: 'matthieu-munoz'
+        }
+    });
+
+    const mobileImg = cld.image(img_mobil);
+    const desktopImg = cld.image(img_deskot);
+    mobileImg
+        .resize(fill(376, 566))
+        .format('webp')
+        .quality(100);
+    desktopImg
+        .resize(fill(750, 528))
+        .format('webp')
+        .quality(100);
+
     return (
         <div className={`card card__${cardStyle}`} onMouseDown={handlePointerEvent} onTouchStart={handlePointerEvent}>
             <div className="card__imgs" onClick={() => window.open(url, '_blank')}>
-                <img src={img_mobil} alt={`mobile vue of project ${title}`} />
-                <img src={img_deskot} alt={`desktop vue of project ${title}`} />
+                <AdvancedImage alt={`mobile vue of project ${title}`} cldImg={mobileImg} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
+                <AdvancedImage alt={`desktop vue of project ${title}`} cldImg={desktopImg} plugins={[lazyload(), placeholder({ mode: 'blur' })]} />
             </div>
             <a href={url} target="blank" className="card__link">{title}</a>
             <div className="card__sep" />
