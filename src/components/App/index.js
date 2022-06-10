@@ -100,10 +100,17 @@ function App() {
   };
 
   const loadTheme = () => {
+    let theme;
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      theme = "light";
+    } else {
+      theme = "dark";
+    }
     const storageTheme = localStorage.getItem("theme");
     if (storageTheme !== null) {
-      dispatch(toggleTheme(JSON.parse(storageTheme)));
+      theme = JSON.parse(storageTheme)
     }
+    dispatch(toggleTheme(theme));
   };
 
   useEffect(() => {
@@ -113,7 +120,6 @@ function App() {
     if (!document.hidden) {
       handlePageIntro();
     }
-    // dispatch(loadTheme());
     return (_) => {
       window.removeEventListener("resize", debouncedHandleResize);
       document.removeEventListener("visibilitychange", handlePageIntroListener);
