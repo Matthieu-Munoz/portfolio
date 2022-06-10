@@ -24,9 +24,8 @@
       align-items: center;
       box-shadow: inset 0 0 10px 1px hsl(30deg 27% 89%);
       transform: translateY(0);
-      @include color-themes.themed() {
-        background-color: color-themes.ask("primary-color");
-      }
+      background-color: vars.$beige;
+      
       &--up {
         transform: translateY(-100%);
         transition: 0.85s ease-in-out;
@@ -43,33 +42,32 @@
           position: absolute;
           width: 15em;
           height: 8em;
-          @include color-themes.themed() {
-            border-color: color-themes.ask("accent-color");
-          }
-
+          border: solid vars.$dark-green;
+          
+          
           &__TL {
             top: $spacing-v;
             left: $spacing-h;
-            border-top: 3px solid;
-            border-left: 3px solid;
+            border-bottom: 0;
+            border-right: 0;
           }
           &__TR {
             top: $spacing-v;
             right: $spacing-h;
-            border-top: 3px solid;
-            border-right: 3px solid;
+            border-bottom: 0;
+            border-left: 0px;
           }
           &__BR {
             bottom: $spacing-v;
             right: $spacing-h;
-            border-bottom: 3px solid;
-            border-right: 3px solid;
+            border-top: 0px;
+            border-left: 0px;
           }
           &__BL {
             bottom: $spacing-v;
             left: $spacing-h;
-            border-bottom: 3px solid;
-            border-left: 3px solid;
+            border-top: 0px;
+            border-right: 0px;
           }
         }
       }
