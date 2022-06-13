@@ -25,6 +25,7 @@ import Projects from "../Projects";
 import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
+import { data } from "@/data/data";
 
 function App() {
   // To dispatch action to the store
@@ -36,6 +37,7 @@ function App() {
     theme,
     disableScroll,
     menuDisplay,
+    language,
   } = useSelector((state) => state.app);
   const themeClass = classNames(
     "theme",
@@ -112,6 +114,8 @@ function App() {
     }
     dispatch(toggleTheme(theme));
   };
+
+  const displayedData = data[0][language];
 
   useEffect(() => {
     loadTheme();

@@ -73,6 +73,12 @@ export const toggleModal = (component) => ({
     type: TOGGLE_MODAL,
     component,
 });
+// Switch between french and english
+export const TOGGLE_LANGUAGE = 'TOGGLE_LANGUAGE';
+export const toggleLanguage = (language) => ({
+  type: TOGGLE_LANGUAGE,
+  language,
+});
 
 
 

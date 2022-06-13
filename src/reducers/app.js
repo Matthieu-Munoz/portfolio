@@ -10,6 +10,7 @@ import {
   TOGGLE_INTRO_SECTION,
   TOGGLE_MODAL,
   TOGGLE_INTRO_ANIMATION,
+  TOGGLE_LANGUAGE,
 } from "@/actions/app";
 
 export const initialState = {
@@ -29,6 +30,7 @@ export const initialState = {
     contact: false,
   },
   loading: true,
+  language: "french",
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -96,6 +98,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         modalOpened: !state.modalOpened,
         modalComponent: action.component,
+      };
+    case TOGGLE_LANGUAGE:
+      return {
+        ...state,
+        language: action.language,
       };
     default:
       return state;
