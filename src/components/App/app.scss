@@ -25,7 +25,7 @@
       box-shadow: inset 0 0 10px 1px hsl(30deg 27% 89%);
       transform: translateY(0);
       background-color: vars.$beige;
-      
+
       &--up {
         transform: translateY(-100%);
         transition: 0.85s ease-in-out;
@@ -43,8 +43,7 @@
           width: 15em;
           height: 8em;
           border: solid vars.$dark-green;
-          
-          
+
           &__TL {
             top: $spacing-v;
             left: $spacing-h;

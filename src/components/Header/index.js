@@ -2,7 +2,7 @@
 // React-Redux
 import Menu from "../Menu";
 // Styles
-import "./header.scss"
+import "./header.scss";
 
 function Header() {
   return (

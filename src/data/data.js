@@ -65,7 +65,7 @@ export const data = [
           0: "After more than four years spent in a metalwork workshop as a design technician, I began a professional retraining towards web development.",
           1: "I got introduced to the world of Web dev through personal projects which strongly aroused my curiosity, but mainly expressed my desire to be part of this world.",
           2: "So, I started to study at O'Clock, with a PHP base and a specialization in ReactJS, I learned the tricks of the trade, but I also became aware of my preferences.",
-          3: "Nowadays, I specialize in front-end development while keeping full-stack skills."
+          3: "Nowadays, I specialize in front-end development while keeping full-stack skills.",
         },
         profil: {
           name: "Matthieu",

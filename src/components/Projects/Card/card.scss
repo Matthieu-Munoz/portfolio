@@ -53,7 +53,8 @@
     overflow: hidden;
     transition: 0.3s;
     @include color-themes.themed() {
-      text-shadow: 0 calc(-1 * var(--_t, 0em)) color-themes.ask("primary-text-color"),
+      text-shadow: 0 calc(-1 * var(--_t, 0em))
+          color-themes.ask("primary-text-color"),
         0 calc(var(--h) - var(--_t, 0em)) color-themes.ask("accent-color");
     }
     &:hover {

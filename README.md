@@ -1,4 +1,3 @@
-
 <h1  align="center">
   <img src="./src/assets/images/logo-flower_light.svg" width="30px" />
   &nbsp;Portfolio - Matthieu Munoz
@@ -38,8 +37,8 @@ J'ai fait le choix de mettre en pratique ma spécialisation en React.js.
 
 **Les bases :**
 
-- Yarn :  C’est un gestionnaire de packages qui se double d'un gestionnaire de projets. Utilisé en même temps que npm (node package manager), il me permet d’installer toutes les dépendances utiles au site. Celles-ci seront gérées depuis le fichier package.json.
-- HTML/CSS/JS :  Les trois langages d’une page web. Ils seront utilisés à travers tout le site, parfois par des extensions syntaxiques comme JSX pour l’HTML/le JS ou alors avec une forme alternative comme le SCSS pour le CSS. La mise en production de notre site transpilera l’intégralité de mon code dans ce trio pour qu’il soit lisible par les navigateurs.
+- Yarn : C’est un gestionnaire de packages qui se double d'un gestionnaire de projets. Utilisé en même temps que npm (node package manager), il me permet d’installer toutes les dépendances utiles au site. Celles-ci seront gérées depuis le fichier package.json.
+- HTML/CSS/JS : Les trois langages d’une page web. Ils seront utilisés à travers tout le site, parfois par des extensions syntaxiques comme JSX pour l’HTML/le JS ou alors avec une forme alternative comme le SCSS pour le CSS. La mise en production de notre site transpilera l’intégralité de mon code dans ce trio pour qu’il soit lisible par les navigateurs.
 - Create React App (CRA) : C’est un package installé depuis npm. Il permet l’initialisation d’un projet React avec une configuration moderne testée, approuvée et maintenue.
 
 **Les dépendances :**
@@ -84,13 +83,13 @@ Ici, j'ai créé un alias `@` correspondant au dossier `./src`, cela permet de f
 ##### SCSS Theming
 
 J'ai aussi implémenté la fonctionnalité de theming SASS proposé par [@katiemctigue](https://medium.com/@katiemctigue/how-to-create-a-dark-mode-in-sass-609f131a3995).
-Dans le fichier [_color-themes.scss](src/styles/_color-themes.scss), j'ai défini les différents éléments de notre thème dans la variable `$themes`.
+Dans le fichier [\_color-themes.scss](src/styles/_color-themes.scss), j'ai défini les différents éléments de notre thème dans la variable `$themes`.
 L'accès à cette fonctionnalité est possible à tout moment dans un fichier SCSS avec :
 
 ```scss
 @include color-themes.themed() {
-        css-property: color-themes.ask("theme-var");
-      }
+  css-property: color-themes.ask("theme-var");
+}
 ```
 
 ## La suite
