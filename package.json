@@ -6,6 +6,7 @@
     "@cloudinary/react": "^1.4.1",
     "@cloudinary/url-gen": "^1.8.0",
     "@craco/craco": "^6.4.3",
+    "@trunkio/launcher": "^1.1.1",
     "classnames": "^2.3.1",
     "cooltipz-css": "^2.1.0",
     "dompurify": "^2.3.8",

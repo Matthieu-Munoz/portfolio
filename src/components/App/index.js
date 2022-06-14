@@ -154,7 +154,7 @@ function App() {
         <Modal />
         <Waypoint onEnter={() => handleSwitchSection("home")}>
           <section name="home" className="section section--home">
-            <Home />
+            <Home data={displayedData.home}/>
           </section>
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("skills")}>
