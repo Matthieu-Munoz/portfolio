@@ -159,7 +159,7 @@ function App() {
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("skills")}>
           <section name="skills" className="section section--skills">
-            <Skills />
+            <Skills data={displayedData.skills} />
           </section>
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("projects")}>
@@ -169,17 +169,17 @@ function App() {
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("contact")}>
           <section name="contact" className="section section--contact">
-            <Contact />
+            <Contact data={displayedData.contact} />
           </section>
         </Waypoint>
         <div className="footer">
-          Réalisé par Matthieu Munoz, code disponible
+          {displayedData.footer.text}
           <a
             href="https://github.com/Matthieu-Munoz/portfolio"
             target="_blank"
             rel="noopener noreferrer"
           >
-            ici
+            {displayedData.footer.link}
           </a>
           .
         </div>

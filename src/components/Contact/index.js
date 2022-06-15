@@ -17,7 +17,7 @@ import sent from "@/assets/images/done-sent.svg";
 import "./contact.scss";
 import Loader from "../Loader/inder";
 
-function Contact() {
+function Contact({ data }) {
   const dispatch = useDispatch();
   const {
     name,
@@ -162,14 +162,14 @@ function Contact() {
               ) : (
                 <div className="contact__form__inputs">
                   <Field
-                    label="Nom"
+                    label={data.name}
                     name="name"
                     onChange={handleChange}
                     value={name}
                     tip={"Merci de saisir un nom d'au moins 3 caractères"}
                   />
                   <Field
-                    label="e-mail"
+                    label={data.email}
                     name="email"
                     type="text"
                     onChange={handleChange}
@@ -177,14 +177,14 @@ function Contact() {
                     tip={"Merci de saisir un email valide"}
                   />
                   <Field
-                    label="Sujet"
+                    label={data.subject}
                     name="subject"
                     onChange={handleChange}
                     value={subject}
                     tip={"Merci de saisir un sujet d'au moins 3 caractères"}
                   />
                   <Field
-                    label="Message"
+                    label={data.message}
                     name="message"
                     type="textarea"
                     onChange={handleChange}
