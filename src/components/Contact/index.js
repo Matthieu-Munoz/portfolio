@@ -101,7 +101,7 @@ function Contact() {
                   </button>
                 </div>
               ) : (
-                <>
+                <div className="contact__form__inputs">
                   <Field
                     label="Nom"
                     name="name"
@@ -131,7 +131,7 @@ function Contact() {
                   <button type="submit" className="contact__form__submit">
                     Envoyer
                   </button>
-                </>
+                </div>
               )}
             </>
           )}

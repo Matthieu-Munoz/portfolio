@@ -11,21 +11,21 @@ import "./menu.scss";
 
 function Menu() {
   const dispatch = useDispatch();
-  const { home, skills, projects, contact, language, menuStatus } = useSelector(
+  const { currentSection, language, menuStatus } = useSelector(
     (state) => state.app
   );
   const menuCssClass = classNames("menu", { open: menuStatus });
   const homeCssClass = classNames("menu__links__link", {
-    "menu__links__link--active": home,
+    "menu__links__link--active": currentSection.home,
   });
   const skillsCssClass = classNames("menu__links__link", {
-    "menu__links__link--active": skills,
+    "menu__links__link--active": currentSection.skills,
   });
   const projectCssClass = classNames("menu__links__link", {
-    "menu__links__link--active": projects,
+    "menu__links__link--active": currentSection.projects,
   });
   const contactCssClass = classNames("menu__links__link", {
-    "menu__links__link--active": contact,
+    "menu__links__link--active": currentSection.contact,
   });
   const burgerCssClass = classNames("burger burger-squeeze", {
     open: menuStatus,
