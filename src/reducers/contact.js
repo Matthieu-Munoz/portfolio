@@ -1,6 +1,7 @@
 import {
   CHANGE_FIELD,
   CONFIRM_SENDING,
+  TOGGLE_ERROR,
   TOGGLE_LOADING,
 } from "@/actions/contact";
 
@@ -9,6 +10,10 @@ const initialState = {
   email: "",
   subject: "",
   message: "",
+  nameError: false,
+  emailError: false,
+  subjectError: false,
+  messageError: false,
   isSent: false,
   isLoading: false,
 };
@@ -33,6 +38,11 @@ function Reducer(state = initialState, action = {}) {
       return {
         ...state,
         isLoading: action.value,
+      };
+    case TOGGLE_ERROR:
+      return {
+        ...state,
+        [`${action.name}Error`]: action.value,
       };
     default:
       return state;

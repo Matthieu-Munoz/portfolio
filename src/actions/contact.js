@@ -15,3 +15,9 @@ export const toggleLoading = (value) => ({
   type: TOGGLE_LOADING,
   value,
 });
+export const TOGGLE_ERROR = "TOGGLE_ERROR";
+export const toggleError = (name, value) => ({
+  type: TOGGLE_ERROR,
+  name,
+  value,
+});

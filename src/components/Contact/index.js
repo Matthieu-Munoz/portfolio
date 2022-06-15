@@ -5,7 +5,12 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
 import Field from "../Field";
-import { changeField, confirmSending, toggleLoading } from "@/actions/contact";
+import {
+  changeField,
+  confirmSending,
+  toggleError,
+  toggleLoading,
+} from "@/actions/contact";
 import SectionTitle from "../SectionTitle";
 import sent from "@/assets/images/done-sent.svg";
 // Styles
@@ -14,23 +19,77 @@ import Loader from "../Loader/inder";
 
 function Contact() {
   const dispatch = useDispatch();
-  const { name, email, subject, message, isSent, isLoading } = useSelector(
-    (state) => state.contact
-  );
+  const {
+    name,
+    email,
+    subject,
+    message,
+    nameError,
+    emailError,
+    subjectError,
+    messageError,
+    isSent,
+    isLoading,
+  } = useSelector((state) => state.contact);
 
   const handleChange = (value, field) => {
+    fieldValidation(field, value);
     dispatch(changeField(value, field));
+  };
+
+  const fieldValidation = (field, value) => {
+    const emailValidREgex =
+      /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    switch (field) {
+      case "email":
+        dispatch(toggleError("email", false));
+        if (!value.match(emailValidREgex)) {
+          dispatch(toggleError("email", true));
+        }
+        break;
+      case "name":
+        dispatch(toggleError("name", false));
+        if (value.length < 3 || value === "") {
+          dispatch(toggleError("name", true));
+        }
+        break;
+      case "subject":
+        dispatch(toggleError("subject", false));
+        if (value.length < 3 || value === "") {
+          dispatch(toggleError("subject", true));
+        }
+        break;
+      case "message":
+        dispatch(toggleError("message", false));
+        if (value.length < 30 || value === "") {
+          dispatch(toggleError("message", true));
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
+  const formValidation = () => {
+    if (nameError || emailError || subjectError || messageError) {
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(toggleLoading(true));
-    sendFeedback("template_5cbehrd", {
-      message: message,
-      from_name: name,
-      reply_to: email,
-      subject: subject,
-    });
+    if (formValidation()) {
+      sendFeedback("template_5cbehrd", {
+        message: message,
+        from_name: name,
+        reply_to: email,
+        subject: subject,
+      });
+    } else {
+      dispatch(toggleLoading(false));
+    }
   };
 
   const sendFeedback = (templateId, variables) => {
@@ -107,19 +166,22 @@ function Contact() {
                     name="name"
                     onChange={handleChange}
                     value={name}
+                    tip={"Merci de saisir un nom d'au moins 3 caractères"}
                   />
                   <Field
                     label="e-mail"
                     name="email"
-                    type="email"
+                    type="text"
                     onChange={handleChange}
                     value={email}
+                    tip={"Merci de saisir un email valide"}
                   />
                   <Field
                     label="Sujet"
                     name="subject"
                     onChange={handleChange}
                     value={subject}
+                    tip={"Merci de saisir un sujet d'au moins 3 caractères"}
                   />
                   <Field
                     label="Message"
@@ -127,6 +189,7 @@ function Contact() {
                     type="textarea"
                     onChange={handleChange}
                     value={message}
+                    tip={"Merci de saisir un message d'au moins 30 caractères"}
                   />
                   <button type="submit" className="contact__form__submit">
                     Envoyer
