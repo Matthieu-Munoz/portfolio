@@ -2,13 +2,15 @@
 import { useSelector } from "react-redux";
 import DOMPurify from "dompurify";
 
-// React-Redux
-
+// Local | React-Redux
+import { data } from "@/data/data";
 // Styles
 import "./projectinfo.scss";
 
 function ProjectInfo() {
   const { project } = useSelector((state) => state.projects);
+  const { language } = useSelector((state) => state.app);
+  const displayedData = data[0][language];
   return (
     <div className="projectinfo">
       <a href={project.url} target="_blank" rel="noreferrer">
@@ -30,7 +32,9 @@ function ProjectInfo() {
           />
         </div>
         <div className="projectinfo__ctn__info projectinfo__ctn__info--proj">
-          <h3 className="projectinfo__ctn__info__title">Le projet :</h3>
+          <h3 className="projectinfo__ctn__info__title">
+            {displayedData.projects.title}
+          </h3>
           <div className="projectinfo__ctn__info__text">
             {project.github && (
               <div className="projectinfo__ctn__info__text__para">
@@ -43,13 +47,13 @@ function ProjectInfo() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Lien GitHub
+                  {displayedData.projects.github}
                 </a>
               </div>
             )}
             <div className="projectinfo__ctn__info__text__para">
               <h4 className="projectinfo__ctn__info__text__subtitle">
-                Date de réalisation :
+                {displayedData.projects.date}
               </h4>
               <span
                 dangerouslySetInnerHTML={{
@@ -59,7 +63,7 @@ function ProjectInfo() {
             </div>
             <div className="projectinfo__ctn__info__text__para">
               <h4 className="projectinfo__ctn__info__text__subtitle">
-                Contexte :
+                {displayedData.projects.context}
               </h4>
               <span
                 dangerouslySetInnerHTML={{
@@ -69,7 +73,7 @@ function ProjectInfo() {
             </div>
             <div className="projectinfo__ctn__info__text__para">
               <h4 className="projectinfo__ctn__info__text__subtitle">
-                Compétences utilisées :
+                {displayedData.projects.skills}
               </h4>
               <div className="projectinfo__ctn__info__text__skills">
                 {project.skills &&

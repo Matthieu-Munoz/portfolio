@@ -2,14 +2,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 // Local | React-Redux
-import { projectsData } from "@/data/projects";
 // Styles
 import Card from "./Card";
 import "./projects.scss";
 import SectionTitle from "../SectionTitle";
 import { toggleProjectsIndex } from "@/actions/projects";
 
-function Projects() {
+function Projects({ data }) {
   const dispatch = useDispatch();
   const { index } = useSelector((state) => state.projects);
 
@@ -17,12 +16,12 @@ function Projects() {
     if (index - 1 >= 0) {
       dispatch(toggleProjectsIndex(index - 1));
     } else {
-      dispatch(toggleProjectsIndex(projectsData.length - 1));
+      dispatch(toggleProjectsIndex(data.list.length - 1));
     }
   };
 
   const slideRight = () => {
-    if (index + 1 <= projectsData.length - 1) {
+    if (index + 1 <= data.list.length - 1) {
       dispatch(toggleProjectsIndex(index + 1));
     } else {
       dispatch(toggleProjectsIndex(0));
@@ -55,7 +54,7 @@ function Projects() {
       if (offset <= -100) {
         slideRight();
         /* if we're at the last card, snap back to center */
-        if (index === projectsData.length - 1) {
+        if (index === data.list.length - 1) {
           card.style.left = 0;
         } else {
           /* hide the shift back to center 
@@ -106,7 +105,7 @@ function Projects() {
           className="projects__carousel__chevron projects__carousel__chevron--prev"
           onClick={slideLeft}
         />
-        {projectsData.map((project, n) => {
+        {data.list.map((project, n) => {
           let position = n > index ? "next" : n === index ? "active" : "prev";
           return (
             <Card
@@ -115,6 +114,7 @@ function Projects() {
               project={project}
               cardStyle={position}
               handlePointerEvent={handlePointerEvent}
+              data={data}
             />
           );
         })}

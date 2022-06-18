@@ -21,6 +21,7 @@ function Card({
   handlePointerEvent,
   moreInfo,
   project,
+  data,
 }) {
   const dispatch = useDispatch();
   const handleModal = () => {
@@ -69,7 +70,7 @@ function Card({
       />
       {moreInfo && (
         <div className="card__modal" onClick={handleModal}>
-          En savoir plus
+          {data.about}
         </div>
       )}
     </div>

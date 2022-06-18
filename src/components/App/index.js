@@ -164,7 +164,7 @@ function App() {
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("projects")}>
           <section name="projects" className="section section--projects">
-            <Projects />
+            <Projects data={displayedData.projects} />
           </section>
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("contact")}>

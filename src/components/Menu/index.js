@@ -6,15 +6,16 @@ import * as Scroll from "react-scroll";
 // React-Redux
 import { toggleLanguage, toggleMenu, toggleSection } from "@/actions/app";
 import ThemeToggle from "../ThemeToggle";
+import { data } from "@/data/data";
 // Styles
 import "./menu.scss";
 
 function Menu() {
   const dispatch = useDispatch();
-  const { currentSection, language, menuStatus } = useSelector(
+  const { currentSection, language, menuOpened } = useSelector(
     (state) => state.app
   );
-  const menuCssClass = classNames("menu", { open: menuStatus });
+  const menuCssClass = classNames("menu", { open: menuOpened });
   const homeCssClass = classNames("menu__links__link", {
     "menu__links__link--active": currentSection.home,
   });
@@ -28,7 +29,7 @@ function Menu() {
     "menu__links__link--active": currentSection.contact,
   });
   const burgerCssClass = classNames("burger burger-squeeze", {
-    open: menuStatus,
+    open: menuOpened,
   });
   const scroller = Scroll.scroller;
 
@@ -41,12 +42,15 @@ function Menu() {
       ignoreCancelEvents: true,
     });
   };
+
+  const displayedData = data[0][language];
+
   return (
     <>
       <div className="menu_toggle">
         <div
           className={burgerCssClass}
-          onClick={() => dispatch(toggleMenu(!menuStatus))}
+          onClick={() => dispatch(toggleMenu(!menuOpened))}
         >
           <div className="burger-lines"></div>
         </div>
@@ -124,7 +128,7 @@ function Menu() {
           <div
             className="menu__toggles__ctn"
             role="button"
-            aria-label="Coming Soon"
+            aria-label={displayedData.languageBtn}
             data-cooltipz-dir="top"
             onClick={() => {
               dispatch(
