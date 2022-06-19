@@ -1,7 +1,6 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 // Local | React-Redux
 import Field from "../Field";
 import {
@@ -12,9 +11,10 @@ import {
 } from "@/actions/contact";
 import SectionTitle from "../SectionTitle";
 import sent from "@/assets/images/done-sent.svg";
+import ContactMap from "../ContactMap";
+import Loader from "../Loader";
 // Styles
 import "./contact.scss";
-import Loader from "../Loader/inder";
 
 function Contact({ data }) {
   const dispatch = useDispatch();
@@ -109,31 +109,15 @@ function Contact({ data }) {
         )
       );
   };
-  var myIcon = new Icon({
-    iconUrl:
-      "https://res.cloudinary.com/matthieu-munoz/image/upload/v1655536463/eva_pin-fill_tolpb6.svg",
-    iconSize: [35, 35],
-  });
+
   return (
     <div className="contact">
       <SectionTitle title="Contact" />
       <div className="contact__ctn">
         <div className="contact__infos">
-          <MapContainer
-            className="contact__infos__map"
-            center={[47.2899789559538, 5.014323442477459]}
-            zoom={12}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              // trunk-ignore(gitleaks/generic-api-key)
-              url="https://api.mapbox.com/styles/v1/matthieumunoz/cl4ji3z2f001814mqlqqu6ndt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWF0dGhpZXVtdW5veiIsImEiOiJjbDRqaHh3bDQwOXMyM2JueHZ1dGJvdmE2In0.sby-JMh6aub5MLKGLLEfHQ"
-            />
-            <Marker
-              icon={myIcon}
-              position={[47.26055934665719, 4.979900748951688]}
-            ></Marker>
-          </MapContainer>
+          <LazyLoadComponent placeholder={<Loader />}>
+            <ContactMap />
+          </LazyLoadComponent>
           <div className="contact__infos__mail">
             matthieu.munoz.pro@gmail.com
           </div>

@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Waypoint } from "react-waypoint";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import classNames from "classnames";
 // Local | React-Redux
 import {
@@ -16,16 +17,17 @@ import {
 } from "@/actions/app";
 import AnimatedLogo from "../AnimatedLogo";
 import Header from "../Header";
-// Styles
-import "cooltipz-css";
-import "./app.scss";
+import Loader from "../Loader";
+import { data } from "@/data/data";
 import Home from "../Home";
 import Skills from "../Skills";
 import Projects from "../Projects";
 import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
-import { data } from "@/data/data";
+// Styles
+import "cooltipz-css";
+import "./app.scss";
 
 function App() {
   // To dispatch action to the store
@@ -164,7 +166,9 @@ function App() {
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("projects")}>
           <section name="projects" className="section section--projects">
-            <Projects data={displayedData.projects} />
+            <LazyLoadComponent placeholder={<Loader />}>
+              <Projects data={displayedData.projects} />
+            </LazyLoadComponent>
           </section>
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("contact")}>
