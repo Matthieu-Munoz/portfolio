@@ -3,14 +3,14 @@
 @use "@/styles/utils";
 @use "@/styles/responsive-breakpoints" as media;
 @import "./_reset.css";
+@import url("https://unpkg.com/leaflet@1.8.0/dist/leaflet.css");
 
 :root {
   --cooltipz-bg-color: hsl(165, 19%, 35%);
   --cooltipz-border-color: hsl(165, 19%, 35%);
   --cooltipz-text-color: hsl(0, 0%, 96%);
 }
-
-*,
+s *,
 *::before,
 *::after {
   font-size: 1em;
