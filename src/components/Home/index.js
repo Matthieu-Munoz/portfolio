@@ -1,4 +1,7 @@
 // Dependencies
+import { AdvancedImage, lazyload, placeholder } from "@cloudinary/react";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
 import SectionTitle from "../SectionTitle";
 // Styles
@@ -28,6 +31,17 @@ function Home({ data }) {
     return age;
   }
 
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: "matthieu-munoz",
+    },
+  });
+
+  const backgroundImg = cld.image("PP-bg_uhlhea.webp");
+  const profileImg = cld.image("matthieu-nobg_ly8aoi.webp");
+  backgroundImg.resize(fill(750, 750)).format("webp").quality(100);
+  profileImg.resize(fill(800, 800)).format("webp").quality(100);
+
   return (
     <div className="home">
       <div className="home__intro">
@@ -51,15 +65,19 @@ function Home({ data }) {
           <div className="home__profil__card__me">
             <div className="home__profil__card__me__container">
               <div className="home__profil__card__me__container__inner">
-                <img
+                <AdvancedImage
                   className="home__profil__card__me__container__inner--circle"
-                  alt="profil background"
-                  src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_760,w_760,q_80/PP-bg_uhlhea.webp"
+                  loading="lazy"
+                  alt={`background for profil picture`}
+                  cldImg={backgroundImg}
+                  plugins={[lazyload(), placeholder({ mode: "blur" })]}
                 />
-                <img
+                <AdvancedImage
                   className="home__profil__card__me__container__inner--img"
-                  alt="profil"
-                  src="https://res.cloudinary.com/matthieu-munoz/f_auto,c_scale,h_830,w_830,q_100/matthieu-nobg_ly8aoi.webp"
+                  loading="lazy"
+                  alt={`profil picture`}
+                  cldImg={profileImg}
+                  plugins={[lazyload(), placeholder({ mode: "blur" })]}
                 />
               </div>
             </div>

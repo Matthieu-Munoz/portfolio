@@ -18,13 +18,13 @@ import {
 import AnimatedLogo from "../AnimatedLogo";
 import Header from "../Header";
 import Loader from "../Loader";
-import { data } from "@/data/data";
 import Home from "../Home";
 import Skills from "../Skills";
 import Projects from "../Projects";
 import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
+import { data } from "@/data/data";
 // Styles
 import "cooltipz-css";
 import "./app.scss";
@@ -156,12 +156,16 @@ function App() {
         <Modal />
         <Waypoint onEnter={() => handleSwitchSection("home")}>
           <section name="home" className="section section--home">
-            <Home data={displayedData.home} />
+            <LazyLoadComponent placeholder={<Loader />}>
+              <Home data={displayedData.home} />
+            </LazyLoadComponent>
           </section>
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("skills")}>
           <section name="skills" className="section section--skills">
-            <Skills data={displayedData.skills} />
+            <LazyLoadComponent placeholder={<Loader />}>
+              <Skills data={displayedData.skills} />
+            </LazyLoadComponent>
           </section>
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("projects")}>
@@ -173,7 +177,9 @@ function App() {
         </Waypoint>
         <Waypoint onEnter={() => handleSwitchSection("contact")}>
           <section name="contact" className="section section--contact">
-            <Contact data={displayedData.contact} />
+            <LazyLoadComponent placeholder={<Loader />}>
+              <Contact data={displayedData.contact} />
+            </LazyLoadComponent>
           </section>
         </Waypoint>
         <div className="footer">

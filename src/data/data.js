@@ -19,7 +19,15 @@ import canva from "@/assets/icons/canva.svg";
 export const data = [
   {
     french: {
-      languageBtn: "Switch to english",
+      menu: {
+        home: "Accueil",
+        skills: "Compétences",
+        projects: "Projets",
+        contact: "Contact",
+        resume: "Mon CV",
+        language: "Langue",
+        languageBtn: "Switch to english",
+      },
       home: {
         text: {
           0: "Après plus de quatre ans passés dans un atelier de métallerie ferronnerie d'art comme technicien d'étude, j'ai commencé une reconversion professionnelle vers le développement web en 2021.",
@@ -233,6 +241,14 @@ export const data = [
     },
     english: {
       languageBtn: "Passer le site en français",
+      menu: {
+        home: "Home",
+        skills: "Skills",
+        projects: "Projects",
+        contact: "Contact",
+        resume: "Resume",
+        language: "Language",
+      },
       home: {
         text: {
           0: "After more than four years spent in a metalwork workshop as a design technician, I began a professional retraining towards web development.",

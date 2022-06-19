@@ -43,7 +43,7 @@ function Menu() {
     });
   };
 
-  const displayedData = data[0][language];
+  const displayedData = data[0][language].menu;
 
   return (
     <>
@@ -65,28 +65,28 @@ function Menu() {
             data-section="home"
             onClick={() => handleSectionSwitch("home")}
           >
-            Accueil
+            {displayedData.home}
           </div>
           <div
             className={skillsCssClass}
             data-section="skills"
             onClick={() => handleSectionSwitch("skills")}
           >
-            Compétences
+            {displayedData.skills}
           </div>
           <div
             className={projectCssClass}
             data-section="projects"
             onClick={() => handleSectionSwitch("projects")}
           >
-            Projets
+            {displayedData.projects}
           </div>
           <div
             className={contactCssClass}
             data-section="contact"
             onClick={() => handleSectionSwitch("contact")}
           >
-            Contact
+            {displayedData.contact}
           </div>
           <a
             href="https://docs.matthieu-munoz.fr/resume-mmunoz.pdf"
@@ -94,7 +94,7 @@ function Menu() {
             className="menu__links__link"
           >
             <div className="menu__links__link" data-section="resume">
-              Mon CV
+              {displayedData.resume}
             </div>
           </a>
           <div className="menu__socials">
@@ -137,7 +137,9 @@ function Menu() {
             }}
           >
             <AiOutlineGlobal className="menu__language_toggle" />
-            <div className="menu__toggles__ctn__info">Langue</div>
+            <div className="menu__toggles__ctn__info">
+              {displayedData.language}
+            </div>
           </div>
         </div>
       </div>
