@@ -17,8 +17,6 @@ function Card({
   img_mobil,
   img_deskot,
   desc,
-  cardStyle,
-  handlePointerEvent,
   moreInfo,
   project,
   data,
@@ -41,23 +39,15 @@ function Card({
   desktopImg.resize(fill(750, 528)).format("webp").quality(100);
 
   return (
-    <div
-      className={`card card__${cardStyle}`}
-      onMouseDown={handlePointerEvent}
-      onTouchStart={handlePointerEvent}
-    >
+    <div className={`card`}>
       <div className="card__imgs" onClick={() => window.open(url, "_blank")}>
         <AdvancedImage
-          loading="lazy"
           alt={`mobile vue of project ${title}`}
           cldImg={mobileImg}
-          plugins={[lazyload(), placeholder({ mode: "blur" })]}
         />
         <AdvancedImage
-          loading="lazy"
           alt={`desktop vue of project ${title}`}
           cldImg={desktopImg}
-          plugins={[lazyload(), placeholder({ mode: "blur" })]}
         />
       </div>
       <a href={url} target="blank" className="card__link">
@@ -83,9 +73,7 @@ Card.propTypes = {
   img_mobil: PropTypes.string,
   img_deskot: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  cardStyle: PropTypes.string.isRequired,
   moreInfo: PropTypes.bool.isRequired,
-  handlePointerEvent: PropTypes.func.isRequired,
   project: PropTypes.object.isRequired,
 };
 

@@ -4,13 +4,13 @@
 @use "@/styles/responsive-breakpoints" as media;
 
 .card {
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 365px;
   height: 600px;
+  margin: auto;
   &__imgs {
     z-index: -1;
     position: relative;
@@ -77,34 +77,12 @@
     width: 90%;
     text-align: center;
   }
-
-  &__prev {
-    left: 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: 0.5s ease-in-out;
-  }
-
-  &__active {
-    left: 50%;
-    transform: translateX(-50%);
-    transition: 0.5s ease-in-out;
-  }
-
-  &__next {
-    left: 100%;
-    transform: translateX(calc(-100% - 2rem));
-    opacity: 0;
-    transition: 0.5s ease-in-out;
-    pointer-events: none;
-  }
 }
 
 @include media.responsive("tablet") {
   .card {
     width: 700px;
     height: 690px;
-    transition: 0.2s ease-in-out;
     &__imgs {
       margin-right: -2em;
       & img {

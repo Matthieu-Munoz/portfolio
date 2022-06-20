@@ -39,8 +39,8 @@ function Home({ data }) {
 
   const backgroundImg = cld.image("PP-bg_uhlhea.webp");
   const profileImg = cld.image("matthieu-nobg_ly8aoi.webp");
-  backgroundImg.resize(fill(750, 750)).format("webp").quality(100);
-  profileImg.resize(fill(800, 800)).format("webp").quality(100);
+  backgroundImg.resize(fill(380, 380)).format("webp").quality(100);
+  profileImg.resize(fill(415, 415)).format("webp").quality(100);
 
   return (
     <div className="home">
@@ -70,14 +70,12 @@ function Home({ data }) {
                   loading="lazy"
                   alt={`background for profil picture`}
                   cldImg={backgroundImg}
-                  plugins={[lazyload(), placeholder({ mode: "blur" })]}
                 />
                 <AdvancedImage
                   className="home__profil__card__me__container__inner--img"
                   loading="lazy"
                   alt={`profil picture`}
                   cldImg={profileImg}
-                  plugins={[lazyload(), placeholder({ mode: "blur" })]}
                 />
               </div>
             </div>
