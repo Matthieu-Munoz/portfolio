@@ -2,7 +2,7 @@
 import { useDispatch } from "react-redux";
 import DOMPurify from "dompurify";
 import PropTypes from "prop-types";
-import { AdvancedImage, lazyload, placeholder } from "@cloudinary/react";
+import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
