@@ -3,7 +3,7 @@ import {
   CONFIRM_SENDING,
   TOGGLE_ERROR,
   TOGGLE_LOADING,
-} from "@/actions/contact";
+} from "Actions/contact";
 
 const initialState = {
   name: "",

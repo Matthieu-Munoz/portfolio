@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { IoClose } from "react-icons/io5";
 // Local | React-Redux
-import { toggleModal } from "@/actions/app";
+import { toggleModal } from "Actions/app";
 import ProjectInfo from "./ProjectInfo";
 // Styles
 import "./modal.scss";

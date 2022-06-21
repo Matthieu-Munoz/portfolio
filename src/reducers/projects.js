@@ -1,4 +1,4 @@
-import { TOGGLE_PROJECT_INFO } from "@/actions/projects";
+import { TOGGLE_PROJECT_INFO } from "Actions/projects";
 
 const initialState = {
   index: 0,

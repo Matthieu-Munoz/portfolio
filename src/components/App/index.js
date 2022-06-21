@@ -14,7 +14,7 @@ import {
   toggleScroll,
   toggleSection,
   toggleTheme,
-} from "@/actions/app";
+} from "Actions/app.js";
 import AnimatedLogo from "../AnimatedLogo";
 import Header from "../Header";
 import Loader from "../Loader";
@@ -24,7 +24,7 @@ import Projects from "../Projects";
 import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
-import { data } from "@/data/data";
+import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
 import "./app.scss";

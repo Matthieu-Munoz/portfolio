@@ -2,14 +2,11 @@
 import { useDispatch } from "react-redux";
 import DOMPurify from "dompurify";
 import PropTypes from "prop-types";
-import { AdvancedImage } from "@cloudinary/react";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
 // Styles
 import "./card.scss";
-import { toggleModal } from "@/actions/app";
-import { toggleProjectInfo } from "@/actions/projects";
+import { toggleModal } from "Actions/app";
+import { toggleProjectInfo } from "Actions/projects";
 
 function Card({
   title,
@@ -27,27 +24,16 @@ function Card({
     dispatch(toggleModal("projectinfo"));
   };
 
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: "matthieu-munoz",
-    },
-  });
-
-  const mobileImg = cld.image(img_mobil);
-  const desktopImg = cld.image(img_deskot);
-  mobileImg.resize(fill(376, 566)).format("webp").quality(100);
-  desktopImg.resize(fill(750, 528)).format("webp").quality(100);
-
   return (
     <div className={`card`}>
       <div className="card__imgs" onClick={() => window.open(url, "_blank")}>
-        <AdvancedImage
+        <img
+          src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_566,w_376/${img_mobil}`}
           alt={`mobile vue of project ${title}`}
-          cldImg={mobileImg}
         />
-        <AdvancedImage
-          alt={`desktop vue of project ${title}`}
-          cldImg={desktopImg}
+        <img
+          src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_528,w_750/${img_deskot}`}
+          alt={`mobile vue of project ${title}`}
         />
       </div>
       <a href={url} target="blank" className="card__link">

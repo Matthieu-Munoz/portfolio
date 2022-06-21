@@ -4,9 +4,9 @@ import classNames from "classnames";
 import { AiOutlineGlobal, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import * as Scroll from "react-scroll";
 // React-Redux
-import { toggleLanguage, toggleMenu, toggleSection } from "@/actions/app";
+import { toggleLanguage, toggleMenu, toggleSection } from "Actions/app";
 import ThemeToggle from "../ThemeToggle";
-import { data } from "@/data/data";
+import { data } from "Data/data";
 // Styles
 import "./menu.scss";
 

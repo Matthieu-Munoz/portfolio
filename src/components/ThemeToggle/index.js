@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 // React-Redux
-import { toggleTheme } from "../../actions/app";
+import { toggleTheme } from "Actions/app";
 // Styles
 import "./themetoggle.scss";
 

@@ -11,7 +11,7 @@ import {
   TOGGLE_MODAL,
   TOGGLE_INTRO_ANIMATION,
   TOGGLE_LANGUAGE,
-} from "@/actions/app";
+} from "Actions/app";
 
 export const initialState = {
   loadAnimation: false,

@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import * as Scroll from "react-scroll";
 // Local | React-Redux
-import { toggleSection } from "@/actions/app";
+import { toggleSection } from "Actions/app";
 // styles
 import "./socials.scss";
 

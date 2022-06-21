@@ -3,8 +3,8 @@ import {
   applyMiddleware,
   compose,
 } from "redux";
-import reducer from "@/reducers";
-import globalMiddleWare from "@/middlewares/global";
+import reducer from "Reducers";
+import globalMiddleWare from "Middlewares/global";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

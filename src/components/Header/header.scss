@@ -1,6 +1,6 @@
-@use "@/styles/vars";
-@use "@/styles/color-themes";
-@use "@/styles/responsive-breakpoints" as media;
+@use "src/styles/vars";
+@use "src/styles/color-themes";
+@use "src/styles/responsive-breakpoints" as media;
 
 .header {
   position: fixed;

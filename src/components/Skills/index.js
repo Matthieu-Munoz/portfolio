@@ -1,6 +1,5 @@
 // Dependencies
 // Local | React-Redux
-
 // Styles
 import SectionTitle from "../SectionTitle";
 import "./skills.scss";

@@ -1,7 +1,4 @@
 // Dependencies
-import { AdvancedImage, lazyload, placeholder } from "@cloudinary/react";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { fill } from "@cloudinary/url-gen/actions/resize";
 // Local | React-Redux
 import SectionTitle from "../SectionTitle";
 // Styles
@@ -31,17 +28,6 @@ function Home({ data }) {
     return age;
   }
 
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: "matthieu-munoz",
-    },
-  });
-
-  const backgroundImg = cld.image("PP-bg_uhlhea.webp");
-  const profileImg = cld.image("matthieu-nobg_ly8aoi.webp");
-  backgroundImg.resize(fill(380, 380)).format("webp").quality(100);
-  profileImg.resize(fill(415, 415)).format("webp").quality(100);
-
   return (
     <div className="home">
       <div className="home__intro">
@@ -65,17 +51,15 @@ function Home({ data }) {
           <div className="home__profil__card__me">
             <div className="home__profil__card__me__container">
               <div className="home__profil__card__me__container__inner">
-                <AdvancedImage
+                <img
                   className="home__profil__card__me__container__inner--circle"
-                  loading="lazy"
-                  alt={`background for profil picture`}
-                  cldImg={backgroundImg}
+                  src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_380,w_380/PP-bg_uhlhea.webp`}
+                  alt={`background for profil`}
                 />
-                <AdvancedImage
+                <img
                   className="home__profil__card__me__container__inner--img"
-                  loading="lazy"
-                  alt={`profil picture`}
-                  cldImg={profileImg}
+                  src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_415,w_415/matthieu-nobg_ly8aoi.webp`}
+                  alt={`Matthieu Munoz`}
                 />
               </div>
             </div>

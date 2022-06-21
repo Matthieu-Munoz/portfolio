@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import DOMPurify from "dompurify";
 
 // Local | React-Redux
-import { data } from "@/data/data";
+import { data } from "Data/data";
 // Styles
 import "./projectinfo.scss";
 

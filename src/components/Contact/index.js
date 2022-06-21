@@ -8,9 +8,9 @@ import {
   confirmSending,
   toggleError,
   toggleLoading,
-} from "@/actions/contact";
+} from "Actions/contact";
 import SectionTitle from "../SectionTitle";
-import sent from "@/assets/images/done-sent.svg";
+import sent from "Assets/images/done-sent.svg";
 import ContactMap from "../ContactMap";
 import Loader from "../Loader";
 // Styles

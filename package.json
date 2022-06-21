@@ -4,9 +4,6 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
-    "@cloudinary/react": "^1.4.1",
-    "@cloudinary/url-gen": "^1.8.0",
-    "@craco/craco": "^6.4.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@trunkio/launcher": "^1.1.1",
@@ -22,6 +19,7 @@
     "cooltipz-css": "^2.1.0",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
+    "dependency-check": "^4.1.0",
     "dompurify": "^2.3.8",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
@@ -32,9 +30,6 @@
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.4.3",
-    "jest-resolve": "^27.4.2",
-    "jest-watch-typeahead": "^1.0.0",
     "leaflet": "^1.8.0",
     "mini-css-extract-plugin": "^2.4.5",
     "postcss": "^8.4.4",
@@ -67,7 +62,6 @@
     "slick-carousel": "^1.8.1",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
-    "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
     "webpack": "^5.64.4",
     "webpack-dev-server": "^4.6.0",
@@ -75,29 +69,19 @@
     "workbox-webpack-plugin": "^6.4.1",
     "yarn": "^1.22.19"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "compression-webpack-plugin": "^10.0.0"
+  },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "settings": {
-      "import/resolver": {
-        "alias": {
-          "map": [
-            [
-              "@",
-              "./src"
-            ]
-          ]
-        }
-      }
-    }
+    ]
   },
   "browserslist": {
     "production": [
