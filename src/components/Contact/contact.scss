@@ -78,7 +78,9 @@
       width: 30%;
       margin: 1em auto 0 auto;
       border-radius: 0.25em;
-      padding: 0.25em;
+      padding: 0.3em;
+      border: none;
+      font-size: 1.1em;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-text-color");
         color: color-themes.ask("secondary-text-color");

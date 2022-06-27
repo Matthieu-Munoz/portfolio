@@ -12,6 +12,7 @@ import {
   TOGGLE_INTRO_ANIMATION,
   TOGGLE_LANGUAGE,
 } from "Actions/app";
+import { TOGGLE_SECTION_IN_VIEW } from "../actions/app";
 
 export const initialState = {
   loadAnimation: false,
@@ -23,6 +24,12 @@ export const initialState = {
   menuDisplay: false,
   modalOpened: false,
   modalComponent: "",
+  appSectionInView: {
+    home: true,
+    skills: false,
+    projects: false,
+    contact: false,
+  },
   currentSection: {
     home: true,
     skills: false,
@@ -88,8 +95,16 @@ const reducer = (state = initialState, action = {}) => {
         currentSection: {
           home: false,
           skills: false,
-          project: false,
+          projects: false,
           contact: false,
+          [action.section]: action.value,
+        },
+      };
+    case TOGGLE_SECTION_IN_VIEW:
+      return {
+        ...state,
+        appSectionInView: {
+          ...state.appSectionInView,
           [action.section]: action.value,
         },
       };
@@ -102,6 +117,7 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_LANGUAGE:
       return {
         ...state,
+
         language: action.language,
       };
     default:

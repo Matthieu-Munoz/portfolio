@@ -1,5 +1,6 @@
 "use strict";
 const CompressionPlugin = require("compression-webpack-plugin");
+const Critters = require("critters-webpack-plugin");
 
 const fs = require("fs");
 const path = require("path");
@@ -577,7 +578,7 @@ module.exports = function (webpackEnv) {
         Object.assign(
           {},
           {
-            inject: true,
+            inject: "body",
             template: paths.appHtml,
           },
           isEnvProduction
@@ -637,6 +638,10 @@ module.exports = function (webpackEnv) {
           // both options are optional
           filename: "static/css/[name].[contenthash:8].css",
           chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+        }),
+      isEnvProduction &&
+        new Critters({
+          preload: "swap",
         }),
       // Generate an asset manifest file with the following content:
       // - "files" key: Mapping of all asset filenames to their corresponding

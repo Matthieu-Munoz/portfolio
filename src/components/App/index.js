@@ -1,9 +1,10 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { Waypoint } from "react-waypoint";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
+import { InView } from "react-intersection-observer";
+import LazyLoad from "react-lazyload";
 import classNames from "classnames";
+import Aos from "aos";
 // Local | React-Redux
 import {
   toggleAnimation,
@@ -28,11 +29,14 @@ import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
 import "./app.scss";
+import "aos/dist/aos.css";
+import { toggleSectionInView } from "../../actions/app";
 
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
   const {
+    appSectionInView,
     loadAnimation,
     introSection,
     introAnimation,
@@ -41,16 +45,21 @@ function App() {
     menuDisplay,
     language,
   } = useSelector((state) => state.app);
+
   const themeClass = classNames(
     "theme",
     { "theme--dark": theme === "dark" },
     { "theme--light": theme === "light" }
   );
+
   const appClass = classNames("app", { "disable-scroll": disableScroll });
+
   const introClass = classNames("section section--intro", {
     "section--intro--up": introAnimation,
   });
+
   const menuOpen = useSelector((state) => state.app.menuOpened);
+
   let checkIntro = false;
 
   function debounce(fn, ms) {
@@ -99,8 +108,58 @@ function App() {
       dispatch(toggleMenu(false));
     }
   };
+
+  // Section switch in menu
   const handleSwitchSection = (section) => {
-    dispatch(toggleSection(section, true));
+    switch (section) {
+      case "homeInView":
+        dispatch(toggleSectionInView("home", true));
+        dispatch(toggleSection("home", true));
+        break;
+      case "homeOutView":
+        if (appSectionInView.home && appSectionInView.skills) {
+          dispatch(toggleSectionInView("home", false));
+          dispatch(toggleSection("skills", true));
+        }
+        break;
+      case "skillsInView":
+        dispatch(toggleSectionInView("skills", true));
+        if (!appSectionInView.home) {
+          dispatch(toggleSection("skills", true));
+        }
+        break;
+      case "skillsOutView":
+        if (appSectionInView.skills && appSectionInView.projects) {
+          dispatch(toggleSectionInView("skills", false));
+          dispatch(toggleSection("projects", true));
+        }
+        break;
+      case "projectsInView":
+        dispatch(toggleSectionInView("projects", true));
+        if (!appSectionInView.skills) {
+          dispatch(toggleSection("projects", true));
+        }
+        break;
+      case "projectsOutView":
+        if (appSectionInView.projects && appSectionInView.contact) {
+          dispatch(toggleSectionInView("projects", false));
+          dispatch(toggleSection("contact", true));
+        } else if (appSectionInView.projects && appSectionInView.skills) {
+          dispatch(toggleSectionInView("projects", false));
+        }
+        break;
+      case "contactInView":
+        dispatch(toggleSectionInView("contact", true));
+        break;
+      case "contactOutView":
+        if (appSectionInView.contact && appSectionInView.projects) {
+          dispatch(toggleSectionInView("contact", false));
+          dispatch(toggleSection("projects", true));
+        }
+        break;
+      default:
+        break;
+    }
   };
 
   const loadTheme = () => {
@@ -123,6 +182,10 @@ function App() {
     loadTheme();
     window.addEventListener("resize", debouncedHandleResize);
     document.addEventListener("visibilitychange", handlePageIntroListener);
+    Aos.init({
+      duration: 350,
+      easing: "ease-in-sine",
+    });
     if (!document.hidden) {
       handlePageIntro();
     }
@@ -130,6 +193,7 @@ function App() {
       window.removeEventListener("resize", debouncedHandleResize);
       document.removeEventListener("visibilitychange", handlePageIntroListener);
     };
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -137,7 +201,6 @@ function App() {
       <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)}>
         {menuDisplay && (
           <>
-            {" "}
             <Header />
             <Socials />
           </>
@@ -154,34 +217,63 @@ function App() {
           </div>
         )}
         <Modal />
-        <Waypoint onEnter={() => handleSwitchSection("home")}>
-          <section name="home" className="section section--home">
-            <LazyLoadComponent placeholder={<Loader />}>
-              <Home data={displayedData.home} />
-            </LazyLoadComponent>
-          </section>
-        </Waypoint>
-        <Waypoint onEnter={() => handleSwitchSection("skills")}>
-          <section name="skills" className="section section--skills">
-            <LazyLoadComponent placeholder={<Loader />}>
-              <Skills data={displayedData.skills} />
-            </LazyLoadComponent>
-          </section>
-        </Waypoint>
-        <Waypoint onEnter={() => handleSwitchSection("projects")}>
-          <section name="projects" className="section section--projects">
-            <LazyLoadComponent placeholder={<Loader />}>
-              <Projects data={displayedData.projects} />
-            </LazyLoadComponent>
-          </section>
-        </Waypoint>
-        <Waypoint onEnter={() => handleSwitchSection("contact")}>
-          <section name="contact" className="section section--contact">
-            <LazyLoadComponent placeholder={<Loader />}>
-              <Contact data={displayedData.contact} />
-            </LazyLoadComponent>
-          </section>
-        </Waypoint>
+        <InView
+          as="section"
+          name="home"
+          className="section section--home"
+          onChange={(inView) => {
+            inView
+              ? handleSwitchSection("homeInView")
+              : handleSwitchSection("homeOutView");
+          }}
+        >
+          <LazyLoad offset={50}>
+            <Home data={displayedData.home} />
+          </LazyLoad>
+        </InView>
+        <InView
+          as="section"
+          name="skills"
+          className="section section--skills"
+          onChange={(inView) => {
+            inView
+              ? handleSwitchSection("skillsInView")
+              : handleSwitchSection("skillsOutView");
+          }}
+        >
+          <LazyLoad offset={50} placeholder={<Loader />}>
+            <Skills data={displayedData.skills} />
+          </LazyLoad>
+        </InView>
+        <InView
+          as="section"
+          name="projects"
+          className="section section--projects"
+          onChange={(inView) => {
+            inView
+              ? handleSwitchSection("projectsInView")
+              : handleSwitchSection("projectsOutView");
+          }}
+        >
+          <LazyLoad offset={50} placeholder={<Loader />}>
+            <Projects data={displayedData.projects} />
+          </LazyLoad>
+        </InView>
+        <InView
+          as="section"
+          name="contact"
+          className="section section--contact"
+          onChange={(inView) => {
+            inView
+              ? handleSwitchSection("contactInView")
+              : handleSwitchSection("contactOutView");
+          }}
+        >
+          <LazyLoad offset={50} placeholder={<Loader />}>
+            <Contact data={displayedData.contact} />
+          </LazyLoad>
+        </InView>
+
         <div className="footer">
           {displayedData.footer.text}
           <a

@@ -12,8 +12,10 @@ function Skills({ data }) {
         {data.map((item) => {
           return (
             <div
-              key={item.class}
               className={`skills__cards__card skills__cards__card--${item.class}`}
+              key={item.class}
+              data-aos="fade-up"
+              data-aos-delay={item.delay}
             >
               <div className="skills__cards__card--ctn">
                 <div

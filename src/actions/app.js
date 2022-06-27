@@ -61,6 +61,13 @@ export const toggleMenuType = (value) => ({
   value,
 });
 
+export const TOGGLE_SECTION_IN_VIEW = "TOGGLE_SECTION_IN_VIEW";
+export const toggleSectionInView = (section, value) => ({
+  type: TOGGLE_SECTION_IN_VIEW,
+  section,
+  value,
+});
+
 export const TOGGLE_SECTION = "TOGGLE_SECTION";
 export const toggleSection = (section, value) => ({
   type: TOGGLE_SECTION,

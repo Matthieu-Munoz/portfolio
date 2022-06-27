@@ -45,6 +45,7 @@ export const data = [
         {
           name: "Techniques",
           class: "tech",
+          delay: "0",
           skill: [
             {
               name: "HTML",
@@ -91,6 +92,7 @@ export const data = [
         {
           name: "Spécialisation",
           class: "spec",
+          delay: "50",
           skill: [
             {
               name: "React",
@@ -117,6 +119,7 @@ export const data = [
         {
           name: "Diverses",
           class: "divers",
+          delay: "100",
           skill: [
             {
               name: "VScode",
@@ -266,6 +269,7 @@ export const data = [
         {
           name: "Technicals",
           class: "tech",
+          delay: "0",
           skill: [
             {
               name: "HTML",
@@ -312,6 +316,7 @@ export const data = [
         {
           name: "Specialization",
           class: "spec",
+          delay: "50",
           skill: [
             {
               name: "React",
@@ -338,6 +343,7 @@ export const data = [
         {
           name: "Miscellaneous",
           class: "divers",
+          delay: "100",
           skill: [
             {
               name: "VScode",

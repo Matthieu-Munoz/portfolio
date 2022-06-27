@@ -17,8 +17,6 @@ function Projects({ data }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     lazyLoad: "ondemand",
-    autoplay: true,
-    autoplaySpeed: 5000,
     fade: true,
     cssEase: "linear",
     arrows: true,
@@ -35,7 +33,7 @@ function Projects({ data }) {
   return (
     <div className="projects">
       <SectionTitle title="Projets" />
-      <div className="projects__carousel">
+      <div className="projects__carousel" data-aos="fade">
         <Slider {...settings}>
           {data.list.map((project, n) => {
             return <Card key={n} {...project} project={project} data={data} />;

@@ -8,7 +8,11 @@ function SectionTitle({ title, type }) {
   return (
     <>
       {type === "h1" && <h1 className="section_title">{title}</h1>}
-      {type === "h2" && <h2 className="section_title">{title}</h2>}
+      {type === "h2" && (
+        <h2 className="section_title" data-aos="fade-right">
+          {title}
+        </h2>
+      )}
     </>
   );
 }
