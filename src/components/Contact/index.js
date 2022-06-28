@@ -113,8 +113,8 @@ function Contact({ data }) {
   return (
     <div className="contact">
       <SectionTitle title="Contact" />
-      <div className="contact__ctn">
-        <div className="contact__infos" data-aos="fade-right">
+      <div className="contact__ctn" data-aos="fade">
+        <div className="contact__infos" >
           <ContactMap />
           <div className="contact__infos__mail">contact@matthieu-munoz.fr</div>
           <div className="contact__infos__sep" />
@@ -123,8 +123,7 @@ function Contact({ data }) {
         <form
           className="contact__form"
           onSubmit={handleSubmit}
-          data-aos="fade-left"
-        >
+I        >
           {isLoading ? (
             <Loader />
           ) : (

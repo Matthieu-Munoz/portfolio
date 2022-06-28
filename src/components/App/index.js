@@ -7,14 +7,15 @@ import classNames from "classnames";
 import Aos from "aos";
 // Local | React-Redux
 import {
+  toggleTheme,
   toggleAnimation,
   toggleIntroAnimation,
   toggleIntroSection,
   toggleMenu,
   toggleMenuDisplay,
   toggleScroll,
+  toggleSectionInView,
   toggleSection,
-  toggleTheme,
 } from "Actions/app.js";
 import AnimatedLogo from "../AnimatedLogo";
 import Header from "../Header";
@@ -30,12 +31,12 @@ import { data } from "Data/data";
 import "cooltipz-css";
 import "./app.scss";
 import "aos/dist/aos.css";
-import { toggleSectionInView } from "../../actions/app";
 
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
   const {
+    menuOpen,
     appSectionInView,
     loadAnimation,
     introSection,
@@ -46,21 +47,33 @@ function App() {
     language,
   } = useSelector((state) => state.app);
 
+  // -- CSS Class
+  // Applying theme
   const themeClass = classNames(
     "theme",
     { "theme--dark": theme === "dark" },
     { "theme--light": theme === "light" }
   );
-
+  // Disabeling scroll while the intro is playing
   const appClass = classNames("app", { "disable-scroll": disableScroll });
-
+  // Starts the intro moving up when applied
   const introClass = classNames("section section--intro", {
     "section--intro--up": introAnimation,
   });
 
-  const menuOpen = useSelector((state) => state.app.menuOpened);
-
-  let checkIntro = false;
+  const loadTheme = () => {
+    let theme;
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      theme = "light";
+    } else {
+      theme = "dark";
+    }
+    const storageTheme = localStorage.getItem("theme");
+    if (storageTheme !== null) {
+      theme = JSON.parse(storageTheme);
+    }
+    dispatch(toggleTheme(theme));
+  };
 
   function debounce(fn, ms) {
     let timer;
@@ -83,6 +96,8 @@ function App() {
     }
   };
 
+  let checkIntro = false;
+
   const handlePageIntro = () => {
     if (!checkIntro) {
       checkIntro = true;
@@ -97,6 +112,7 @@ function App() {
       }, 3000);
     }
   };
+
   /**
    * Close the menu when anything BUT the menu/burgerIcon is clicked
    * @param {*} evt
@@ -162,22 +178,6 @@ function App() {
     }
   };
 
-  const loadTheme = () => {
-    let theme;
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      theme = "light";
-    } else {
-      theme = "dark";
-    }
-    const storageTheme = localStorage.getItem("theme");
-    if (storageTheme !== null) {
-      theme = JSON.parse(storageTheme);
-    }
-    dispatch(toggleTheme(theme));
-  };
-
-  const displayedData = data[0][language];
-
   useEffect(() => {
     loadTheme();
     window.addEventListener("resize", debouncedHandleResize);
@@ -195,6 +195,8 @@ function App() {
     };
     // eslint-disable-next-line
   }, []);
+
+  const displayedData = data[0][language];
 
   return (
     <div className={themeClass}>
