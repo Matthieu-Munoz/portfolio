@@ -7,9 +7,9 @@ import "./skills.scss";
 function Skills({ data }) {
   return (
     <div className="skills">
-      <SectionTitle title="Compétences" />
+      <SectionTitle title={data.title} />
       <div className="skills__cards">
-        {data.map((item) => {
+        {data.skillList.map((item) => {
           return (
             <div
               className={`skills__cards__card skills__cards__card--${item.class}`}

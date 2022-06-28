@@ -114,16 +114,13 @@ function Contact({ data }) {
     <div className="contact">
       <SectionTitle title="Contact" />
       <div className="contact__ctn" data-aos="fade">
-        <div className="contact__infos" >
+        <div className="contact__infos">
           <ContactMap />
           <div className="contact__infos__mail">contact@matthieu-munoz.fr</div>
           <div className="contact__infos__sep" />
           <div className="contact__infos__num">06.05.21.64.40</div>
         </div>
-        <form
-          className="contact__form"
-          onSubmit={handleSubmit}
-I        >
+        <form className="contact__form" onSubmit={handleSubmit} I>
           {isLoading ? (
             <Loader />
           ) : (
@@ -177,7 +174,7 @@ I        >
                     tip={"Merci de saisir un message d'au moins 30 caractères"}
                   />
                   <button type="submit" className="contact__form__submit">
-                    Envoyer
+                    {data.send}
                   </button>
                 </div>
               )}

@@ -41,115 +41,119 @@ export const data = [
           contact: "contact@matthieu-munoz.f",
         },
       },
-      skills: [
-        {
-          name: "Techniques",
-          class: "tech",
-          delay: "0",
-          skill: [
-            {
-              name: "HTML",
-              src: html,
-              tip: "Intégration HTML propre et sémantique",
-            },
-            {
-              name: "CSS",
-              src: css,
-              tip: "Mise en forme grâce au CSS",
-            },
-            {
-              name: "JS",
-              src: js,
-              tip: "Javascript Vanilla",
-            },
-            {
-              name: "PHP",
-              src: php,
-              tip: "Programmation Orientée Objet",
-            },
-            {
-              name: "SQL",
-              src: sql,
-              tip: "Gestion de BDD",
-            },
-            {
-              name: "Laravel",
-              src: laravel,
-              tip: "PHP framework",
-            },
-            {
-              name: "WP",
-              src: wordpress,
-              tip: "Création de site",
-            },
-            {
-              name: "Git",
-              src: git,
-              tip: "Gestion de projet",
-            },
-          ],
-        },
-        {
-          name: "Spécialisation",
-          class: "spec",
-          delay: "50",
-          skill: [
-            {
-              name: "React",
-              src: react,
-              tip: "Développement React",
-            },
-            {
-              name: "Redux",
-              src: redux,
-              tip: "Gestion d'état",
-            },
-            {
-              name: "SASS",
-              src: sass,
-              tip: "Feuille de style",
-            },
-            {
-              name: "NPM",
-              src: npm,
-              tip: "Gestion de projet",
-            },
-          ],
-        },
-        {
-          name: "Diverses",
-          class: "divers",
-          delay: "100",
-          skill: [
-            {
-              name: "VScode",
-              src: vscode,
-              tip: "Éditeur de code",
-            },
-            {
-              name: "Linux",
-              src: linux,
-              tip: "Utilisation de Linux",
-            },
-            {
-              name: "Win",
-              src: win,
-              tip: "Utilisation de Windows",
-            },
-            {
-              name: "Figma",
-              src: figma,
-              tip: "Création de maquettes",
-            },
-            {
-              name: "Canva",
-              src: canva,
-              tip: "Création de design",
-            },
-          ],
-        },
-      ],
+      skills: {
+        title: "Compétences",
+        skillList: [
+          {
+            name: "Techniques",
+            class: "tech",
+            delay: "0",
+            skill: [
+              {
+                name: "HTML",
+                src: html,
+                tip: "Intégration HTML propre et sémantique",
+              },
+              {
+                name: "CSS",
+                src: css,
+                tip: "Mise en forme grâce au CSS",
+              },
+              {
+                name: "JS",
+                src: js,
+                tip: "Javascript Vanilla",
+              },
+              {
+                name: "PHP",
+                src: php,
+                tip: "Programmation Orientée Objet",
+              },
+              {
+                name: "SQL",
+                src: sql,
+                tip: "Gestion de BDD",
+              },
+              {
+                name: "Laravel",
+                src: laravel,
+                tip: "PHP framework",
+              },
+              {
+                name: "WP",
+                src: wordpress,
+                tip: "Création de site",
+              },
+              {
+                name: "Git",
+                src: git,
+                tip: "Gestion de projet",
+              },
+            ],
+          },
+          {
+            name: "Spécialisation",
+            class: "spec",
+            delay: "50",
+            skill: [
+              {
+                name: "React",
+                src: react,
+                tip: "Développement React",
+              },
+              {
+                name: "Redux",
+                src: redux,
+                tip: "Gestion d'état",
+              },
+              {
+                name: "SASS",
+                src: sass,
+                tip: "Feuille de style",
+              },
+              {
+                name: "NPM",
+                src: npm,
+                tip: "Gestion de projet",
+              },
+            ],
+          },
+          {
+            name: "Diverses",
+            class: "divers",
+            delay: "100",
+            skill: [
+              {
+                name: "VScode",
+                src: vscode,
+                tip: "Éditeur de code",
+              },
+              {
+                name: "Linux",
+                src: linux,
+                tip: "Utilisation de Linux",
+              },
+              {
+                name: "Win",
+                src: win,
+                tip: "Utilisation de Windows",
+              },
+              {
+                name: "Figma",
+                src: figma,
+                tip: "Création de maquettes",
+              },
+              {
+                name: "Canva",
+                src: canva,
+                tip: "Création de design",
+              },
+            ],
+          },
+        ],
+      },
       projects: {
+        sectionTitle: "Projets",
         about: "En savoir plus",
         title: "Le projet :",
         date: "Date de réalisation :",
@@ -236,6 +240,7 @@ export const data = [
         email: "email",
         subject: "Sujet",
         message: "Message",
+        send: "Envoyer",
       },
       footer: {
         text: "Réalisé par Matthieu Munoz, code disponible",
@@ -265,115 +270,119 @@ export const data = [
           contact: "contact@matthieu-munoz.f",
         },
       },
-      skills: [
-        {
-          name: "Technicals",
-          class: "tech",
-          delay: "0",
-          skill: [
-            {
-              name: "HTML",
-              src: html,
-              tip: "Clean and semantic HTML integration",
-            },
-            {
-              name: "CSS",
-              src: css,
-              tip: "Formatting with CSS",
-            },
-            {
-              name: "JS",
-              src: js,
-              tip: "vanilla javascript",
-            },
-            {
-              name: "PHP",
-              src: php,
-              tip: "Object Oriented Programming",
-            },
-            {
-              name: "SQL",
-              src: sql,
-              tip: "Database management",
-            },
-            {
-              name: "Laravel",
-              src: laravel,
-              tip: "PHP framework",
-            },
-            {
-              name: "WP",
-              src: wordpress,
-              tip: "Website creation",
-            },
-            {
-              name: "Git",
-              src: git,
-              tip: "Gestion de projet",
-            },
-          ],
-        },
-        {
-          name: "Specialization",
-          class: "spec",
-          delay: "50",
-          skill: [
-            {
-              name: "React",
-              src: react,
-              tip: "React Development",
-            },
-            {
-              name: "Redux",
-              src: redux,
-              tip: "State management",
-            },
-            {
-              name: "SASS",
-              src: sass,
-              tip: "Advanced style sheet",
-            },
-            {
-              name: "NPM",
-              src: npm,
-              tip: "Project management",
-            },
-          ],
-        },
-        {
-          name: "Miscellaneous",
-          class: "divers",
-          delay: "100",
-          skill: [
-            {
-              name: "VScode",
-              src: vscode,
-              tip: "Code editor",
-            },
-            {
-              name: "Linux",
-              src: linux,
-              tip: "Linux usage",
-            },
-            {
-              name: "Win",
-              src: win,
-              tip: "Windows usage",
-            },
-            {
-              name: "Figma",
-              src: figma,
-              tip: "Creation of models",
-            },
-            {
-              name: "Canva",
-              src: canva,
-              tip: "Design creation",
-            },
-          ],
-        },
-      ],
+      skills: {
+        title: "Skills",
+        skillList: [
+          {
+            name: "Technicals",
+            class: "tech",
+            delay: "0",
+            skill: [
+              {
+                name: "HTML",
+                src: html,
+                tip: "Clean and semantic HTML integration",
+              },
+              {
+                name: "CSS",
+                src: css,
+                tip: "Formatting with CSS",
+              },
+              {
+                name: "JS",
+                src: js,
+                tip: "vanilla javascript",
+              },
+              {
+                name: "PHP",
+                src: php,
+                tip: "Object Oriented Programming",
+              },
+              {
+                name: "SQL",
+                src: sql,
+                tip: "Database management",
+              },
+              {
+                name: "Laravel",
+                src: laravel,
+                tip: "PHP framework",
+              },
+              {
+                name: "WP",
+                src: wordpress,
+                tip: "Website creation",
+              },
+              {
+                name: "Git",
+                src: git,
+                tip: "Gestion de projet",
+              },
+            ],
+          },
+          {
+            name: "Specialization",
+            class: "spec",
+            delay: "50",
+            skill: [
+              {
+                name: "React",
+                src: react,
+                tip: "React Development",
+              },
+              {
+                name: "Redux",
+                src: redux,
+                tip: "State management",
+              },
+              {
+                name: "SASS",
+                src: sass,
+                tip: "Advanced style sheet",
+              },
+              {
+                name: "NPM",
+                src: npm,
+                tip: "Project management",
+              },
+            ],
+          },
+          {
+            name: "Miscellaneous",
+            class: "divers",
+            delay: "100",
+            skill: [
+              {
+                name: "VScode",
+                src: vscode,
+                tip: "Code editor",
+              },
+              {
+                name: "Linux",
+                src: linux,
+                tip: "Linux usage",
+              },
+              {
+                name: "Win",
+                src: win,
+                tip: "Windows usage",
+              },
+              {
+                name: "Figma",
+                src: figma,
+                tip: "Creation of models",
+              },
+              {
+                name: "Canva",
+                src: canva,
+                tip: "Design creation",
+              },
+            ],
+          },
+        ],
+      },
       projects: {
+        sectionTitle: "Projects",
         about: "Learn more",
         title: "The project :",
         date: "Date of realization :",
@@ -460,6 +469,7 @@ export const data = [
         email: "e-mail",
         subject: "Subject",
         message: "Message",
+        send: "Submit",
       },
       footer: {
         text: "Directed by Matthieu Munoz, code available",

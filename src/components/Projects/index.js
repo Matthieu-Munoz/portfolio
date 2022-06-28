@@ -32,7 +32,7 @@ function Projects({ data }) {
 
   return (
     <div className="projects">
-      <SectionTitle title="Projets" />
+      <SectionTitle title={data.sectionTitle} />
       <div className="projects__carousel" data-aos="fade">
         <Slider {...settings}>
           {data.list.map((project, n) => {
