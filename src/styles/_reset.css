@@ -148,11 +148,6 @@ a {
   color: inherit;
 }
 
-label,
-button {
-  cursor: pointer;
-}
-
 input,
 button {
   outline: 0;

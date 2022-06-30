@@ -12,6 +12,7 @@ import SectionTitle from "../SectionTitle";
 import sent from "Assets/images/done-sent.svg";
 import ContactMap from "../ContactMap";
 import Loader from "../Loader";
+import { useCursorContext } from "../Cursor";
 // Styles
 import "./contact.scss";
 
@@ -109,6 +110,7 @@ function Contact({ data }) {
         )
       );
   };
+  const cursor = useCursorContext();
 
   return (
     <div className="contact">
@@ -149,6 +151,8 @@ function Contact({ data }) {
                     onChange={handleChange}
                     value={name}
                     tip={"Merci de saisir un nom d'au moins 3 caractères"}
+                    onMouseOver={cursor.mouseOverEvent}
+                    onMouseOut={cursor.mouseOutEvent}
                   />
                   <Field
                     label={data.email}
@@ -157,6 +161,8 @@ function Contact({ data }) {
                     onChange={handleChange}
                     value={email}
                     tip={"Merci de saisir un email valide"}
+                    onMouseOver={cursor.mouseOverEvent}
+                    onMouseOut={cursor.mouseOutEvent}
                   />
                   <Field
                     label={data.subject}
@@ -164,6 +170,8 @@ function Contact({ data }) {
                     onChange={handleChange}
                     value={subject}
                     tip={"Merci de saisir un sujet d'au moins 3 caractères"}
+                    onMouseOver={cursor.mouseOverEvent}
+                    onMouseOut={cursor.mouseOutEvent}
                   />
                   <Field
                     label={data.message}
@@ -172,8 +180,15 @@ function Contact({ data }) {
                     onChange={handleChange}
                     value={message}
                     tip={"Merci de saisir un message d'au moins 30 caractères"}
+                    onMouseOver={cursor.mouseOverEvent}
+                    onMouseOut={cursor.mouseOutEvent}
                   />
-                  <button type="submit" className="contact__form__submit">
+                  <button
+                    type="submit"
+                    className="contact__form__submit"
+                    onMouseOver={cursor.mouseOverEvent}
+                    onMouseOut={cursor.mouseOutEvent}
+                  >
                     {data.send}
                   </button>
                 </div>

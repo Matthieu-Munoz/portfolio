@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import "./card.scss";
 import { toggleModal } from "Actions/app";
 import { toggleProjectInfo } from "Actions/projects";
+import { useCursorContext } from "Components/Cursor";
 
 function Card({
   title,
@@ -23,10 +24,15 @@ function Card({
     dispatch(toggleProjectInfo(project));
     dispatch(toggleModal("projectinfo"));
   };
-
+  const cursor = useCursorContext();
   return (
     <div className={`card`}>
-      <div className="card__imgs" onClick={() => window.open(url, "_blank")}>
+      <div
+        className="card__imgs"
+        onClick={() => window.open(url, "_blank")}
+        onMouseOver={cursor.mouseOverEvent}
+        onMouseOut={cursor.mouseOutEvent}
+      >
         <img
           src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_566,w_376/${img_mobil}`}
           alt={`mobile vue of project ${title}`}
@@ -36,7 +42,13 @@ function Card({
           alt={`mobile vue of project ${title}`}
         />
       </div>
-      <a href={url} target="blank" className="card__link">
+      <a
+        href={url}
+        target="blank"
+        className="card__link"
+        onMouseOver={cursor.mouseOverEvent}
+        onMouseOut={cursor.mouseOutEvent}
+      >
         {title}
       </a>
       <div className="card__sep" />
@@ -45,7 +57,12 @@ function Card({
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }}
       />
       {moreInfo && (
-        <div className="card__modal" onClick={handleModal}>
+        <div
+          className="card__modal"
+          onClick={handleModal}
+          onMouseOver={cursor.mouseOverEvent}
+          onMouseOut={cursor.mouseOutEvent}
+        >
           {data.about}
         </div>
       )}

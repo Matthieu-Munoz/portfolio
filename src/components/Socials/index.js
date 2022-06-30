@@ -11,6 +11,7 @@ import * as Scroll from "react-scroll";
 import { toggleSection } from "Actions/app";
 // styles
 import "./socials.scss";
+import { useCursorContext } from "../Cursor";
 
 function Socials() {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ function Socials() {
       ignoreCancelEvents: true,
     });
   };
+  const cursor = useCursorContext();
+
   return (
     <div className="socials">
       <a
@@ -33,6 +36,8 @@ function Socials() {
         onClick={handleClickContact}
         aria-label="Contact"
         data-cooltipz-dir="bottom"
+        onMouseOver={cursor.mouseOverEvent}
+        onMouseOut={cursor.mouseOutEvent}
       >
         <AiFillMail className="socials__link--icon" />
       </a>
@@ -43,6 +48,8 @@ function Socials() {
         className="socials__link"
         aria-label="Github"
         data-cooltipz-dir="bottom"
+        onMouseOver={cursor.mouseOverEvent}
+        onMouseOut={cursor.mouseOutEvent}
       >
         <AiFillGithub className="socials__link--icon" />
       </a>
@@ -53,6 +60,8 @@ function Socials() {
         className="socials__link"
         aria-label="Twitter"
         data-cooltipz-dir="bottom"
+        onMouseOver={cursor.mouseOverEvent}
+        onMouseOut={cursor.mouseOutEvent}
       >
         <AiFillTwitterCircle className="socials__link--icon" />
       </a>
@@ -63,6 +72,8 @@ function Socials() {
         className="socials__link"
         aria-label="Linkedin"
         data-cooltipz-dir="bottom"
+        onMouseOver={cursor.mouseOverEvent}
+        onMouseOut={cursor.mouseOutEvent}
       >
         <AiFillLinkedin className="socials__link--icon" />
       </a>

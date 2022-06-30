@@ -88,7 +88,6 @@
       text-transform: uppercase;
       white-space: nowrap;
       overflow: hidden;
-      cursor: pointer;
       transition: 0.1s ease-in-out;
 
       @include color-themes.themed() {
@@ -340,7 +339,6 @@
   width: 3em;
   position: relative;
   font-size: 12px;
-  cursor: pointer;
   transition: 0.2s all;
 
   .burger-lines:after {

@@ -26,6 +26,7 @@ import Projects from "../Projects";
 import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
+import Cursor from "../Cursor";
 import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
@@ -201,92 +202,93 @@ function App() {
   return (
     <div className={themeClass}>
       <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)}>
-        {menuDisplay && (
-          <>
-            <Header />
-            <Socials />
-          </>
-        )}
-        {introSection && (
-          <div className={introClass}>
-            <div className="intro__corners">
-              <span className="intro__corners__corner intro__corners__corner__TL"></span>
-              <span className="intro__corners__corner intro__corners__corner__TR"></span>
-              <span className="intro__corners__corner intro__corners__corner__BR"></span>
-              <span className="intro__corners__corner intro__corners__corner__BL"></span>
+        <Cursor>
+          {menuDisplay && (
+            <>
+              <Header />
+              <Socials />
+            </>
+          )}
+          {introSection && (
+            <div className={introClass}>
+              <div className="intro__corners">
+                <span className="intro__corners__corner intro__corners__corner__TL"></span>
+                <span className="intro__corners__corner intro__corners__corner__TR"></span>
+                <span className="intro__corners__corner intro__corners__corner__BR"></span>
+                <span className="intro__corners__corner intro__corners__corner__BL"></span>
+              </div>
+              {loadAnimation && <AnimatedLogo />}
             </div>
-            {loadAnimation && <AnimatedLogo />}
-          </div>
-        )}
-        <Modal />
-        <InView
-          as="section"
-          name="home"
-          className="section section--home"
-          onChange={(inView) => {
-            inView
-              ? handleSwitchSection("homeInView")
-              : handleSwitchSection("homeOutView");
-          }}
-        >
-          <LazyLoad offset={50}>
-            <Home data={displayedData.home} />
-          </LazyLoad>
-        </InView>
-        <InView
-          as="section"
-          name="skills"
-          className="section section--skills"
-          onChange={(inView) => {
-            inView
-              ? handleSwitchSection("skillsInView")
-              : handleSwitchSection("skillsOutView");
-          }}
-        >
-          <LazyLoad offset={50} placeholder={<Loader />}>
-            <Skills data={displayedData.skills} />
-          </LazyLoad>
-        </InView>
-        <InView
-          as="section"
-          name="projects"
-          className="section section--projects"
-          onChange={(inView) => {
-            inView
-              ? handleSwitchSection("projectsInView")
-              : handleSwitchSection("projectsOutView");
-          }}
-        >
-          <LazyLoad offset={50} placeholder={<Loader />}>
-            <Projects data={displayedData.projects} />
-          </LazyLoad>
-        </InView>
-        <InView
-          as="section"
-          name="contact"
-          className="section section--contact"
-          onChange={(inView) => {
-            inView
-              ? handleSwitchSection("contactInView")
-              : handleSwitchSection("contactOutView");
-          }}
-        >
-          <LazyLoad offset={50} placeholder={<Loader />}>
-            <Contact data={displayedData.contact} />
-          </LazyLoad>
-        </InView>
-
-        <div className="footer">
-          {displayedData.footer.text}
-          <a
-            href="https://github.com/Matthieu-Munoz/portfolio"
-            target="_blank"
-            rel="noopener noreferrer"
+          )}
+          <Modal />
+          <InView
+            as="section"
+            name="home"
+            className="section section--home"
+            onChange={(inView) => {
+              inView
+                ? handleSwitchSection("homeInView")
+                : handleSwitchSection("homeOutView");
+            }}
           >
-            {displayedData.footer.link}
-          </a>
-          .
-        </div>
+            <LazyLoad offset={50}>
+              <Home data={displayedData.home} />
+            </LazyLoad>
+          </InView>
+          <InView
+            as="section"
+            name="skills"
+            className="section section--skills"
+            onChange={(inView) => {
+              inView
+                ? handleSwitchSection("skillsInView")
+                : handleSwitchSection("skillsOutView");
+            }}
+          >
+            <LazyLoad offset={50} placeholder={<Loader />}>
+              <Skills data={displayedData.skills} />
+            </LazyLoad>
+          </InView>
+          <InView
+            as="section"
+            name="projects"
+            className="section section--projects"
+            onChange={(inView) => {
+              inView
+                ? handleSwitchSection("projectsInView")
+                : handleSwitchSection("projectsOutView");
+            }}
+          >
+            <LazyLoad offset={50} placeholder={<Loader />}>
+              <Projects data={displayedData.projects} />
+            </LazyLoad>
+          </InView>
+          <InView
+            as="section"
+            name="contact"
+            className="section section--contact"
+            onChange={(inView) => {
+              inView
+                ? handleSwitchSection("contactInView")
+                : handleSwitchSection("contactOutView");
+            }}
+          >
+            <LazyLoad offset={50} placeholder={<Loader />}>
+              <Contact data={displayedData.contact} />
+            </LazyLoad>
+          </InView>
+          <div className="footer">
+            {displayedData.footer.text}
+            <a
+              href="https://github.com/Matthieu-Munoz/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {displayedData.footer.link}
+            </a>
+            .
+          </div>
+        </Cursor>
       </div>
     </div>
   );

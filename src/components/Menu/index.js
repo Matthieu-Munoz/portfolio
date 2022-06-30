@@ -9,6 +9,7 @@ import ThemeToggle from "../ThemeToggle";
 import { data } from "Data/data";
 // Styles
 import "./menu.scss";
+import { useCursorContext } from "../Cursor";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function Menu() {
     });
   };
 
+  const cursor = useCursorContext();
   const displayedData = data[0][language].menu;
 
   return (
@@ -56,7 +58,12 @@ function Menu() {
         </div>
       </div>
       <div className={menuCssClass}>
-        <a href="/" rel="noopener noreferrer">
+        <a
+          href="/"
+          rel="noopener noreferrer"
+          onMouseOver={cursor.mouseOverEvent}
+          onMouseOut={cursor.mouseOutEvent}
+        >
           <div className="menu__logo">Matthieu Munoz</div>
         </a>
         <nav className="menu__links">
@@ -64,6 +71,8 @@ function Menu() {
             className={homeCssClass}
             data-section="home"
             onClick={() => handleSectionSwitch("home")}
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
           >
             {displayedData.home}
           </div>
@@ -71,6 +80,8 @@ function Menu() {
             className={skillsCssClass}
             data-section="skills"
             onClick={() => handleSectionSwitch("skills")}
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
           >
             {displayedData.skills}
           </div>
@@ -78,6 +89,8 @@ function Menu() {
             className={projectCssClass}
             data-section="projects"
             onClick={() => handleSectionSwitch("projects")}
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
           >
             {displayedData.projects}
           </div>
@@ -85,6 +98,8 @@ function Menu() {
             className={contactCssClass}
             data-section="contact"
             onClick={() => handleSectionSwitch("contact")}
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
           >
             {displayedData.contact}
           </div>
@@ -92,6 +107,8 @@ function Menu() {
             href="https://docs.matthieu-munoz.fr/resume-mmunoz.pdf"
             target="blank"
             className="menu__links__link"
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
           >
             <div className="menu__links__link" data-section="resume">
               {displayedData.resume}
@@ -105,6 +122,8 @@ function Menu() {
               className="menu__socials__link"
               aria-label="Github"
               data-cooltipz-dir="bottom"
+              onMouseOver={cursor.mouseOverEvent}
+              onMouseOut={cursor.mouseOutEvent}
             >
               <AiFillGithub className="menu__socials__link--icon" />
             </a>
@@ -115,13 +134,19 @@ function Menu() {
               className="menu__socials__link"
               aria-label="Linkedin"
               data-cooltipz-dir="bottom"
+              onMouseOver={cursor.mouseOverEvent}
+              onMouseOut={cursor.mouseOutEvent}
             >
               <AiFillLinkedin className="menu__socials__link--icon" />
             </a>
           </div>
         </nav>
         <div className="menu__toggles">
-          <div className="menu__toggles__ctn">
+          <div
+            className="menu__toggles__ctn"
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
+          >
             <ThemeToggle className="menu__theme_toggle" />
             <div className="menu__toggles__ctn__info">Theme</div>
           </div>
@@ -135,6 +160,8 @@ function Menu() {
                 toggleLanguage(language === "french" ? "english" : "french")
               );
             }}
+            onMouseOver={cursor.mouseOverEvent}
+            onMouseOut={cursor.mouseOutEvent}
           >
             <AiOutlineGlobal className="menu__language_toggle" />
             <div className="menu__toggles__ctn__info">

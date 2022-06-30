@@ -1,10 +1,12 @@
 // Dependencies
 // Local | React-Redux
 // Styles
+import { useCursorContext } from "../Cursor";
 import SectionTitle from "../SectionTitle";
 import "./skills.scss";
 
 function Skills({ data }) {
+  const cursor = useCursorContext();
   return (
     <div className="skills">
       <SectionTitle title={data.title} />
@@ -34,6 +36,8 @@ function Skills({ data }) {
                         className="skills__cards__card__list__item"
                         aria-label={skill.tip}
                         data-cooltipz-dir="top"
+                        onMouseOver={cursor.mouseOverEvent}
+                        onMouseOut={cursor.mouseOutEvent}
                         key={skill.name}
                       >
                         <img

@@ -10,7 +10,7 @@
   --cooltipz-border-color: hsl(165, 19%, 35%);
   --cooltipz-text-color: hsl(0, 0%, 96%);
 }
-s *,
+*,
 *::before,
 *::after {
   font-size: 1em;
@@ -20,6 +20,7 @@ s *,
   box-sizing: border-box;
   border: none;
   text-decoration: none;
+  cursor: none;
 }
 
 @font-face {
@@ -34,6 +35,7 @@ body {
   font-family: "Montserrat", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 #root,
