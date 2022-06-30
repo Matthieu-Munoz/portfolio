@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import classNames from "classnames";
 import Aos from "aos";
 // Local | React-Redux
-import { toggleTheme, toggleMenu, toggleSection } from "Actions/app.js";
+import { toggleTheme, toggleMenu } from "Actions/app.js";
+import { sectionsScroll } from "Actions/sections";
 import Header from "../Header";
 import Home from "../Home";
 import Skills from "../Skills";
@@ -67,70 +68,24 @@ function App() {
   };
 
   // Section snaping
-  const TIME_OUT = 600; // It should be the same transition time of the sections
   const body = document.querySelector("body");
-  const sectionsQty = 4;
   const sectionHome = useRef(null);
   const sectionSkills = useRef(null);
   const sectionProjects = useRef(null);
   const sectionContact = useRef(null);
 
-  // console.log(sections[`s${2}`]);
-  let startFlag = true;
-  let initialScroll = window.scrollY;
-  let qty = 1,
-    main = null,
-    next = null,
-    menuSection = "home";
-
-  // Listening to scroll event
-  const sectionScroll = () => {
+  const handleSectionScroll = (window.onscroll = () => {
     const sections = {
+      body: body,
       s1: sectionHome,
       s2: sectionSkills,
       s3: sectionProjects,
       s4: sectionContact,
     };
-
-    if (startFlag && menuDisplay) {
-      const scrollDown = window.scrollY >= initialScroll;
-      const scrollLimit = qty >= 1 && qty <= sectionsQty;
-      // Verify that the scroll does not exceed the number of sections
-      if (scrollLimit) {
-        body.style.overflowY = "hidden"; // Lock el scroll
-        if (scrollDown && qty < sectionsQty) {
-          main = sections[`s${qty}`].current;
-          next = sections[`s${qty + 1}`].current;
-
-          main.style.transform = "translateY(-100vh)";
-          next.style.transform = "translateY(0)";
-
-          qty++;
-          menuSection = next.attributes.name.value;
-        } else if (!scrollDown && qty > 1) {
-          main = sections[`s${qty - 1}`].current;
-          next = sections[`s${qty}`].current;
-
-          main.style.transform = "translateY(0)";
-          next.style.transform = "translateY(100vh)";
-
-          qty--;
-          menuSection = next.attributes.name.value;
-        }
-      }
-      // Wait for the scrolling to finish to reset the values
-      setTimeout(() => {
-        initialScroll = window.scrollY;
-        startFlag = true;
-        body.style.overflowY = "scroll"; // Unlock scroll
-        // dispatch(toggleSection(menuSection, true));
-      }, TIME_OUT);
-
-      startFlag = false;
+    if (menuDisplay) {
+      dispatch(sectionsScroll(sections));
     }
-    // Keep scrollbar in the middle of the viewport
-    window.scroll(0, window.screen.height);
-  };
+  });
 
   useEffect(() => {
     loadTheme();
@@ -139,7 +94,6 @@ function App() {
       easing: "ease",
       once: true,
     });
-    window.addEventListener("scroll", sectionScroll);
 
     // eslint-disable-next-line
   }, []);

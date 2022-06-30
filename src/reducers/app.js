@@ -23,12 +23,6 @@ export const initialState = {
   menuDisplay: false,
   modalOpened: false,
   modalComponent: "",
-  appSectionInView: {
-    home: true,
-    skills: false,
-    projects: false,
-    contact: false,
-  },
   currentSection: {
     home: true,
     skills: false,
