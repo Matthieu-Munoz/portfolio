@@ -1,25 +1,11 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { InView } from "react-intersection-observer";
-import LazyLoad from "react-lazyload";
+import { useEffect, useRef } from "react";
 import classNames from "classnames";
 import Aos from "aos";
 // Local | React-Redux
-import {
-  toggleTheme,
-  toggleAnimation,
-  toggleIntroAnimation,
-  toggleIntroSection,
-  toggleMenu,
-  toggleMenuDisplay,
-  toggleScroll,
-  toggleSectionInView,
-  toggleSection,
-} from "Actions/app.js";
-import AnimatedLogo from "../AnimatedLogo";
+import { toggleTheme, toggleMenu, toggleSection } from "Actions/app.js";
 import Header from "../Header";
-import Loader from "../Loader";
 import Home from "../Home";
 import Skills from "../Skills";
 import Projects from "../Projects";
@@ -27,6 +13,7 @@ import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
 import Cursor from "../Cursor";
+import Intro from "../Intro";
 import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
@@ -36,17 +23,9 @@ import "aos/dist/aos.css";
 function App() {
   // To dispatch action to the store
   const dispatch = useDispatch();
-  const {
-    menuOpen,
-    appSectionInView,
-    loadAnimation,
-    introSection,
-    introAnimation,
-    theme,
-    disableScroll,
-    menuDisplay,
-    language,
-  } = useSelector((state) => state.app);
+  const { menuOpen, theme, disableScroll, menuDisplay, language } = useSelector(
+    (state) => state.app
+  );
 
   // -- CSS Class
   // Applying theme
@@ -56,12 +35,11 @@ function App() {
     { "theme--light": theme === "light" }
   );
   // Disabeling scroll while the intro is playing
-  const appClass = classNames("app", { "disable-scroll": disableScroll });
-  // Starts the intro moving up when applied
-  const introClass = classNames("section section--intro", {
-    "section--intro--up": introAnimation,
+  const appClass = classNames("app", {
+    "disable-scroll": disableScroll,
   });
 
+  // Theme loading from user pref
   const loadTheme = () => {
     let theme;
     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
@@ -76,44 +54,6 @@ function App() {
     dispatch(toggleTheme(theme));
   };
 
-  function debounce(fn, ms) {
-    let timer;
-    return (_) => {
-      clearTimeout(timer);
-      timer = setTimeout((_) => {
-        timer = null;
-        fn.apply(this, arguments);
-      }, ms);
-    };
-  }
-
-  const debouncedHandleResize = debounce(() => {
-    dispatch(toggleMenu(false));
-  }, 500);
-
-  const handlePageIntroListener = (evt) => {
-    if (evt.target.visibilityState === "visible") {
-      handlePageIntro();
-    }
-  };
-
-  let checkIntro = false;
-
-  const handlePageIntro = () => {
-    if (!checkIntro) {
-      checkIntro = true;
-      dispatch(toggleAnimation(true));
-      setTimeout(() => {
-        dispatch(toggleIntroAnimation(true));
-        setTimeout(() => {
-          dispatch(toggleScroll(false));
-          dispatch(toggleIntroSection(false));
-          dispatch(toggleMenuDisplay(true));
-        }, 700);
-      }, 3000);
-    }
-  };
-
   /**
    * Close the menu when anything BUT the menu/burgerIcon is clicked
    * @param {*} evt
@@ -126,74 +66,81 @@ function App() {
     }
   };
 
-  // Section switch in menu
-  const handleSwitchSection = (section) => {
-    switch (section) {
-      case "homeInView":
-        dispatch(toggleSectionInView("home", true));
-        dispatch(toggleSection("home", true));
-        break;
-      case "homeOutView":
-        if (appSectionInView.home && appSectionInView.skills) {
-          dispatch(toggleSectionInView("home", false));
-          dispatch(toggleSection("skills", true));
+  // Section snaping
+  const TIME_OUT = 600; // It should be the same transition time of the sections
+  const body = document.querySelector("body");
+  const sectionsQty = 4;
+  const sectionHome = useRef(null);
+  const sectionSkills = useRef(null);
+  const sectionProjects = useRef(null);
+  const sectionContact = useRef(null);
+
+  // console.log(sections[`s${2}`]);
+  let startFlag = true;
+  let initialScroll = window.scrollY;
+  let qty = 1,
+    main = null,
+    next = null,
+    menuSection = "home";
+
+  // Listening to scroll event
+  const sectionScroll = () => {
+    const sections = {
+      s1: sectionHome,
+      s2: sectionSkills,
+      s3: sectionProjects,
+      s4: sectionContact,
+    };
+
+    if (startFlag && menuDisplay) {
+      const scrollDown = window.scrollY >= initialScroll;
+      const scrollLimit = qty >= 1 && qty <= sectionsQty;
+      // Verify that the scroll does not exceed the number of sections
+      if (scrollLimit) {
+        body.style.overflowY = "hidden"; // Lock el scroll
+        if (scrollDown && qty < sectionsQty) {
+          main = sections[`s${qty}`].current;
+          next = sections[`s${qty + 1}`].current;
+
+          main.style.transform = "translateY(-100vh)";
+          next.style.transform = "translateY(0)";
+
+          qty++;
+          menuSection = next.attributes.name.value;
+        } else if (!scrollDown && qty > 1) {
+          main = sections[`s${qty - 1}`].current;
+          next = sections[`s${qty}`].current;
+
+          main.style.transform = "translateY(0)";
+          next.style.transform = "translateY(100vh)";
+
+          qty--;
+          menuSection = next.attributes.name.value;
         }
-        break;
-      case "skillsInView":
-        dispatch(toggleSectionInView("skills", true));
-        if (!appSectionInView.home) {
-          dispatch(toggleSection("skills", true));
-        }
-        break;
-      case "skillsOutView":
-        if (appSectionInView.skills && appSectionInView.projects) {
-          dispatch(toggleSectionInView("skills", false));
-          dispatch(toggleSection("projects", true));
-        }
-        break;
-      case "projectsInView":
-        dispatch(toggleSectionInView("projects", true));
-        if (!appSectionInView.skills) {
-          dispatch(toggleSection("projects", true));
-        }
-        break;
-      case "projectsOutView":
-        if (appSectionInView.projects && appSectionInView.contact) {
-          dispatch(toggleSectionInView("projects", false));
-          dispatch(toggleSection("contact", true));
-        } else if (appSectionInView.projects && appSectionInView.skills) {
-          dispatch(toggleSectionInView("projects", false));
-        }
-        break;
-      case "contactInView":
-        dispatch(toggleSectionInView("contact", true));
-        break;
-      case "contactOutView":
-        if (appSectionInView.contact && appSectionInView.projects) {
-          dispatch(toggleSectionInView("contact", false));
-          dispatch(toggleSection("projects", true));
-        }
-        break;
-      default:
-        break;
+      }
+      // Wait for the scrolling to finish to reset the values
+      setTimeout(() => {
+        initialScroll = window.scrollY;
+        startFlag = true;
+        body.style.overflowY = "scroll"; // Unlock scroll
+        // dispatch(toggleSection(menuSection, true));
+      }, TIME_OUT);
+
+      startFlag = false;
     }
+    // Keep scrollbar in the middle of the viewport
+    window.scroll(0, window.screen.height);
   };
 
   useEffect(() => {
     loadTheme();
-    window.addEventListener("resize", debouncedHandleResize);
-    document.addEventListener("visibilitychange", handlePageIntroListener);
     Aos.init({
       duration: 350,
-      easing: "ease-in-sine",
+      easing: "ease",
+      once: true,
     });
-    if (!document.hidden) {
-      handlePageIntro();
-    }
-    return (_) => {
-      window.removeEventListener("resize", debouncedHandleResize);
-      document.removeEventListener("visibilitychange", handlePageIntroListener);
-    };
+    window.addEventListener("scroll", sectionScroll);
+
     // eslint-disable-next-line
   }, []);
 
@@ -201,82 +148,44 @@ function App() {
 
   return (
     <div className={themeClass}>
-      <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)}>
-        <Cursor>
+      <Cursor>
+        <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)}>
           {menuDisplay && (
             <>
               <Header />
               <Socials />
             </>
           )}
-          {introSection && (
-            <div className={introClass}>
-              <div className="intro__corners">
-                <span className="intro__corners__corner intro__corners__corner__TL"></span>
-                <span className="intro__corners__corner intro__corners__corner__TR"></span>
-                <span className="intro__corners__corner intro__corners__corner__BR"></span>
-                <span className="intro__corners__corner intro__corners__corner__BL"></span>
-              </div>
-              {loadAnimation && <AnimatedLogo />}
-            </div>
-          )}
+          <Intro />
           <Modal />
-          <InView
-            as="section"
+          <section
+            ref={sectionHome}
             name="home"
-            className="section section--home"
-            onChange={(inView) => {
-              inView
-                ? handleSwitchSection("homeInView")
-                : handleSwitchSection("homeOutView");
-            }}
+            className="section section--home s1"
           >
-            <LazyLoad offset={50}>
-              <Home data={displayedData.home} />
-            </LazyLoad>
-          </InView>
-          <InView
-            as="section"
+            <Home data={displayedData.home} />
+          </section>
+          <section
+            ref={sectionSkills}
             name="skills"
-            className="section section--skills"
-            onChange={(inView) => {
-              inView
-                ? handleSwitchSection("skillsInView")
-                : handleSwitchSection("skillsOutView");
-            }}
+            className="section section--skills s2"
           >
-            <LazyLoad offset={50} placeholder={<Loader />}>
-              <Skills data={displayedData.skills} />
-            </LazyLoad>
-          </InView>
-          <InView
-            as="section"
+            <Skills data={displayedData.skills} />
+          </section>
+          <section
+            ref={sectionProjects}
             name="projects"
-            className="section section--projects"
-            onChange={(inView) => {
-              inView
-                ? handleSwitchSection("projectsInView")
-                : handleSwitchSection("projectsOutView");
-            }}
+            className="section section--projects s3"
           >
-            <LazyLoad offset={50} placeholder={<Loader />}>
-              <Projects data={displayedData.projects} />
-            </LazyLoad>
-          </InView>
-          <InView
-            as="section"
+            <Projects data={displayedData.projects} />
+          </section>
+          <section
+            ref={sectionContact}
             name="contact"
-            className="section section--contact"
-            onChange={(inView) => {
-              inView
-                ? handleSwitchSection("contactInView")
-                : handleSwitchSection("contactOutView");
-            }}
+            className="section section--contact s4"
           >
-            <LazyLoad offset={50} placeholder={<Loader />}>
-              <Contact data={displayedData.contact} />
-            </LazyLoad>
-          </InView>
+            <Contact data={displayedData.contact} />
+          </section>
           <div className="footer">
             {displayedData.footer.text}
             <a
@@ -288,8 +197,8 @@ function App() {
             </a>
             .
           </div>
-        </Cursor>
-      </div>
+        </div>
+      </Cursor>
     </div>
   );
 }

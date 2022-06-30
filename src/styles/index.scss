@@ -30,12 +30,24 @@
   font-display: swap;
 }
 
+html {
+  scrollbar-width: none;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  padding: 0;
+  overflow: hidden scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    background: transparent;
+    -webkit-appearance: none;
+  }
 }
 
 #root,
