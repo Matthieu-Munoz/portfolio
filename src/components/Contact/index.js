@@ -115,7 +115,7 @@ function Contact({ data }) {
   return (
     <div className="contact">
       <SectionTitle title="Contact" />
-      <div className="contact__ctn" data-aos="fade">
+      <div className="contact__ctn">
         <div className="contact__infos">
           <ContactMap />
           <div className="contact__infos__mail">contact@matthieu-munoz.fr</div>

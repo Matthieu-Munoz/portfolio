@@ -33,7 +33,7 @@ function Projects({ data }) {
   return (
     <div className="projects">
       <SectionTitle title={data.sectionTitle} />
-      <div className="projects__carousel" data-aos="fade">
+      <div className="projects__carousel">
         <Slider {...settings}>
           {data.list.map((project, n) => {
             return <Card key={n} {...project} project={project} data={data} />;

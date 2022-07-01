@@ -1,15 +1,14 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
-import classNames from "classnames";
 import { AiOutlineGlobal, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
-import * as Scroll from "react-scroll";
+import classNames from "classnames";
 // React-Redux
 import { toggleLanguage, toggleMenu, toggleSection } from "Actions/app";
 import ThemeToggle from "../ThemeToggle";
 import { data } from "Data/data";
+import { useCursorContext } from "../Cursor";
 // Styles
 import "./menu.scss";
-import { useCursorContext } from "../Cursor";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -32,16 +31,11 @@ function Menu() {
   const burgerCssClass = classNames("burger burger-squeeze", {
     open: menuOpened,
   });
-  const scroller = Scroll.scroller;
 
   const handleSectionSwitch = (section) => {
     dispatch(toggleSection(section, true));
     dispatch(toggleMenu(false));
-    scroller.scrollTo(section, {
-      duration: 1000,
-      smooth: true,
-      ignoreCancelEvents: true,
-    });
+    window.fullpage_api.moveTo(section);
   };
 
   const cursor = useCursorContext();

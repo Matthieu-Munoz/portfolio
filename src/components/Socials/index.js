@@ -6,7 +6,6 @@ import {
   AiFillMail,
   AiFillLinkedin,
 } from "react-icons/ai";
-import * as Scroll from "react-scroll";
 // Local | React-Redux
 import { toggleSection } from "Actions/app";
 // styles
@@ -15,15 +14,10 @@ import { useCursorContext } from "../Cursor";
 
 function Socials() {
   const dispatch = useDispatch();
-  const scroller = Scroll.scroller;
   const handleClickContact = (evt) => {
     evt.preventDefault();
     dispatch(toggleSection("contact", true));
-    scroller.scrollTo("contact", {
-      duration: 500,
-      smooth: true,
-      ignoreCancelEvents: true,
-    });
+    window.fullpage_api.moveTo("contact");
   };
   const cursor = useCursorContext();
 

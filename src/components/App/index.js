@@ -1,11 +1,10 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect } from "react";
 import classNames from "classnames";
-import Aos from "aos";
+import ReactFullpage from "@fullpage/react-fullpage";
 // Local | React-Redux
-import { toggleTheme, toggleMenu } from "Actions/app.js";
-import { sectionsScroll } from "Actions/sections";
+import { toggleTheme, toggleMenu, toggleSection } from "Actions/app.js";
 import Header from "../Header";
 import Home from "../Home";
 import Skills from "../Skills";
@@ -19,7 +18,6 @@ import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
 import "./app.scss";
-import "aos/dist/aos.css";
 
 function App() {
   // To dispatch action to the store
@@ -67,38 +65,13 @@ function App() {
     }
   };
 
-  // Section snaping
-  const body = document.querySelector("body");
-  const sectionHome = useRef(null);
-  const sectionSkills = useRef(null);
-  const sectionProjects = useRef(null);
-  const sectionContact = useRef(null);
-
-  const handleSectionScroll = (window.onscroll = () => {
-    const sections = {
-      body: body,
-      s1: sectionHome,
-      s2: sectionSkills,
-      s3: sectionProjects,
-      s4: sectionContact,
-    };
-    if (menuDisplay) {
-      dispatch(sectionsScroll(sections));
-    }
-  });
-
   useEffect(() => {
     loadTheme();
-    Aos.init({
-      duration: 350,
-      easing: "ease",
-      once: true,
-    });
-
     // eslint-disable-next-line
   }, []);
 
   const displayedData = data[0][language];
+  const anchors = ["home", "skills", "projects", "contact"];
 
   return (
     <div className={themeClass}>
@@ -112,34 +85,38 @@ function App() {
           )}
           <Intro />
           <Modal />
-          <section
-            ref={sectionHome}
-            name="home"
-            className="section section--home s1"
-          >
-            <Home data={displayedData.home} />
-          </section>
-          <section
-            ref={sectionSkills}
-            name="skills"
-            className="section section--skills s2"
-          >
-            <Skills data={displayedData.skills} />
-          </section>
-          <section
-            ref={sectionProjects}
-            name="projects"
-            className="section section--projects s3"
-          >
-            <Projects data={displayedData.projects} />
-          </section>
-          <section
-            ref={sectionContact}
-            name="contact"
-            className="section section--contact s4"
-          >
-            <Contact data={displayedData.contact} />
-          </section>
+          <ReactFullpage
+            licenseKey={"KNXF6-QO9NI-YH0AI-7I377-OOOYM"}
+            anchors={anchors}
+            lockAnchors={true}
+            onLeave={(origin, destination, direction) => {
+              dispatch(toggleSection(destination.anchor, true));
+            }}
+            render={() => {
+              return (
+                <ReactFullpage.Wrapper>
+                  <section className="section section--home">
+                    <Home data={displayedData.home} />
+                  </section>
+                  <section className="section section--skills">
+                    <Suspense>
+                      <Skills data={displayedData.skills} />
+                    </Suspense>
+                  </section>
+                  <section className="section section--projects">
+                    <Suspense>
+                      <Projects data={displayedData.projects} />
+                    </Suspense>
+                  </section>
+                  <section className="section section--contact">
+                    <Suspense>
+                      <Contact data={displayedData.contact} />
+                    </Suspense>
+                  </section>
+                </ReactFullpage.Wrapper>
+              );
+            }}
+          />
           <div className="footer">
             {displayedData.footer.text}
             <a

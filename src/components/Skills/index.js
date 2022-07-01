@@ -16,8 +16,6 @@ function Skills({ data }) {
             <div
               className={`skills__cards__card skills__cards__card--${item.class}`}
               key={item.class}
-              data-aos="fade-up"
-              data-aos-delay={item.delay}
             >
               <div className="skills__cards__card--ctn">
                 <div
@@ -41,7 +39,7 @@ function Skills({ data }) {
                         key={skill.name}
                       >
                         <img
-                          src={skill.src}
+                          data-src={skill.src}
                           alt={`${skill.name} icon`}
                           className="skills__cards__card__list__item__icon"
                         />

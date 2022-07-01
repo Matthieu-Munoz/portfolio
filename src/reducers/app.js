@@ -102,7 +102,6 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_LANGUAGE:
       return {
         ...state,
-
         language: action.language,
       };
     default:
