@@ -30,9 +30,9 @@
 
 @include media.responsive("tablet") {
   .projects {
-    padding-top: 2em;
     &__carousel {
       width: 80%;
+      margin-top: unset;
       margin-left: 2em;
       height: 100%;
     }

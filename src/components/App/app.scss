@@ -16,11 +16,10 @@
 
   .section {
     width: 100%;
-    height: fit-content;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 100vh;
 
     &--home {
       padding-bottom: 5em;
@@ -47,14 +46,10 @@
     }
   }
   .footer {
-    position: absolute;
-    bottom: 0;
+    flex-direction: row;
     font-size: 0.8em;
     width: 100%;
-    height: 6vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 6vh;
     box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.25);
     @include color-themes.themed() {
       background-color: color-themes.ask("primary-color");
@@ -77,10 +72,28 @@
   overflow-y: hidden;
 }
 
+@include media.responsive("small-mobile") {
+  .app {
+    .section--contact {
+      padding-top: 21em;
+    }
+  }
+}
+@include media.responsive("tablet") {
+  .app {
+    .section--skills {
+      padding-top: 40em;
+    }
+  }
+}
 @include media.responsive("desktop") {
   .app {
     .section--home {
       padding: 0;
+    }
+    .section--skills,
+    .section--contact {
+      padding-top: unset;
     }
   }
 }

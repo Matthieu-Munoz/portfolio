@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 4em;
+  padding-top: 12em;
   &__intro {
     width: 100%;
     height: fit-content;
@@ -136,8 +136,16 @@
   }
 }
 
+@include media.responsive("tablet") {
+  .home {
+    width: auto;
+    margin-left: 4em;
+  }
+}
 @include media.responsive("desktop") {
   .home {
+    width: 100%;
+    margin-left: unset;
     padding: 0;
     height: 100%;
     flex-direction: row;

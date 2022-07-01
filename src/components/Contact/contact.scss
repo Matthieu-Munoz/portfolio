@@ -109,6 +109,9 @@
 }
 @include media.responsive("desktop") {
   .contact {
+    .section_title {
+      margin-bottom: 1em;
+    }
     &__ctn {
       width: calc(100% - 100px);
       flex-direction: row;

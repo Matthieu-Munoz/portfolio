@@ -71,7 +71,7 @@ function App() {
   }, []);
 
   const displayedData = data[0][language];
-  const anchors = ["home", "skills", "projects", "contact"];
+  const anchors = ["home", "skills", "projects", "contact", "footer"];
 
   return (
     <div className={themeClass}>
@@ -89,6 +89,7 @@ function App() {
             licenseKey={"KNXF6-QO9NI-YH0AI-7I377-OOOYM"}
             anchors={anchors}
             lockAnchors={true}
+            scrollOverflow={true}
             onLeave={(origin, destination, direction) => {
               dispatch(toggleSection(destination.anchor, true));
             }}
@@ -113,21 +114,21 @@ function App() {
                       <Contact data={displayedData.contact} />
                     </Suspense>
                   </section>
+                  <section className="section fp-auto-height footer">
+                    {displayedData.footer.text}
+                    <a
+                      href="https://github.com/Matthieu-Munoz/portfolio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {displayedData.footer.link}
+                    </a>
+                    .
+                  </section>
                 </ReactFullpage.Wrapper>
               );
             }}
           />
-          <div className="footer">
-            {displayedData.footer.text}
-            <a
-              href="https://github.com/Matthieu-Munoz/portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {displayedData.footer.link}
-            </a>
-            .
-          </div>
         </div>
       </Cursor>
     </div>
