@@ -89,6 +89,7 @@
       white-space: nowrap;
       overflow: hidden;
       transition: 0.1s ease-in-out;
+      cursor: pointer;
 
       @include color-themes.themed() {
         &[data-section="home"] {
@@ -168,6 +169,7 @@
         background-position: left;
         text-indent: 1.5em;
         justify-content: center;
+
         @include color-themes.themed() {
           color: color-themes.ask("accent-color");
         }

@@ -20,7 +20,6 @@
   box-sizing: border-box;
   border: none;
   text-decoration: none;
-  cursor: none;
 }
 
 @font-face {
@@ -30,24 +29,12 @@
   font-display: swap;
 }
 
-html {
-  scrollbar-width: none;
-}
-
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
-  overflow: hidden scroll;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-    width: 0px;
-    background: transparent;
-    -webkit-appearance: none;
-  }
 }
 
 #root,

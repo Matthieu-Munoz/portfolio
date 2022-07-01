@@ -12,7 +12,6 @@ import Projects from "../Projects";
 import Contact from "../Contact";
 import Socials from "../Socials";
 import Modal from "../Modal";
-import Cursor from "../Cursor";
 import Intro from "../Intro";
 import { data } from "Data/data";
 // Styles
@@ -75,62 +74,60 @@ function App() {
 
   return (
     <div className={themeClass}>
-      <Cursor>
-        <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)}>
-          {menuDisplay && (
-            <>
-              <Header />
-              <Socials />
-            </>
-          )}
-          <Intro />
-          <Modal />
-          <ReactFullpage
-            licenseKey={"KNXF6-QO9NI-YH0AI-7I377-OOOYM"}
-            anchors={anchors}
-            lockAnchors={true}
-            scrollOverflow={true}
-            onLeave={(origin, destination, direction) => {
-              dispatch(toggleSection(destination.anchor, true));
-            }}
-            render={() => {
-              return (
-                <ReactFullpage.Wrapper>
-                  <section className="section section--home">
-                    <Home data={displayedData.home} />
-                  </section>
-                  <section className="section section--skills">
-                    <Suspense>
-                      <Skills data={displayedData.skills} />
-                    </Suspense>
-                  </section>
-                  <section className="section section--projects">
-                    <Suspense>
-                      <Projects data={displayedData.projects} />
-                    </Suspense>
-                  </section>
-                  <section className="section section--contact">
-                    <Suspense>
-                      <Contact data={displayedData.contact} />
-                    </Suspense>
-                  </section>
-                  <section className="section fp-auto-height footer">
-                    {displayedData.footer.text}
-                    <a
-                      href="https://github.com/Matthieu-Munoz/portfolio"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {displayedData.footer.link}
-                    </a>
-                    .
-                  </section>
-                </ReactFullpage.Wrapper>
-              );
-            }}
-          />
-        </div>
-      </Cursor>
+      <div className={appClass} onClick={(evt) => handleMenu(evt, menuOpen)}>
+        {menuDisplay && (
+          <>
+            <Header />
+            <Socials />
+          </>
+        )}
+        <Intro />
+        <Modal />
+        <ReactFullpage
+          licenseKey={"KNXF6-QO9NI-YH0AI-7I377-OOOYM"}
+          anchors={anchors}
+          lockAnchors={true}
+          scrollOverflow={true}
+          onLeave={(origin, destination, direction) => {
+            dispatch(toggleSection(destination.anchor, true));
+          }}
+          render={() => {
+            return (
+              <ReactFullpage.Wrapper>
+                <section className="section section--home">
+                  <Home data={displayedData.home} />
+                </section>
+                <section className="section section--skills">
+                  <Suspense>
+                    <Skills data={displayedData.skills} />
+                  </Suspense>
+                </section>
+                <section className="section section--projects">
+                  <Suspense>
+                    <Projects data={displayedData.projects} />
+                  </Suspense>
+                </section>
+                <section className="section section--contact">
+                  <Suspense>
+                    <Contact data={displayedData.contact} />
+                  </Suspense>
+                </section>
+                <section className="section fp-auto-height footer">
+                  {displayedData.footer.text}
+                  <a
+                    href="https://github.com/Matthieu-Munoz/portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {displayedData.footer.link}
+                  </a>
+                  .
+                </section>
+              </ReactFullpage.Wrapper>
+            );
+          }}
+        />
+      </div>
     </div>
   );
 }
