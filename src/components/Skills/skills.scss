@@ -147,7 +147,7 @@
 
 @include media.responsive("small-mobile") {
   .skills {
-    padding-top: 49em;
+    padding-top: 6em;
     &__cards__card {
       transform: scale(0.8);
     }

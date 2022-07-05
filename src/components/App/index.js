@@ -1,6 +1,7 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
 import { Suspense, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
 import ReactFullpage from "@fullpage/react-fullpage";
 // Local | React-Redux
@@ -69,6 +70,9 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
+  const { ref: contactRef, inView: contactInView } = useInView();
+  const { ref: projectRef, inView: projectInView } = useInView();
+
   const displayedData = data[0][language];
   const anchors = ["home", "skills", "projects", "contact", "footer"];
 
@@ -102,14 +106,16 @@ function App() {
                     <Skills data={displayedData.skills} />
                   </Suspense>
                 </section>
-                <section className="section section--projects">
+                <section className="section section--projects" ref={projectRef}>
                   <Suspense>
-                    <Projects data={displayedData.projects} />
+                    {projectInView && (
+                      <Projects data={displayedData.projects} />
+                    )}
                   </Suspense>
                 </section>
-                <section className="section section--contact">
+                <section className="section section--contact" ref={contactRef}>
                   <Suspense>
-                    <Contact data={displayedData.contact} />
+                    {contactInView && <Contact data={displayedData.contact} />}
                   </Suspense>
                 </section>
                 <section className="section fp-auto-height footer">
