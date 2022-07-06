@@ -98,11 +98,21 @@
   }
 }
 
-@include media.responsive("tablet") {
-  .section--contact.fp-section,
-  .section--contact .fp-tableCell {
+@include media.responsive("small-mobile") {
+  .section--contact {
+    overflow-y: scroll !important;
+  }
+  .app .section--contact .fp-section,
+  .app .section--contact .fp-tableCell {
     height: auto !important;
     min-height: 100%;
+  }
+}
+
+@include media.responsive("tablet") {
+  .app .section--contact .fp-section,
+  .app .section--contact .fp-tableCell {
+    height: 100%;
   }
 
   .contact {
@@ -118,6 +128,9 @@
   }
 }
 @include media.responsive("desktop") {
+  .section--contact {
+    overflow-y: auto;
+  }
   .contact {
     padding-top: unset;
     .section_title {

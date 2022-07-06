@@ -29,7 +29,7 @@ function ContactMap() {
   // `;
   const Wrapper = Styled.div`
   width: 90%;
-  height: 100%;
+  height: auto;
   @media only screen and (min-width: 1000px) {
     width: 80%;
   }
