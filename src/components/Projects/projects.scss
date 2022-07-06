@@ -23,7 +23,7 @@
     }
   }
   .section_title {
-    margin-top: 1em;
+    margin-top: 3em;
   }
 }
 
@@ -40,7 +40,7 @@
 @include media.responsive("desktop") {
   .projects {
     .section_title {
-      margin-top: unset;
+      margin-top: 1em;
     }
     &__carousel {
       height: 85%;

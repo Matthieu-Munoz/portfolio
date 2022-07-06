@@ -39,7 +39,7 @@
       }
     }
     &--contact {
-      padding: 3em 0;
+      height: 100%;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-alter-color");
       }
@@ -75,7 +75,7 @@
 @include media.responsive("small-mobile") {
   .app {
     .section--contact {
-      padding-top: 25em;
+      padding-top: 2em;
     }
     .section--project {
       padding-top: 2em;
