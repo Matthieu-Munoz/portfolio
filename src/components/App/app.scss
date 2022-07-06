@@ -39,7 +39,7 @@
       }
     }
     &--contact {
-      height: 100%;
+      flex-direction: column;
       @include color-themes.themed() {
         background-color: color-themes.ask("primary-alter-color");
       }

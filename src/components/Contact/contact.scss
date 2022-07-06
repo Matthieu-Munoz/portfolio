@@ -4,12 +4,12 @@
 @use "src/styles/responsive-breakpoints" as media;
 
 .contact {
-  width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 6em;
   &__ctn {
     margin-top: 1em;
     display: flex;
@@ -99,6 +99,12 @@
 }
 
 @include media.responsive("tablet") {
+  .section--contact.fp-section,
+  .section--contact .fp-tableCell {
+    height: auto !important;
+    min-height: 100%;
+  }
+
   .contact {
     &__ctn {
       margin-left: 100px;
@@ -113,6 +119,7 @@
 }
 @include media.responsive("desktop") {
   .contact {
+    padding-top: unset;
     .section_title {
       margin-bottom: 1em;
     }
