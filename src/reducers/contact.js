@@ -3,6 +3,7 @@ import {
   CONFIRM_SENDING,
   TOGGLE_ERROR,
   TOGGLE_LOADING,
+  SAVE_LEAFLET_CSS,
 } from "Actions/contact";
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   messageError: false,
   isSent: false,
   isLoading: false,
+  leafletCss: "",
 };
 
 function Reducer(state = initialState, action = {}) {
@@ -38,6 +40,11 @@ function Reducer(state = initialState, action = {}) {
       return {
         ...state,
         isLoading: action.value,
+      };
+    case SAVE_LEAFLET_CSS:
+      return {
+        ...state,
+        leafletCss: action.data,
       };
     case TOGGLE_ERROR:
       return {

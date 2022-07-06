@@ -3,7 +3,6 @@
 @use "src/styles/utils";
 @use "src/styles/responsive-breakpoints" as media;
 @import "./_reset.css";
-@import url("https://unpkg.com/leaflet@1.8.0/dist/leaflet.css");
 
 :root {
   --cooltipz-bg-color: hsl(165, 19%, 35%);

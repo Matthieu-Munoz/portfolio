@@ -80,19 +80,19 @@
 @include media.responsive("tablet") {
   .card {
     width: 700px;
-    height: 690px;
+    height: 640px;
     &__imgs {
       margin-right: -2em;
       & img {
         position: absolute;
         &:first-child {
           width: 25%;
-          top: 5em;
+          top: 3em;
           left: 8em;
         }
         &:last-child {
           width: 50%;
-          bottom: 7em;
+          bottom: 5em;
           right: 9em;
         }
       }

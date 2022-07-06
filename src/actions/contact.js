@@ -21,3 +21,8 @@ export const toggleError = (name, value) => ({
   name,
   value,
 });
+export const SAVE_LEAFLET_CSS = 'SAVE_LEAFLET_CSS';
+export const saveLeafletCss = (data) => ({
+  type: SAVE_LEAFLET_CSS,
+  data,
+});
