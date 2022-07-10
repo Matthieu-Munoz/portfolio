@@ -6,7 +6,7 @@
     "@babel/core": "^7.16.0",
     "@fullpage/react-fullpage": "^0.1.26",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.0.0",
     "@trunkio/launcher": "^1.1.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-named-asset-import": "^0.3.8",
