@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useEffect } from "react";
-import { ReactComponent as Svg } from "Assets/images/animated-logo.svg";
+import Svg from "Assets/images/animated-logo.svg?component";
 // styles
 import "./animatedlogo.scss";
 

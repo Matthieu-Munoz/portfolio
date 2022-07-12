@@ -6,18 +6,18 @@ import classNames from "classnames";
 import ReactFullpage from "@fullpage/react-fullpage";
 // Local | React-Redux
 import { toggleTheme, toggleMenu, toggleSection } from "Actions/app.js";
-import Header from "../Header";
-import Home from "../Home";
-import Skills from "../Skills";
-import Projects from "../Projects";
-import Contact from "../Contact";
-import Socials from "../Socials";
-import Modal from "../Modal";
-import Intro from "../Intro";
+import Header from "Components/Header";
+import Home from "Components/Home";
+import Skills from "Components/Skills";
+import Projects from "Components/Projects";
+import Contact from "Components/Contact";
+import Socials from "Components/Socials";
+import Modal from "Components/Modal";
+import Intro from "Components/Intro";
 import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
-import "./app.scss";
+import "./styles/app.scss";
 
 function App() {
   // To dispatch action to the store
