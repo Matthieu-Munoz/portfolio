@@ -1,20 +1,20 @@
-import html from "../assets/icons/html.svg?url";
-import css from "../assets/icons/css.svg?url";
-import js from "../assets/icons/js.svg?url";
-import vscode from "../assets/icons/vscode.svg?url";
-import php from "../assets/icons/php.svg?url";
-import sql from "../assets/icons/sql.svg?url";
-import laravel from "../assets/icons/laravel.svg?url";
-import react from "../assets/icons/react.svg?url";
-import redux from "../assets/icons/redux.svg?url";
-import sass from "../assets/icons/sass.svg?url";
-import npm from "../assets/icons/npm.svg?url";
-import wordpress from "../assets/icons/wordpress.svg?url";
-import git from "../assets/icons/git.svg?url";
-import linux from "../assets/icons/linux.svg?url";
-import win from "../assets/icons/win.svg?url";
-import figma from "../assets/icons/sass.svg?url";
-import canva from "../assets/icons/canva.svg?url";
+import html from "../assets/icons/html.svg";
+import css from "../assets/icons/css.svg";
+import js from "../assets/icons/js.svg";
+import vscode from "../assets/icons/vscode.svg";
+import php from "../assets/icons/php.svg";
+import sql from "../assets/icons/sql.svg";
+import laravel from "../assets/icons/laravel.svg";
+import react from "../assets/icons/react.svg";
+import redux from "../assets/icons/redux.svg";
+import sass from "../assets/icons/sass.svg";
+import npm from "../assets/icons/npm.svg";
+import wordpress from "../assets/icons/wordpress.svg";
+import git from "../assets/icons/git.svg";
+import linux from "../assets/icons/linux.svg";
+import win from "../assets/icons/win.svg";
+import figma from "../assets/icons/sass.svg";
+import canva from "../assets/icons/canva.svg";
 
 export const data = [
   {
