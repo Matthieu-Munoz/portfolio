@@ -9,7 +9,7 @@ import "./themetoggle.scss";
 /**
  * A React component used to switch between light and dark themes.
  */
-function ThemeToggle() {
+export function ThemeToggle() {
   const currentTheme = useSelector((state) => state.app.theme);
   const dispatch = useDispatch();
   const handleThemeSwitch = () => {
@@ -28,5 +28,3 @@ function ThemeToggle() {
     </div>
   );
 }
-
-export default ThemeToggle;

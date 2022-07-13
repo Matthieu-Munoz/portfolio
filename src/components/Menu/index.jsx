@@ -4,12 +4,12 @@ import { AiOutlineGlobal, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import classNames from "classnames";
 // React-Redux
 import { toggleLanguage, toggleMenu, toggleSection } from "Actions/app";
-import ThemeToggle from "../ThemeToggle";
+import { ThemeToggle } from "../ThemeToggle";
 import { data } from "Data/data";
 // Styles
 import "./menu.scss";
 
-function Menu() {
+export function Menu() {
   const dispatch = useDispatch();
   const { currentSection, language, menuOpened } = useSelector(
     (state) => state.app
@@ -140,5 +140,3 @@ function Menu() {
     </>
   );
 }
-
-export default Menu;

@@ -1,10 +1,10 @@
 // Dependencies
 // Local | React-Redux
 // Styles
-import SectionTitle from "../SectionTitle";
+import { SectionTitle } from "../SectionTitle";
 import "./skills.scss";
 
-function Skills({ data }) {
+export function Skills({ data }) {
   return (
     <div className="skills">
       <SectionTitle title={data.title} />
@@ -52,5 +52,3 @@ function Skills({ data }) {
     </div>
   );
 }
-
-export default Skills;

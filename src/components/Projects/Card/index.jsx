@@ -1,14 +1,14 @@
 // Dependencies
 import { useDispatch } from "react-redux";
 import DOMPurify from "dompurify";
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 // Local | React-Redux
 // Styles
 import "./card.scss";
 import { toggleModal } from "Actions/app";
 import { toggleProjectInfo } from "Actions/projects";
 
-function Card({
+export function Card({
   title,
   url,
   img_mobil,
@@ -61,5 +61,3 @@ Card.propTypes = {
   moreInfo: PropTypes.bool.isRequired,
   project: PropTypes.object.isRequired,
 };
-
-export default Card;

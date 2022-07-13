@@ -7,7 +7,7 @@ import { data } from "Data/data";
 // Styles
 import "./projectinfo.scss";
 
-function ProjectInfo() {
+export function ProjectInfo() {
   const { project } = useSelector((state) => state.projects);
   const { language } = useSelector((state) => state.app);
   const displayedData = data[0][language];
@@ -95,5 +95,3 @@ function ProjectInfo() {
     </div>
   );
 }
-
-export default ProjectInfo;

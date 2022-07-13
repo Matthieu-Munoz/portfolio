@@ -6,14 +6,15 @@ import classNames from "classnames";
 import ReactFullpage from "@fullpage/react-fullpage";
 // Local | React-Redux
 import { toggleTheme, toggleMenu, toggleSection } from "Actions/app.js";
-import Header from "Components/Header";
-import Home from "Components/Home";
-import Skills from "Components/Skills";
-import Projects from "Components/Projects";
-import Contact from "Components/Contact";
-import Socials from "Components/Socials";
-import Modal from "Components/Modal";
-import Intro from "Components/Intro";
+import { Header } from "Components/Header";
+import { Home } from "Components/Home";
+import { Skills } from "Components/Skills";
+import { Projects } from "Components/Projects";
+import { Contact } from "Components/Contact";
+import { Socials } from "Components/Socials";
+import { Modal } from "Components/Modal";
+import { Intro } from "Components/Intro";
+import { Footer } from "./components/Footer";
 import { data } from "Data/data";
 // Styles
 import "cooltipz-css";
@@ -92,42 +93,33 @@ function App() {
           anchors={anchors}
           lockAnchors={true}
           scrollOverflow={true}
+          responsiveWidth={800}
           onLeave={(origin, destination, direction) => {
             dispatch(toggleSection(destination.anchor, true));
           }}
           render={() => {
             return (
               <ReactFullpage.Wrapper>
-                <section className="section section--home">
+                <section className="section section--home fp-auto-height-responsive">
                   <Home data={displayedData.home} />
                 </section>
-                <section className="section section--skills">
-                  <Suspense>
-                    <Skills data={displayedData.skills} />
-                  </Suspense>
+                <section className="section section--skills fp-auto-height-responsive">
+                  <Skills data={displayedData.skills} />
                 </section>
-                <section className="section section--projects" ref={projectRef}>
-                  <Suspense>
-                    {projectInView && (
-                      <Projects data={displayedData.projects} />
-                    )}
-                  </Suspense>
+                <section
+                  className="section section--projects fp-auto-height-responsive"
+                  ref={projectRef}
+                >
+                  {projectInView && <Projects data={displayedData.projects} />}
                 </section>
-                <section className="section section--contact" ref={contactRef}>
-                  <Suspense>
-                    {contactInView && <Contact data={displayedData.contact} />}
-                  </Suspense>
+                <section
+                  className="section section--contact fp-auto-height-responsive"
+                  ref={contactRef}
+                >
+                  {contactInView && <Contact data={displayedData.contact} />}
                 </section>
                 <section className="section fp-auto-height footer">
-                  {displayedData.footer.text}
-                  <a
-                    href="https://github.com/Matthieu-Munoz/portfolio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {displayedData.footer.link}
-                  </a>
-                  .
+                  <Footer data={displayedData.footer} />
                 </section>
               </ReactFullpage.Wrapper>
             );

@@ -11,11 +11,11 @@ import {
   toggleMenuDisplay,
   toggleScroll,
 } from "Actions/app.js";
-import AnimatedLogo from "../AnimatedLogo";
+import { AnimatedLogo } from "../AnimatedLogo";
 // Styles
 import "./intro.scss";
 
-function Intro() {
+export function Intro() {
   const dispatch = useDispatch();
   const { loadAnimation, introSection, introAnimation } = useSelector(
     (state) => state.app
@@ -91,5 +91,3 @@ function Intro() {
     </>
   );
 }
-
-export default Intro;

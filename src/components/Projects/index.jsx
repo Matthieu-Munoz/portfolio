@@ -1,14 +1,14 @@
 // Dependencies
 import Slider from "react-slick";
 // Local | React-Redux
-import SectionTitle from "../SectionTitle";
-import Card from "./Card";
+import { SectionTitle } from "../SectionTitle";
+import { Card } from "./Card";
 // Styles
 import "./projects.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function Projects({ data }) {
+export function Projects({ data }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -43,5 +43,3 @@ function Projects({ data }) {
     </div>
   );
 }
-
-export default Projects;

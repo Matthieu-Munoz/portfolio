@@ -1,21 +1,21 @@
 // Dependencies
 import { useSelector, useDispatch } from "react-redux";
 // Local | React-Redux
-import Field from "../Field";
 import {
   changeField,
   confirmSending,
   toggleError,
   toggleLoading,
 } from "Actions/contact";
-import SectionTitle from "../SectionTitle";
+import { SectionTitle } from "../SectionTitle";
+import { ContactMap } from "../ContactMap";
+import { Field } from "../Field";
+import { Loader } from "../Loader";
 import sent from "Assets/images/done-sent.svg";
-import ContactMap from "../ContactMap";
-import Loader from "../Loader";
 // Styles
 import "./contact.scss";
 
-function Contact({ data }) {
+export function Contact({ data }) {
   const dispatch = useDispatch();
   const {
     name,
@@ -185,5 +185,3 @@ function Contact({ data }) {
     </div>
   );
 }
-
-export default Contact;

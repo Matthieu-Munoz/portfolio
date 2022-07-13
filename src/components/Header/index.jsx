@@ -1,10 +1,10 @@
 // Dependencies
 // React-Redux
-import Menu from "../Menu";
+import { Menu } from "../Menu";
 // Styles
 import "./header.scss";
 
-function Header() {
+export function Header() {
   return (
     <header className="header">
       <Menu />
@@ -12,5 +12,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

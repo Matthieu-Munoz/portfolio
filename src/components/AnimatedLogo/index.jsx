@@ -1,10 +1,9 @@
-/* eslint-disable */
 import { useEffect } from "react";
 import Svg from "./animated-logo.svg?component";
 // styles
 import "./animatedlogo.scss";
 
-function AnimatedLogo() {
+export function AnimatedLogo() {
   useEffect(() => {
     setTimeout(() => {
       !(function (t, n) {
@@ -1988,5 +1987,3 @@ function AnimatedLogo() {
     </div>
   );
 }
-
-export default AnimatedLogo;

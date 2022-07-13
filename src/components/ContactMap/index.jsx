@@ -7,7 +7,7 @@ import Styled from "styled-components";
 import { saveLeafletCss } from "Actions/contact";
 // Styles
 
-function ContactMap() {
+export function ContactMap() {
   const dispatch = useDispatch();
   const { leafletCss } = useSelector((state) => state.contact);
 
@@ -54,5 +54,3 @@ function ContactMap() {
     </Wrapper>
   );
 }
-
-export default ContactMap;

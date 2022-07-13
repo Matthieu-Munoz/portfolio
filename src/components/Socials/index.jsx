@@ -11,7 +11,7 @@ import { toggleSection } from "Actions/app";
 // styles
 import "./socials.scss";
 
-function Socials() {
+export function Socials() {
   const dispatch = useDispatch();
   const handleClickContact = (evt) => {
     evt.preventDefault();
@@ -65,5 +65,3 @@ function Socials() {
     </div>
   );
 }
-
-export default Socials;

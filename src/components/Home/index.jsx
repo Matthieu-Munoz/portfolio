@@ -1,10 +1,10 @@
 // Dependencies
 // Local | React-Redux
-import SectionTitle from "../SectionTitle";
+import { SectionTitle } from "../SectionTitle";
 // Styles
 import "./home.scss";
 
-function Home({ data }) {
+export function Home({ data }) {
   /**
    * calculate the age from the birthdate "mm/dd/yyyy"
    * @param {string} birthDate
@@ -78,5 +78,3 @@ function Home({ data }) {
     </div>
   );
 }
-
-export default Home;

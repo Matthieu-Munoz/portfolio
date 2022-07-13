@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 import TextareaAutosize from "react-autosize-textarea/lib";
 // styles
 import "./field.scss";
 
-function Field({ label, name, type, onChange, value, tip }) {
+export function Field({ label, name, type, onChange, value, tip }) {
   const error = useSelector((state) => state.contact[`${name}Error`]);
   const cssClass = classNames("input-container", { "input-error": error });
 
@@ -71,5 +71,3 @@ Field.defaultProps = {
   type: "text",
   tip: "",
 };
-
-export default Field;

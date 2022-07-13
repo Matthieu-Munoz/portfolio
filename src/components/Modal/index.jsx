@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { IoClose } from "react-icons/io5";
 // Local | React-Redux
 import { toggleModal } from "Actions/app";
-import ProjectInfo from "./ProjectInfo";
+import { ProjectInfo } from "./ProjectInfo";
 // Styles
 import "./modal.scss";
 
-function Modal() {
+export function Modal() {
   const dispatch = useDispatch();
   const { modalOpened, modalComponent } = useSelector((state) => state.app);
   const handleModalKeyDown = (evt) => {
@@ -33,5 +33,3 @@ function Modal() {
     </>
   );
 }
-
-export default Modal;

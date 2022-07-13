@@ -2,15 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
       content="Portfolio of the junior Dev Matthieu Munoz - Presenting skills and projects | Author: Matthieu Munoz"
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#fef0e7" />
     <link rel="preconnect" href="https://matthieu-munoz.fr" />
     <link rel="preconnect" href="https://unpkg.com" />
@@ -18,14 +14,16 @@
       rel="dns-prefetch"
       href="https://res.cloudinary.com/matthieu-munoz/"
     />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <link rel="canonical" href="https://matthieu-munoz.fr" />
-    <link
-      rel="preload"
-      as="image"
-      href="https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_415,w_415/matthieu-nobg_ly8aoi.webp"
-    />
-    <meta name="msapplication-TileColor" content="#da532c" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#537970" />
+    <meta name="apple-mobile-web-app-title" content="Matthieu Munoz" />
+    <meta name="application-name" content="Matthieu Munoz" />
+    <meta name="msapplication-TileColor" content="#fef0e7" />
+    <meta name="theme-color" content="#fef0e7" />
+
     <meta property="og:title" content="Matthieu Munoz" />
     <meta
       property="og:description"
@@ -51,18 +49,6 @@
       src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"
       defer
     ></script>
-    <script defer>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker.register("serviceWorker.js").then(
-            function (registration) {},
-            function (err) {
-              console.log("ServiceWorker registration failed: ", err);
-            }
-          );
-        });
-      }
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

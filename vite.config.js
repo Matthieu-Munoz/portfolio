@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import svgr from "@honkhonk/vite-plugin-svgr";
+import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 
 export default defineConfig({
@@ -15,5 +16,42 @@ export default defineConfig({
       Components: path.resolve(__dirname, "./src/components"),
     },
   },
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr(),
+    VitePWA({
+      registerType: "autoUpdate",
+      devOptions: {
+        enabled: true,
+      },
+      includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
+      manifest: {
+        name: "Matthieu Munoz",
+        short_name: "Matthieu Munoz",
+        description:
+          "Portfolio of the junior Dev Matthieu Munoz - Presenting skills and projects",
+        theme_color: "#fef0e7",
+        background_color: "#fef0e7",
+        display: "standalone",
+        icons: [
+          {
+            src: "android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "safari-pinned-tab.svg",
+            sizes: "512x512",
+            type: "image/svg+xml",
+            purpose: "any maskable",
+          },
+        ],
+      },
+    }),
+  ],
 });
