@@ -83,9 +83,6 @@
 }
 @include media.responsive("tablet") {
   .app {
-    .section--skills {
-      padding-top: 40em;
-    }
     .section--project {
       padding-top: unset;
     }
