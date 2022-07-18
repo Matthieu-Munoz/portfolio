@@ -39,19 +39,11 @@ function App() {
     "disable-scroll": disableScroll,
   });
 
-  // Theme loading from user pref
   const loadTheme = () => {
-    let theme;
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      theme = "light";
-    } else {
-      theme = "dark";
-    }
     const storageTheme = localStorage.getItem("theme");
     if (storageTheme !== null) {
-      theme = JSON.parse(storageTheme);
+      dispatch(toggleTheme(JSON.parse(storageTheme)));
     }
-    dispatch(toggleTheme(theme));
   };
 
   /**
