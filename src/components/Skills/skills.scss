@@ -81,7 +81,7 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         @include color-themes.themed() {
-          color: color-themes.ask("accent-color");
+          color: color-themes.ask("primary-text-color");
         }
       }
       &__list {

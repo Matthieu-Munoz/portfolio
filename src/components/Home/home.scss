@@ -11,7 +11,7 @@
   padding-top: 6em;
   &__intro {
     width: 100%;
-    height: fit-content;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +23,7 @@
       &__para {
         margin-top: 1em;
         text-align: justify;
+        -webkit-hyphens: auto;
         hyphens: auto;
         display: flex;
         &:last-child {

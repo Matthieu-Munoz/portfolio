@@ -39,6 +39,7 @@
         text-align: justify;
         line-height: 1.2;
         font-size: 0.95em;
+        -webkit-hyphens: auto;
         hyphens: auto;
 
         & br {
@@ -61,11 +62,12 @@
         }
         &__skills {
           width: 100%;
-          height: fit-content;
+          height: 100%;
           padding: 0.5em 0;
           display: flex;
           flex-wrap: wrap;
           &__skill {
+            width: -moz-fit-content;
             width: fit-content;
             color: vars.$deep-green;
             background-color: vars.$pale-green;
