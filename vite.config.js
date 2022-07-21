@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import svgr from "@honkhonk/vite-plugin-svgr";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 
@@ -18,11 +17,10 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    svgr(),
     VitePWA({
       registerType: "autoUpdate",
       devOptions: {
-        enabled: true,
+        enabled: false,
       },
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
       manifest: {
@@ -54,4 +52,7 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    chunkSizeWarningLimit: 1000,
+  },
 });
