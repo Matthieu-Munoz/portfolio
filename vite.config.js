@@ -25,7 +25,7 @@ export default defineConfig({
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
       manifest: {
         name: "Matthieu Munoz",
-        short_name: "Matthieu Munoz",
+        short_name: "matthieu-munoz",
         description:
           "Portfolio of the junior Dev Matthieu Munoz - Presenting skills and projects",
         theme_color: "#fef0e7",
