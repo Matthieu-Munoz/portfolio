@@ -1,12 +1,15 @@
 import { useEffect } from "react";
-import { animation } from "./animation";
+// import { animation } from "./animation";
+
+import animation from 'https://cdn.jsdelivr.net/gh/Matthieu-Munoz/portfolio/src/components/AnimatedLogo/animation.js'
 // styles
 import "./animatedlogo.scss";
 
 export function AnimatedLogo() {
   useEffect(() => {
     setTimeout(() => {
-      animation();
+      // animation();
+      console.log(animation);
     }, 500);
   }, []);
   return (

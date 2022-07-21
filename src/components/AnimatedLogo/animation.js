@@ -1917,3 +1917,5 @@ const animation = () => {
     window
   );
 };
+
+export default animation
