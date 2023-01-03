@@ -1,0 +1,49 @@
+@use "../vars";
+@use "../color-themes";
+@use "../utils";
+@use "../responsive-breakpoints" as media;
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  &__carousel {
+    width: 100%;
+    height: 100%;
+    padding: 0.5em;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 30px;
+    @include color-themes.themed() {
+      color: color-themes.ask("accent-color");
+    }
+  }
+  .section_title {
+    margin-top: 1.5em;
+  }
+}
+
+@include media.responsive("tablet") {
+  .projects {
+    &__carousel {
+      width: 80%;
+      margin-top: unset;
+      margin-left: 2em;
+      height: 100%;
+    }
+  }
+}
+@include media.responsive("desktop") {
+  .projects {
+    .section_title {
+      margin-top: 1em;
+    }
+    &__carousel {
+      height: 85%;
+    }
+  }
+}

@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@fullpage/react-fullpage': ^0.1.31
   '@next/font': 13.0.7
+  '@react-leaflet/universal-leaflet': ^1.0.1
   classnames: ^2.3.2
   cooltipz-css: ^2.1.1
   dompurify: ^2.4.1
@@ -10,7 +11,7 @@ specifiers:
   eslint: 8.29.0
   eslint-config-next: 13.0.7
   gsap: ^3.11.4
-  leaflet: ^1.9.3
+  leaflet: ^1.9.1
   next: 13.0.7
   next-auth: ^4.18.7
   prop-types: ^15.8.1
@@ -30,6 +31,7 @@ specifiers:
 dependencies:
   '@fullpage/react-fullpage': 0.1.31
   '@next/font': 13.0.7
+  '@react-leaflet/universal-leaflet': 1.0.1_leaflet@1.9.3
   classnames: 2.3.2
   cooltipz-css: 2.1.1_sass@1.57.1
   dompurify: 2.4.1
@@ -471,6 +473,14 @@ packages:
       leaflet: 1.9.3
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@react-leaflet/universal-leaflet/1.0.1_leaflet@1.9.3:
+    resolution: {integrity: sha512-pMTKLWECNzHWOjbYC9QWb6vbGqB8QvAU/X5JaX7A+nyQzsuzmGaYKwKuPTmbKTGkRFEYjVyoXbjpzAkT2fXluA==}
+    peerDependencies:
+      leaflet: '*'
+    dependencies:
+      leaflet: 1.9.3
     dev: false
 
   /@rushstack/eslint-patch/1.2.0:

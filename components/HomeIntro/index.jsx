@@ -1,5 +1,6 @@
 // Dependencies
 // Local | React-Redux
+import Image from "next/image";
 import { SectionTitle } from "../SectionTitle";
 // Styles
 
@@ -42,15 +43,24 @@ export function HomeIntro({ data }) {
           <div className="home__profil__card__me">
             <div className="home__profil__card__me__container">
               <div className="home__profil__card__me__container__inner">
-                <img
+                {/* <img
                   className="home__profil__card__me__container__inner--circle"
                   src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_380,w_380/PP-bg_uhlhea.webp`}
                   alt={`background for profil`}
+                /> */}
+                <Image
+                  className="home__profil__card__me__container__inner--circle"
+                  alt={`Green circle use as background for profil picture`}
+                  src={`/static/images/PP-bg.png`}
+                  width={380}
+                  height={380}
                 />
-                <img
+                <Image
                   className="home__profil__card__me__container__inner--img"
-                  src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_415,w_415/matthieu-nobg_ly8aoi.webp`}
-                  alt={`Matthieu Munoz`}
+                  alt={`Portrait of Matthieu Munoz`}
+                  src={`/static/images/matthieu-nobg.png`}
+                  width={380}
+                  height={380}
                 />
               </div>
             </div>

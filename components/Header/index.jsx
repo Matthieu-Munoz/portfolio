@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { useAppContext } from "../../context/state";
 import { ThemeToggle } from "../ThemeToggle";
 import { data } from "../../data/data";
+import Link from "next/link";
 // Styles
 
 export function Header() {
@@ -44,9 +45,9 @@ export function Header() {
         </div>
       </div>
       <div className={menuCssClass}>
-        <a href="/" rel="noopener noreferrer">
+        <Link href="/" rel="noopener noreferrer">
           <div className="menu__logo">Matthieu Munoz</div>
-        </a>
+        </Link>
         <nav className="menu__links">
           <div
             className={homeCssClass}

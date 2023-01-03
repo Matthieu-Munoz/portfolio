@@ -1,14 +1,14 @@
 // Dependencies
 import ReactFullpage from "@fullpage/react-fullpage";
 import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import { Montserrat } from "@next/font/google";
-import { useAppContext } from "../context/state";
 import classNames from "classnames";
 // Local | React-Redux
+import { useAppContext } from "../context/state";
 import { Socials } from "./Socials";
 import { Header } from "./Header";
 import { Intro } from "./Intro";
+import { Modal } from "./Modal";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -48,23 +48,18 @@ export default function Layout({ children }) {
     }
   }, [app]);
 
-  const { ref: contactRef, inView: contactInView } = useInView();
-  const { ref: projectRef, inView: projectInView } = useInView();
-
-
   const anchors = ["home", "skills", "projects", "contact", "footer"];
   return (
     <main className={themeClass}>
       <div className={`${montserrat.className} ${appClass}`} onClick={(evt) => handleMenu(evt, app.menuOpen)}>
         {app.menuDisplay && (
           <>
-          <Header />
-          <Socials />
+            <Header />
+            <Socials />
           </>
         )}
-         <Intro />
-        {/*
-      <Modal /> */}
+        <Intro />
+        <Modal />
         <ReactFullpage
           licenseKey={"KNXF6-QO9NI-YH0AI-7I377-OOOYM"}
           anchors={anchors}

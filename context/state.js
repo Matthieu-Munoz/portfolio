@@ -20,6 +20,11 @@ export function AppWrapper({ children }) {
   });
   const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState("french");
+  const [projectIndex, setProjectIndex] = useState(0);
+  const [project, setProject] = useState({});
+  const [cfIsSent, setCfIsSent] = useState(false);
+  const [cfIsLoading, setCfIsLoading] = useState(false);
+  const [leafletCss, setLeafletCss] = useState("second");
   const toggleSection = (section, value) => {
     setCurrentSection({
       home: false,
@@ -33,6 +38,7 @@ export function AppWrapper({ children }) {
     setModalOpened(!modalOpened);
     setModalComponent(component);
   };
+
 
   let sharedState = {
     app: {
@@ -50,6 +56,7 @@ export function AppWrapper({ children }) {
       setMenuOpened,
       menuDisplay,
       setMenuDisplay,
+      modalOpened,
       modalComponent,
       currentSection,
       loading,
@@ -58,6 +65,20 @@ export function AppWrapper({ children }) {
       setLanguage,
       toggleSection,
       toggleModal,
+    },
+    projects: {
+      projectIndex,
+      setProjectIndex,
+      project,
+      setProject,
+    },
+    contact: {
+      cfIsSent,
+      setCfIsSent,
+      cfIsLoading,
+      setCfIsLoading,
+      leafletCss,
+      setLeafletCss,
     },
   };
 

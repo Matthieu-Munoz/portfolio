@@ -1,7 +1,7 @@
-@use "src/styles/vars";
-@use "src/styles/color-themes";
-@use "src/styles/utils";
-@use "src/styles/responsive-breakpoints" as media;
+@use "../vars";
+@use "../color-themes";
+@use "../utils";
+@use "../responsive-breakpoints" as media;
 
 .projectinfo {
   width: 310px;

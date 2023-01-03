@@ -1,24 +1,25 @@
 // Dependencies
-import { useSelector } from "react-redux";
 import DOMPurify from "dompurify";
-
 // Local | React-Redux
-import { data } from "Data/data";
+import Image from "next/image";
+import { data } from "../../../data/data";
+import { useAppContext } from "../../../context/state";
 // Styles
-import "./projectinfo.scss";
 
 export function ProjectInfo() {
-  const { project } = useSelector((state) => state.projects);
-  const { language } = useSelector((state) => state.app);
-  const displayedData = data[0][language];
+  const { app, projects } = useAppContext();
+  const displayedData = data[0][app.language];
+
   return (
     <div className="projectinfo">
-      <a href={project.url} target="_blank" rel="noreferrer">
-        <img
-          src={project.logo}
-          alt={`logo of ${project.title}`}
-          className="projectinfo__logo"
-        />
+      <a href={projects.project.url} target="_blank" rel="noreferrer">
+        <Image
+                          alt={`logo of ${projects.project.title}`}
+                          src={projects.project.logo}
+                          width={120}
+                          height={120}
+                          className="projectinfo__logo"
+                        />
       </a>
       <div className="projectinfo__sep" />
       <div className="projectinfo__ctn">
@@ -27,7 +28,7 @@ export function ProjectInfo() {
           <div
             className="projectinfo__ctn__info__text"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(project.descSupp),
+              __html: DOMPurify.sanitize(projects.project.descSupp),
             }}
           />
         </div>
@@ -36,14 +37,14 @@ export function ProjectInfo() {
             {displayedData.projects.title}
           </h3>
           <div className="projectinfo__ctn__info__text">
-            {project.github && (
+            {projects.project.github && (
               <div className="projectinfo__ctn__info__text__para">
                 <h4 className="projectinfo__ctn__info__text__subtitle">
                   Code :
                 </h4>
                 <a
                   className="projectinfo__ctn__info__text__link"
-                  href={project.github}
+                  href={projects.project.github}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -57,7 +58,7 @@ export function ProjectInfo() {
               </h4>
               <span
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(project.date),
+                  __html: DOMPurify.sanitize(projects.project.date),
                 }}
               ></span>
             </div>
@@ -67,7 +68,7 @@ export function ProjectInfo() {
               </h4>
               <span
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(project.context),
+                  __html: DOMPurify.sanitize(projects.project.context),
                 }}
               ></span>
             </div>
@@ -76,8 +77,8 @@ export function ProjectInfo() {
                 {displayedData.projects.skills}
               </h4>
               <div className="projectinfo__ctn__info__text__skills">
-                {project.skills &&
-                  project.skills.map((skill) => {
+                {projects.project.skills &&
+                  projects.project.skills.map((skill) => {
                     return (
                       <span
                         className="projectinfo__ctn__info__text__skills__skill"

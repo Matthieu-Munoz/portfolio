@@ -1,31 +1,29 @@
 // Dependencies
-import { useSelector, useDispatch } from "react-redux";
 import { IoClose } from "react-icons/io5";
 // Local | React-Redux
-import { toggleModal } from "Actions/app";
 import { ProjectInfo } from "./ProjectInfo";
+import { useAppContext } from "../../context/state";
 // Styles
-import "./modal.scss";
 
 export function Modal() {
-  const dispatch = useDispatch();
-  const { modalOpened, modalComponent } = useSelector((state) => state.app);
+  const { app } = useAppContext();
   const handleModalKeyDown = (evt) => {
     if (evt.key === "Escape") {
       handleModalToggle();
     }
   };
   const handleModalToggle = () => {
-    dispatch(toggleModal(""));
+    app.toggleModal("");
   };
+
 
   return (
     <>
-      {modalOpened && (
+      {app.modalOpened && (
         <>
           <div className="modal" tabIndex="0" onKeyDown={handleModalKeyDown}>
             <IoClose className="modal__close" onClick={handleModalToggle} />
-            {modalComponent === "projectinfo" && <ProjectInfo />}
+            {app.modalComponent === "projectinfo" && <ProjectInfo />}
           </div>
           <div id="modal_background" onClick={handleModalToggle} />
         </>
