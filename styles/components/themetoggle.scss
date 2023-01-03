@@ -1,0 +1,50 @@
+@use "../vars";
+@use "../color-themes";
+@use "../utils";
+@use "../responsive-breakpoints" as media;
+
+.themetoggle {
+  width: 3.3em;
+  height: 2em;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 2px 2px 4px 0px rgb(0 0 0 / 60%),
+    rgba(0, 0, 0, 0.327) 0px 1px 4px;
+  @include color-themes.themed() {
+    background-color: color-themes.ask("accent-color");
+  }
+
+  &__switch {
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 1em;
+    padding: 0.25em;
+    margin: 0 0.25em 0.03em;
+    @include color-themes.themed() {
+      color: color-themes.ask("accent-color");
+      background-color: color-themes.ask("primary-color");
+      animation: color-themes.ask("theme-toggle");
+    }
+  }
+}
+
+@keyframes toggleOn {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(1.3em);
+  }
+}
+
+@keyframes toggleOff {
+  from {
+    transform: translateX(1.3em);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
