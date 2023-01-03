@@ -1,0 +1,102 @@
+@use "../vars";
+@use "../color-themes";
+@use "../utils";
+@use "../responsive-breakpoints" as media;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 365px;
+  height: 600px;
+  margin: auto;
+  &__imgs {
+    z-index: -1;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 85%;
+    margin-bottom: -2em;
+    -webkit-user-select: none;
+    user-select: none;
+    @include color-themes.themed() {
+      background-image: color-themes.ask("project-bg");
+    }
+    & img {
+      pointer-events: none;
+      position: absolute;
+      &:first-child {
+        width: 30%;
+        top: 6em;
+        left: 3em;
+      }
+      &:last-child {
+        width: 65%;
+        bottom: 7em;
+        right: 2em;
+      }
+    }
+  }
+  &__link,
+  &__modal {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 2;
+    --h: 1.2em; /* the height */
+    line-height: var(--h);
+    color: #0000;
+    overflow: hidden;
+    transition: 0.3s;
+    @include color-themes.themed() {
+      text-shadow: 0 calc(-1 * var(--_t, 0em))
+          color-themes.ask("primary-text-color"),
+        0 calc(var(--h) - var(--_t, 0em)) color-themes.ask("accent-color");
+    }
+    &:hover {
+      --_t: var(--h);
+    }
+  }
+  &__modal {
+    font-size: 1.1em;
+    margin-top: 0.25em;
+  }
+  &__sep {
+    width: 5em;
+    height: 2px;
+    margin: 0.5em;
+    @include color-themes.themed() {
+      background-color: color-themes.ask("accent-color");
+    }
+  }
+  &__desc {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@include media.responsive("tablet") {
+  .card {
+    width: 700px;
+    height: 640px;
+    &__imgs {
+      margin-right: -2em;
+      & img {
+        position: absolute;
+        &:first-child {
+          width: 25%;
+          top: 3em;
+          left: 8em;
+        }
+        &:last-child {
+          width: 50%;
+          bottom: 5em;
+          right: 9em;
+        }
+      }
+    }
+  }
+}
