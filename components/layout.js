@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer";
 import { Montserrat } from "@next/font/google";
 import { useAppContext } from "../context/state";
 import classNames from "classnames";
-import { data } from "../data/data";
 // Local | React-Redux
 import { Socials } from "./Socials";
 import { Header } from "./Header";
@@ -52,7 +51,7 @@ export default function Layout({ children }) {
   const { ref: contactRef, inView: contactInView } = useInView();
   const { ref: projectRef, inView: projectInView } = useInView();
 
-  const displayedData = data[0][app.language];
+
   const anchors = ["home", "skills", "projects", "contact", "footer"];
   return (
     <main className={themeClass}>

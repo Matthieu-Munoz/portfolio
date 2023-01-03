@@ -1,6 +1,11 @@
 import Head from "next/head";
+import { HomeIntro } from "../components/HomeIntro";
+import { useAppContext } from "../context/state";
+import { data } from "../data/data";
 // Local | React-Redux
 function Home() {
+  const { app } = useAppContext();
+  const displayedData = data[0][app.language];
   return (
     <>
       <Head>
@@ -10,8 +15,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="section section--home fp-auto-height-responsive">
-        {/* <Home data={displayedData.home} /> */}
-        bh
+        <HomeIntro data={displayedData.home} />
       </section>
       {/* <section className="section section--skills fp-auto-height-responsive">
         <Skills data={displayedData.skills} />
