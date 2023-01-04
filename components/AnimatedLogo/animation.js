@@ -1,4 +1,4 @@
-export const animation = () => {
+export default animation = () => {
   !(function (t, n) {
     "object" == typeof exports && "undefined" != typeof module
       ? (module.exports = n())
