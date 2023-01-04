@@ -1,4 +1,5 @@
 // Dependencies
+import Script from "next/script";
 import ReactFullpage from "@fullpage/react-fullpage";
 import { useEffect } from "react";
 import { Montserrat } from "@next/font/google";
@@ -21,13 +22,6 @@ export default function Layout({ children }) {
   const appClass = classNames("app", {
     "disable-scroll": app.disableScroll,
   });
-
-  // const loadTheme = () => {
-  //   const storageTheme = localStorage.getItem("theme");
-  //   if (storageTheme !== null) {
-  //     app.setTheme(JSON.parse(storageTheme));
-  //   }
-  // };
 
   /**
    * Close the menu when anything BUT the menu/burgerIcon is clicked
@@ -74,6 +68,7 @@ export default function Layout({ children }) {
           }}
         />
       </div>
+      <Script id="animation_js" beforeInteractive src="https://cdn.jsdelivr.net/gh/Matthieu-Munoz/mm-logo-js/animation_purge.min.js" />
     </main>
   );
 }

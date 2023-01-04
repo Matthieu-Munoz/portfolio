@@ -8,6 +8,7 @@ import { Footer } from "../components/Footer";
 import { useAppContext } from "../context/state";
 import { data } from "../data/data";
 import { Contact } from "../components/Contact";
+import { useEffect } from "react";
 
 function Home() {
   const { app } = useAppContext();
@@ -16,6 +17,7 @@ function Home() {
 
   const { ref: contactRef, inView: contactInView } = useInView();
   const { ref: projectRef, inView: projectInView } = useInView();
+
   return (
     <>
       <Head>

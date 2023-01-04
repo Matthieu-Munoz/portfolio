@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
-import Script from "next/script";
-
+import { useEffect } from "react";
 // styles
 import styles from "./animatedlogo.module.scss";
 
 export function AnimatedLogo() {
-  const [animation, setAnimation] = useState(null)
   useEffect(() => {
     setTimeout(() => {
       animation();
     }, 500);
-  }, [animation]);
+  }, []);
   return (
     <div className={styles.logo__animated}>
-      <Script id="animation" src="https://cdn.jsdelivr.net/gh/Matthieu-Munoz/portfolio/components/AnimatedLogo/animation.min.js" onLoad={(evt) => {
-          console.log(window);
-        }} />
       <svg
         className={styles.logo__animated__svg}
         id="e2751gCS3Nc1"
