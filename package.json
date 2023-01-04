@@ -1,5 +1,5 @@
 {
-  "name": "digitale-deluxe",
+  "name": "matthieu-munoz",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+
     "@fullpage/react-fullpage": "^0.1.31",
     "@next/font": "13.0.7",
     "@react-leaflet/universal-leaflet": "^1.0.1",

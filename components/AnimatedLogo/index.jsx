@@ -1,17 +1,19 @@
 import { useEffect } from "react";
-import animation from './animation'
+import {animation} from 'https://cdn.jsdelivr.net/gh/Matthieu-Munoz/portfolio/components/AnimatedLogo/animation.min.js'
 // styles
-
 import styles from "./animatedlogo.module.scss";
 
 export function AnimatedLogo() {
   useEffect(() => {
     setTimeout(() => {
-      animation();
+      console.log(window);
+      animation()
     }, 500);
   }, []);
   return (
     <div className={styles.logo__animated}>
+
+
       <svg
         className={styles.logo__animated__svg}
         id="e2751gCS3Nc1"
