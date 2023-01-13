@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.31",
-    "@next/font": "13.0.7",
+    "@next/font": "13.1.0",
     "@react-leaflet/universal-leaflet": "^1.0.1",
     "classnames": "^2.3.2",
     "cooltipz-css": "^2.1.1",
