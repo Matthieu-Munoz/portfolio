@@ -39,7 +39,6 @@ export function AppWrapper({ children }) {
     setModalComponent(component);
   };
 
-
   let sharedState = {
     app: {
       loadAnimation,
