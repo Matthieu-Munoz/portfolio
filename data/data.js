@@ -19,6 +19,10 @@ import canva from "../public/static/icons/canva.svg";
 export const data = [
   {
     french: {
+      seo : {
+        desc: "Portfolio du développeur Matthieu Munoz - Présentation des compétences et des projets | Auteur : Matthieu Munoz",
+        descShort: "Portfolio du développeur Matthieu Munoz - Présentation des compétences et des projets",
+      },
       menu: {
         home: "Accueil",
         skills: "Compétences",
@@ -248,6 +252,10 @@ export const data = [
       },
     },
     english: {
+      seo : {
+        desc: "Portfolio of the junior Dev Matthieu Munoz - Presenting skills and projects | Author : Matthieu Munoz",
+        descShort: "Portfolio of the junior Dev Matthieu Munoz - Presenting skills and projects",
+      },
       languageBtn: "Passer le site en français",
       menu: {
         home: "Home",

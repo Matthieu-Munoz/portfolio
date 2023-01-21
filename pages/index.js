@@ -8,8 +8,6 @@ import { Footer } from "../components/Footer";
 import { useAppContext } from "../context/state";
 import { data } from "../data/data";
 import { Contact } from "../components/Contact";
-import { useEffect } from "react";
-
 function Home() {
   const { app } = useAppContext();
 
@@ -21,10 +19,29 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Matthieu Munoz</title>
-        <meta name="description" content="Portfolio of the junior Dev Matthieu Munoz - Presenting skills and projects | Author: Matthieu Munoz" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content="#fef0e7" />
+        <link rel="canonical" href="https://matthieu-munoz.fr" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#537970" />
+        <meta name="apple-mobile-web-app-title" content="Matthieu Munoz" />
+        <meta name="application-name" content="Matthieu Munoz" />
+        <meta name="msapplication-TileColor" content="#fef0e7" />
+        <meta name="theme-color" content="#fef0e7" />
+        <meta property="og:title" content="Matthieu Munoz" />
+        <meta property="og:description" content={displayedData.seo.descShort} />
+        <meta property="og:image" content="https://matthieu-munoz.fr/socials.png" />
+        <meta property="og:url" content="https://matthieu-munoz.fr" />
+        <meta name="twitter:title" content="Matthieu Munoz" />
+        <meta name="twitter:description" content={displayedData.seo.descShort} />
+        <meta name="twitter:url" content="https://matthieu-munoz.fr/socials.png" />
+        <meta name="twitter:card" content="summary" />
+        <title>Matthieu Munoz - Portfolio</title>
+        <meta name="description" content={displayedData.seo.desc}  />
       </Head>
       <section className="section section--home fp-auto-height-responsive">
         <HomeIntro data={displayedData.home} />
