@@ -43,11 +43,6 @@ export function HomeIntro({ data }) {
           <div className="home__profil__card__me">
             <div className="home__profil__card__me__container">
               <div className="home__profil__card__me__container__inner">
-                {/* <img
-                  className="home__profil__card__me__container__inner--circle"
-                  src={`https://res.cloudinary.com/matthieu-munoz/image/upload/c_scale,h_380,w_380/PP-bg_uhlhea.webp`}
-                  alt={`background for profil`}
-                /> */}
                 <Image
                   className="home__profil__card__me__container__inner--circle"
                   alt={`Green circle use as background for profil picture`}
