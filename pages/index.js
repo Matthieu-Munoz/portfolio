@@ -8,11 +8,11 @@ import { Footer } from "../components/Footer";
 import { useAppContext } from "../context/state";
 import { data } from "../data/data";
 import { Contact } from "../components/Contact";
+
 function Home() {
   const { app } = useAppContext();
 
   const displayedData = data[0][app.language];
-
   const { ref: contactRef, inView: contactInView } = useInView();
   const { ref: projectRef, inView: projectInView } = useInView();
 
@@ -41,7 +41,7 @@ function Home() {
         <meta name="twitter:url" content="https://matthieu-munoz.fr/socials.png" />
         <meta name="twitter:card" content="summary" />
         <title>Matthieu Munoz - Portfolio</title>
-        <meta name="description" content={displayedData.seo.desc}  />
+        <meta name="description" content={displayedData.seo.desc} />
       </Head>
       <section className="section section--home fp-auto-height-responsive">
         <HomeIntro data={displayedData.home} />
