@@ -59,8 +59,8 @@ export function HomeIntro({ data }) {
                   className="home__profil__card__me__container__inner--img"
                   alt={`Portrait of Matthieu Munoz`}
                   src={`/static/images/matthieu-nobg.png`}
-                  width={380}
-                  height={380}
+                  width={415}
+                  height={415}
                 />
               </div>
             </div>
