@@ -65,7 +65,7 @@ export function HomeIntro({ data }) {
               {calculateAge("05/14/1997")}
               {data.profil.info}
             </div>
-            <div className="home__profil__card__me__title">contact@matthieu-munoz.fr</div>
+            <div className="home__profil__card__me__title">matthieu.munoz.pro@gmail.com</div>
           </div>
         </div>
       </div>
