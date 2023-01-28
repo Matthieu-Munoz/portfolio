@@ -172,6 +172,7 @@
     }
   }
   &__language_toggle {
+    cursor: pointer;
     text-indent: 0;
     width: 3.2em;
     height: 3em;
@@ -235,6 +236,7 @@
       height: 5em;
 
       &__ctn {
+        cursor: pointer;
         width: 50%;
         height: 100%;
         display: flex;
@@ -306,6 +308,7 @@
       .menu__toggles {
         width: 100%;
         &__ctn {
+          cursor: pointer;
           width: 100%;
           display: flex;
           align-items: center;

@@ -10,6 +10,7 @@ import redux from "../public/static/icons/redux.svg";
 import sass from "../public/static/icons/sass.svg";
 import npm from "../public/static/icons/npm.svg";
 import wordpress from "../public/static/icons/wordpress.svg";
+import drupal from "../public/static/icons/drupal.svg";
 import git from "../public/static/icons/git.svg";
 import linux from "../public/static/icons/linux.svg";
 import win from "../public/static/icons/win.svg";
@@ -89,6 +90,11 @@ export const data = [
                 tip: "Création de site",
               },
               {
+                name: "Drupal",
+                src: drupal,
+                tip: "Intégration avec le CMS",
+              },
+              {
                 name: "Git",
                 src: git,
                 tip: "Gestion de projet",
@@ -166,30 +172,6 @@ export const data = [
         github: "Lien GitHub",
         list: [
           {
-            title: "dustyourgames.com",
-            url: "https://dustyourgames.com",
-            img_mobil: "/static/images/screenDYGMobile.png",
-            img_deskot: "/static/images/screenDYGDesk.png",
-            desc: "Ludothèque virtuelle de jeux de société.<br>Projet professionnel réalisé en équipe pendant un mois dans le cadre de ma formation de développeur web.",
-            moreInfo: true,
-            logo: "/static/images/logo_dyg-dark.png",
-            github: "https://github.com/Matthieu-Munoz/dust-your-games",
-            descSupp:
-              "Dust your Games est une ludothèque personnelle, un moyen de répertorier virtuellement ses jeux, mais pas seulement :<br>Depuis cette application, vous pourrez trouver rapidement un jeu adapté à toutes les situations : que vous ayez 5 minutes ou 3 heures, que vous soyez jeune ou moins jeune, que vous soyez un, deux, trois, douze… !<br>Fini les jeux laissés derrière, vous saurez quand vous aurez joué à votre jeu favori et lesquels commencent à prendre la poussière.<br>Grâce à la fonction Dépoussiérage et à la magie de notre algorithme, vous aurez plus de chance de déterrer des jeux que vous n’avez pas vus depuis des années et qui correspondent à vos envies du moment.",
-            date: "un mois - mai 2022",
-            context:
-              "Combien de vos jeux de société prennent actuellement la poussière sur vos étagères ?<br>Une question que nous nous sommes posée et qui a défini les bases de notre projet ; réalisé en équipe dans le cadre de notre fin de formation avec O’Clock. Pendant un mois, nous avons posé les bases, réalisé une maquette, codé un front et un back avant de présenter notre projet en live sur Youtube.<br>Cette première expérience professionnelle a joué un rôle essentiel dans notre apprentissage, elle a ancré tout le savoir acquis pendant ces mois de formation.",
-            skills: [
-              "React.JS",
-              "Redux",
-              "SASS",
-              "Git",
-              "Figma",
-              "Gestion de projet",
-              "Maquettage",
-            ],
-          },
-          {
             title: "aphantasiaclub.org",
             url: "https://aphantasiaclub.org",
             img_mobil: "/static/images/screenAphantasiaClubMobile.png",
@@ -211,6 +193,30 @@ export const data = [
               "Optimisation",
               "Hébérgement web",
               "Cloudflare",
+            ],
+          },
+          {
+            title: "dustyourgames.com",
+            url: "https://dustyourgames.com",
+            img_mobil: "/static/images/screenDYGMobile.png",
+            img_deskot: "/static/images/screenDYGDesk.png",
+            desc: "Ludothèque virtuelle de jeux de société.<br>Projet professionnel réalisé en équipe pendant un mois dans le cadre de ma formation de développeur web.",
+            moreInfo: true,
+            logo: "/static/images/logo_dyg-dark.png",
+            github: "https://github.com/Matthieu-Munoz/dust-your-games",
+            descSupp:
+              "Dust your Games est une ludothèque personnelle, un moyen de répertorier virtuellement ses jeux, mais pas seulement :<br>Depuis cette application, vous pourrez trouver rapidement un jeu adapté à toutes les situations : que vous ayez 5 minutes ou 3 heures, que vous soyez jeune ou moins jeune, que vous soyez un, deux, trois, douze… !<br>Fini les jeux laissés derrière, vous saurez quand vous aurez joué à votre jeu favori et lesquels commencent à prendre la poussière.<br>Grâce à la fonction Dépoussiérage et à la magie de notre algorithme, vous aurez plus de chance de déterrer des jeux que vous n’avez pas vus depuis des années et qui correspondent à vos envies du moment.",
+            date: "un mois - mai 2022",
+            context:
+              "Combien de vos jeux de société prennent actuellement la poussière sur vos étagères ?<br>Une question que nous nous sommes posée et qui a défini les bases de notre projet ; réalisé en équipe dans le cadre de notre fin de formation avec O’Clock. Pendant un mois, nous avons posé les bases, réalisé une maquette, codé un front et un back avant de présenter notre projet en live sur Youtube.<br>Cette première expérience professionnelle a joué un rôle essentiel dans notre apprentissage, elle a ancré tout le savoir acquis pendant ces mois de formation.",
+            skills: [
+              "React.JS",
+              "Redux",
+              "SASS",
+              "Git",
+              "Figma",
+              "Gestion de projet",
+              "Maquettage",
             ],
           },
           {
@@ -322,9 +328,14 @@ export const data = [
                 tip: "Website creation",
               },
               {
+                name: "Drupal",
+                src: drupal,
+                tip: "frontend of Drupal sites",
+              },
+              {
                 name: "Git",
                 src: git,
-                tip: "Gestion de projet",
+                tip: "Git master of projects",
               },
             ],
           },
@@ -399,30 +410,6 @@ export const data = [
         github: "GitHub link",
         list: [
           {
-            title: "dustyourgames.com",
-            url: "https://dustyourgames.com",
-            img_mobil: "/static/images/screenDYGMobile.png",
-            img_deskot: "/static/images/screenDYGDesk.png",
-            desc: "Virtual library of board games.<br>A professional project carried out as a team for a month as part of my training as a web developer.",
-            moreInfo: true,
-            logo: "/static/images/logo_dyg-dark.png",
-            github: "https://github.com/Matthieu-Munoz/dust-your-games",
-            descSupp:
-              "Dust your Games is a personal library, a way to virtually list your games, but not only:<br>From this application, you can quickly find a game suitable for all situations: whether you have 5 minutes or 3 hours, whether you be young or old, whether you're one, two, three, twelve...!<br>No more games left behind, you'll know when you've played your favorite game and which ones are starting to gather dust.<br>Thanks to the Dusting function and the magic of our algorithm, you'll have a better chance of bringing out games that you haven't seen in months and that correspond to your desires of the moment.",
-            date: "one month - May 2022",
-            context:
-              "How many of your board games are currently gathering dust on your shelves?<br>A question we asked ourselves and which defined the bases of our project; realized as a team as part of my training with O’Clock. For a month, we laid the foundations, made a mockup, coded a front and a back before presenting our project live on Youtube.<br>This first professional experience played an essential role in our learning, it anchored the knowledge acquired during these months of training.",
-            skills: [
-              "React.JS",
-              "Redux",
-              "SASS",
-              "Git",
-              "Figma",
-              "Project management",
-              "Mockups",
-            ],
-          },
-          {
             title: "aphantasiaclub.org",
             url: "https://aphantasiaclub.org",
             img_mobil: "/static/images/screenAphantasiaClubMobile.png",
@@ -444,6 +431,30 @@ export const data = [
               "Optimization",
               "Web hosting",
               "Cloudflare",
+            ],
+          },
+          {
+            title: "dustyourgames.com",
+            url: "https://dustyourgames.com",
+            img_mobil: "/static/images/screenDYGMobile.png",
+            img_deskot: "/static/images/screenDYGDesk.png",
+            desc: "Virtual library of board games.<br>A professional project carried out as a team for a month as part of my training as a web developer.",
+            moreInfo: true,
+            logo: "/static/images/logo_dyg-dark.png",
+            github: "https://github.com/Matthieu-Munoz/dust-your-games",
+            descSupp:
+              "Dust your Games is a personal library, a way to virtually list your games, but not only:<br>From this application, you can quickly find a game suitable for all situations: whether you have 5 minutes or 3 hours, whether you be young or old, whether you're one, two, three, twelve...!<br>No more games left behind, you'll know when you've played your favorite game and which ones are starting to gather dust.<br>Thanks to the Dusting function and the magic of our algorithm, you'll have a better chance of bringing out games that you haven't seen in months and that correspond to your desires of the moment.",
+            date: "one month - May 2022",
+            context:
+              "How many of your board games are currently gathering dust on your shelves?<br>A question we asked ourselves and which defined the bases of our project; realized as a team as part of my training with O’Clock. For a month, we laid the foundations, made a mockup, coded a front and a back before presenting our project live on Youtube.<br>This first professional experience played an essential role in our learning, it anchored the knowledge acquired during these months of training.",
+            skills: [
+              "React.JS",
+              "Redux",
+              "SASS",
+              "Git",
+              "Figma",
+              "Project management",
+              "Mockups",
             ],
           },
           {

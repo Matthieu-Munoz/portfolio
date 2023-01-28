@@ -21,7 +21,6 @@ function Home() {
       <Head>
         <meta property="og:description" content={displayedData.seo.descShort} />
         <meta name="twitter:description" content={displayedData.seo.descShort} />
-
         <meta name="description" content={displayedData.seo.desc} />
       </Head>
       <section className="section section--home fp-auto-height-responsive">
