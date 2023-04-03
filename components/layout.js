@@ -2,7 +2,7 @@
 import Script from "next/script";
 import ReactFullpage from "@fullpage/react-fullpage";
 import { useEffect } from "react";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import classNames from "classnames";
 // Local | React-Redux
 import { useAppContext } from "../context/state";
