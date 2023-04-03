@@ -9,34 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fullpage/react-fullpage": "^0.1.31",
+    "@fullpage/react-fullpage": "^0.1.38",
     "@next/font": "13.0.7",
     "@react-leaflet/universal-leaflet": "^1.0.1",
     "classnames": "^2.3.2",
-    "cooltipz-css": "^2.1.1",
-    "dompurify": "^2.4.3",
+    "cooltipz-css": "^2.2.2",
+    "dompurify": "^2.4.5",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.7",
-    "gsap": "^3.11.4",
+    "gsap": "^3.11.5",
     "leaflet": "^1.9.3",
     "next": "13.0.7",
-    "next-auth": "^4.18.8",
+    "next-auth": "^4.21.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-autosize-textarea": "^7.1.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.42.1",
-    "react-icons": "^4.7.1",
-    "react-intersection-observer": "^9.4.1",
-    "react-leaflet": "^4.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^4.8.0",
+    "react-intersection-observer": "^9.4.3",
+    "react-leaflet": "^4.2.1",
     "react-slick": "^0.29.0",
     "sharp": "^0.31.3",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "dotenv-cli": "^6.0.0",
-    "sass": "^1.57.1"
+    "sass": "^1.60.0"
   }
 }
