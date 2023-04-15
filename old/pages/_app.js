@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { AppWrapper } from "../context/state";
-import Layout from "../components/layout";
+import { AppWrapper } from "../../context/state";
+import Layout from "../../components/layout";
 import "../styles/globals.scss";
 import "../styles/app.scss";
 // pages
