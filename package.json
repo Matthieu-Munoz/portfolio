@@ -14,7 +14,7 @@
     "classnames": "^2.3.2",
     "cooltipz-css": "^2.3.0",
     "dompurify": "^3.0.5",
-    "eslint": "8.48.0",
+    "eslint": "9.0.0",
     "eslint-config-next": "13.4.19",
     "gsap": "^3.12.2",
     "leaflet": "^1.9.4",
