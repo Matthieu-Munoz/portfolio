@@ -172,8 +172,33 @@ export const data = [
         github: "Lien GitHub",
         list: [
           {
+            title: "ecm-france.fr",
+            url: "https://www.ecm-france.fr/",
+            img_mobil: "/static/images/screenECMMobile.png",
+            img_deskot: "/static/images/screenECMDesk.png",
+            desc: "Site réalisé avec Wordpress et Timber.<br>Conception et integration d'un theme sur mesure pour l'École de commerce & managemente.",
+            moreInfo: true,
+            logo: "/static/images/ecm.webp",
+            github: false,
+            descSupp:
+              "Ce projet ambitieux a consisté en la refonte intégrale du site web de l'ECM France, piloté par Digitale Deluxe. En tant que chef de projet unique, j'ai assuré la coordination de toutes les étapes, de la conception initiale à la mise en ligne finale. Le design, signé Nicolas Chevailler, s'appuie sur la charte graphique de Midi à 14h, pour une esthétique moderne et cohérente.<br>Techniquement, le site repose sur WordPress, enrichi d'un thème personnalisé exploitant Timber et Twig pour une flexibilité maximale. Cette approche 'mobile first' garantit une expérience utilisateur optimale sur tous les appareils, en phase avec les attentes de l'audience cible.",
+            date: "courant 2023",
+            context:
+              "Ma position privilégiée m'a permis de bénéficier d'une grande autonomie dans les choix techniques, optant pour des solutions robustes et évolutives. J'ai aussi gerer la relation avec le client. La collaboration avec Nicolas Chevailler a été fructueuse, aboutissant à un design à la fois élégant et fonctionnel. Le résultat final est un site web performant, esthétique et parfaitement adapté aux besoins de l'ECM ",
+            skills: [
+              "Wordpress",
+              "Timber",
+              "Twig",
+              "HTML",
+              "CSS",
+              "MobilFirst",
+              "JetEngine et CPT",
+              "Optimisation",
+            ],
+          },
+          {
             title: "aphantasiaclub.org",
-            url: "https://aphantasiaclub.org",
+            url: "#",
             img_mobil: "/static/images/screenAphantasiaClubMobile.png",
             img_deskot: "/static/images/screenAphantasiaClubDesk.png",
             desc: "Site réalisé avec Wordpress pour mon association Aphantasia Club.<br>Inclus la réalisation d'une boutique.",
@@ -197,7 +222,7 @@ export const data = [
           },
           {
             title: "dustyourgames.com",
-            url: "https://dustyourgames.com",
+            url: "",
             img_mobil: "/static/images/screenDYGMobile.png",
             img_deskot: "/static/images/screenDYGDesk.png",
             desc: "Ludothèque virtuelle de jeux de société.<br>Projet professionnel réalisé en équipe pendant un mois dans le cadre de ma formation de développeur web.",
@@ -208,7 +233,7 @@ export const data = [
               "Dust your Games est une ludothèque personnelle, un moyen de répertorier virtuellement ses jeux, mais pas seulement :<br>Depuis cette application, vous pourrez trouver rapidement un jeu adapté à toutes les situations : que vous ayez 5 minutes ou 3 heures, que vous soyez jeune ou moins jeune, que vous soyez un, deux, trois, douze… !<br>Fini les jeux laissés derrière, vous saurez quand vous aurez joué à votre jeu favori et lesquels commencent à prendre la poussière.<br>Grâce à la fonction Dépoussiérage et à la magie de notre algorithme, vous aurez plus de chance de déterrer des jeux que vous n’avez pas vus depuis des années et qui correspondent à vos envies du moment.",
             date: "un mois - mai 2022",
             context:
-              "Combien de vos jeux de société prennent actuellement la poussière sur vos étagères ?<br>Une question que nous nous sommes posée et qui a défini les bases de notre projet ; réalisé en équipe dans le cadre de notre fin de formation avec O’Clock. Pendant un mois, nous avons posé les bases, réalisé une maquette, codé un front et un back avant de présenter notre projet en live sur Youtube.<br>Cette première expérience professionnelle a joué un rôle essentiel dans notre apprentissage, elle a ancré tout le savoir acquis pendant ces mois de formation.",
+              "Combien de vos jeux de société prennent actuellement la poussière sur vos étagères ? Une question que nous nous sommes posée et qui a défini les bases de notre projet ; réalisé en équipe dans le cadre de notre fin de formation avec O’Clock. Pendant un mois, nous avons posé les bases, réalisé une maquette, codé un front et un back avant de présenter notre projet en live sur Youtube.<br>Cette première expérience professionnelle a joué un rôle essentiel dans notre apprentissage, elle a ancré tout le savoir acquis pendant ces mois de formation.",
             skills: [
               "React.JS",
               "Redux",
@@ -220,27 +245,11 @@ export const data = [
             ],
           },
           {
-            title: "Interface de notation",
-            url: "https://rating.matthieu-munoz.fr/",
-            img_mobil: "/static/images/screenRateMobile.png",
-            img_deskot: "/static/images/screenRateDesk.png",
-            desc: "Réalisation et écriture d'un exercice guidé disponible sur github. En résumant les étapes, j'ai pu mettre à plat mes compétences et prendre conscience des connaissances acquises pendant ma formation.",
-            moreInfo: false,
-          },
-          {
             title: "Challenge : Les planètes",
             url: "https://planets-fact.matthieu-munoz.fr/",
             img_mobil: "/static/images/screenPlanetsMobile.png",
             img_deskot: "/static/images/screenPlanetsDesk.png",
             desc: "Avec ce challenge Frontend réaliser à la moitié de ma formation, j'ai pu appliquer dans un cas concret l'utilisation de l'HTML, du CSS et de JS.",
-            moreInfo: false,
-          },
-          {
-            title: "Utilisation de l'api GitHub",
-            url: "https://github-api.matthieu-munoz.fr/",
-            img_mobil: "/static/images/screenGitMobile.png",
-            img_deskot: "/static/images/screenGitDesk.png",
-            desc: "Ce challenge d'entrainement m'a introduit à l'utilisation d'un api, mais également à la compréhension d'une doc technique en utilisant pour la première fois Semantic-UI.",
             moreInfo: false,
           },
         ],
@@ -410,8 +419,33 @@ export const data = [
         github: "GitHub link",
         list: [
           {
+            title: "ecm-france.fr",
+            url: "https://www.ecm-france.fr/",
+            img_mobil: "/static/images/screenECMMobile.png",
+            img_deskot: "/static/images/screenECMDesk.png",
+            desc: "Site réalisé avec Wordpress et Timber.<br>Conception et integration d'un theme sur mesure pour l'École de commerce & managemente.",
+            moreInfo: true,
+            logo: "/static/images/ecm.webp",
+            github: false,
+            descSupp:
+              "Ce projet ambitieux a consisté en la refonte intégrale du site web de l'ECM France, piloté par Digitale Deluxe. En tant que chef de projet unique, j'ai assuré la coordination de toutes les étapes, de la conception initiale à la mise en ligne finale. Le design, signé Nicolas Chevailler, s'appuie sur la charte graphique de Midi à 14h, pour une esthétique moderne et cohérente.<br>Techniquement, le site repose sur WordPress, enrichi d'un thème personnalisé exploitant Timber et Twig pour une flexibilité maximale. Cette approche 'mobile first' garantit une expérience utilisateur optimale sur tous les appareils, en phase avec les attentes de l'audience cible.",
+            date: "courant 2023",
+            context:
+              "Ma position privilégiée m'a permis de bénéficier d'une grande autonomie dans les choix techniques, optant pour des solutions robustes et évolutives. J'ai aussi gerer la relation avec le client. La collaboration avec Nicolas Chevailler a été fructueuse, aboutissant à un design à la fois élégant et fonctionnel. Le résultat final est un site web performant, esthétique et parfaitement adapté aux besoins de l'ECM ",
+            skills: [
+              "Wordpress",
+              "Timber",
+              "Twig",
+              "HTML",
+              "CSS",
+              "MobilFirst",
+              "JetEngine et CPT",
+              "Optimisation",
+            ],
+          },
+          {
             title: "aphantasiaclub.org",
-            url: "https://aphantasiaclub.org",
+            url: "",
             img_mobil: "/static/images/screenAphantasiaClubMobile.png",
             img_deskot: "/static/images/screenAphantasiaClubDesk.png",
             desc: "Site made with Wordpress for my association Aphantasia Club.<br>Includes the creation of a shop.",
@@ -435,7 +469,7 @@ export const data = [
           },
           {
             title: "dustyourgames.com",
-            url: "https://dustyourgames.com",
+            url: "",
             img_mobil: "/static/images/screenDYGMobile.png",
             img_deskot: "/static/images/screenDYGDesk.png",
             desc: "Virtual library of board games.<br>A professional project carried out as a team for a month as part of my training as a web developer.",
@@ -458,29 +492,13 @@ export const data = [
             ],
           },
           {
-            title: "Rating interface",
-            url: "https://rating.matthieu-munoz.fr/",
-            img_mobil: "/static/images/screenRateMobile.png",
-            img_deskot: "/static/images/screenRateDesk.png",
-            desc: "Realization and writing of a guided exercise available on github. By summarizing the steps, I was able to flatten my skills and become aware of the knowledge acquired during my training.",
-            moreInfo: false,
-          },
-          {
             title: "Challenge: Planets",
             url: "https://planets-fact.matthieu-munoz.fr/",
             img_mobil: "/static/images/screenPlanetsMobile.png",
             img_deskot: "/static/images/screenPlanetsDesk.png",
             desc: "With this Frontend challenge realized halfway through my training, I was able to apply in a concrete case the use of HTML, CSS and JS.",
             moreInfo: false,
-          },
-          {
-            title: "Using the GitHub API",
-            url: "https://github-api.matthieu-munoz.fr/",
-            img_mobil: "/static/images/screenGitMobile.png",
-            img_deskot: "/static/images/screenGitDesk.png",
-            desc: "This training challenge introduced me to the use of an API, but also to the understanding of a technical doc by using Semantic-UI for the first time.",
-            moreInfo: false,
-          },
+          }
         ],
       },
       contact: {

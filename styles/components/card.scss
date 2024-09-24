@@ -46,7 +46,7 @@
     font-size: 1.2em;
     text-align: center;
     z-index: 2;
-    --h: 1.2em; /* the height */
+    --h: 2rem; /* the height */
     line-height: var(--h);
     color: #0000;
     overflow: hidden;
@@ -63,6 +63,15 @@
   &__modal {
     font-size: 1.1em;
     margin-top: 0.25em;
+    cursor: pointer;
+    @include color-themes.themed() {
+      text-shadow: 0 calc(-1 * var(--_t, 0em))
+          color-themes.ask("secondary-text-color"),
+        0 calc(var(--h) - var(--_t, 0em)) color-themes.ask("primary-alter-color");
+    }
+    background-color: vars.$alter-dark-green;
+    padding: 0.15rem 0.75rem;
+    border-radius: 0.25rem;
   }
   &__sep {
     width: 5em;
