@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:meta";
+
 // List of breakpoints used throughout the app
 $breakpoints: (
   "small-mobile": (
@@ -30,9 +33,9 @@ $breakpoints: (
 // Replacing $breakpoints by one of the string define here. (mobile, tablet, desktop)
 @mixin responsive($device) {
   // If the key exists in the map
-  @if map-has-key($breakpoints, $device) {
+  @if map.has-key($breakpoints, $device) {
     // Prints a media query based on the value
-    @media #{inspect(map-get($breakpoints, $device))} {
+    @media #{meta.inspect(map.get($breakpoints, $device))} {
       @content;
     }
   }

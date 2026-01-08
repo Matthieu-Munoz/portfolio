@@ -1,4 +1,8 @@
+@use "sass:map";
 @use "./vars";
+
+// Declare $theme-map at root level to satisfy Sass 2.0+ requirements
+$theme-map: null !default;
 
 // Inside the variable $theme is stored the two theme states of our application : light and dark
 $themes: (
@@ -74,8 +78,8 @@ $themes: (
       $theme-map: () !global;
 
       @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), "#{$key}");
-        $theme-map: map-merge(
+        $value: map.get(map.get($themes, $theme), "#{$key}");
+        $theme-map: map.merge(
           $theme-map,
           (
             $key: $value,
@@ -90,5 +94,5 @@ $themes: (
 }
 
 @function ask($key) {
-  @return map-get($theme-map, $key);
+  @return map.get($theme-map, $key);
 }
